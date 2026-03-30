@@ -1,55 +1,42 @@
-/* ROOT COLORS BASED ON LOGO & REFERENCE */
+/* ROOT COLORS */
 :root {
-    --dark-blue: #09223f;    /* Dark background from reference */
-    --light-blue: #00abf0;   /* Your specific blue code */
-    --yellow: #fae91f;       /* Your specific yellow code */
+    --dark-blue: #09223f;
+    --light-blue: #00abf0;
+    --yellow: #fae91f;
     --white: #ffffff;
+    --green: #258d40;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+*
 
 html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
     max-width: 100%;
-    overflow-x: hidden;
+    overflow-x: hidden; /* This hides the -100% menu until it's active */
     position: relative;
 }
+
 
 body {
-    font-family: 'Poppins', Arial, sans-serif; /* Adds Arial as a backup */
+    font-family: 'Poppins', Arial, sans-serif;
 }
 
-/* IMPORTANT: This tells the site to ONLY be 'responsive' on actual mobile screens */
-@media screen and (max-width: 970px) {
-    body {
-        min-width: 100%; 
-        overflow-x: hidden;
-    }
-}
 
-/* UPDATED STRIP WITH GRADIENT */
+/* TOP INFO STRIP */
 .top-info-strip {
-    /* Left side is Dark Navy, Right side is the School Blue #00abf0 at low opacity or a darker variant */
-    /* Starts with your Deep Navy (#09223f) 
-       Transitions into a Forest Green (#1b4d3e) to match the "Nature" vibe in the mockup 
-    */
-    background: linear-gradient(90deg, #09223f 0%, #0d325a 30%, #258d40 100%);
+    background: linear-gradient(90deg, #09223f 0%, #0d325a 30%, var(--green) 100%);
     padding: 10px 0;
-    /* That thin light blue line at the bottom to separate it from the Nav bar */
-    border-bottom: 2px solid #00abf0; 
+    border-bottom: 2px solid var(--light-blue); 
     position: relative;
 }
 
-/* SECTION 1: UPDATED FOR RIGHT ALIGNMENT */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
     display: flex;
-    /* This pushes everything to the right */
     justify-content: flex-end; 
     align-items: center;
 }
@@ -57,7 +44,6 @@ body {
 .contact-links {
     display: flex;
     gap: 30px;
-    /* Margin-right adds space between the links and the social icons */
     margin-right: 20px; 
 }
 
@@ -72,11 +58,9 @@ body {
 }
 
 .info-item i {
-    color: #fae91f; /* Your School Yellow */
+    color: var(--yellow);
     font-size: 14px;
-    filter: drop-shadow(0px 0px 2px rgba(0,0,0,0.3)); /* Makes yellow pop more */
 }
-
 
 .info-item:hover {
     color: var(--light-blue);
@@ -84,53 +68,268 @@ body {
 
 .top-social {
     display: flex;
-    gap: 10px; /* Space between the circles */
+    gap: 10px;
 }
 
 .top-social a {
     color: var(--white);
-    background-color: rgba(255, 255, 255, 0.15); /* Subtle transparent white circle */
+    background-color: rgba(255, 255, 255, 0.15);
     width: 32px;
     height: 32px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%; /* This makes it a perfect circle */
+    border-radius: 50%;
     font-size: 14px;
     transition: all 0.3s ease;
     text-decoration: none;
-    border: 1px solid rgba(255, 255, 255, 0.2); /* Very thin border */
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-/* Hover Effect: Turns School Yellow when touched */
 .top-social a:hover {
     background-color: var(--yellow);
-    color: var(--dark-blue); /* Text turns dark so it's readable on yellow */
-    transform: translateY(-3px); /* Slight lift-up effect */
+    color: var(--dark-blue);
+    transform: translateY(-3px);
 }
 
-/* MOBILE RESPONSIVE: Stack items or hide text on small screens */
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-        gap: 10px;
-    }
-    .info-item span {
-        font-size: 11px;
-    }
-    .top-social {
-        display: none; /* Hide social on tiny top bars to save space */
-    }
-}
-
-/* MOBILE RESPONSIVE: HIDE TOP STRIP COMPLETELY */
-@media (max-width: 768px) {
+/* --- COMBINED MOBILE RESPONSIVE --- */
+@media (max-width: 970px) {
     .top-info-strip {
-        display: none !important; /* This removes the entire top bar on mobile */
+        display: none !important; /* Hides top bar on phones to save space */
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* RESET & COLORS */
+:root {
+    --navy: #09223f;
+    --green: #258d40;
+    --sky: #00abf0;
+    --white: #ffffff;
+}
+
+
+.school-navbar {
+    background-color: var(--navy);
+    padding: 10px 0;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 2000;
+    box-sizing: border-box; /* Ensures padding doesn't push the width out */
+}
+
+.nav-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+/* BRANDING */
+.brand-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+
+.school-logo { height: 70px; width: auto; }
+
+.brand-text h1 {
+    color: var(--white);
+    margin: 0;
+    line-height: 1.1;
+    font-size: 1.1rem;
+    font-weight: 800;
+}
+
+.location-text {
+    color: var(--sky);
+    margin: 0;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+/* DESKTOP MENU */
+.nav-menu {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 5px;
+}
+
+.nav-menu li a {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 10px 15px;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.btn-home {
+    background-color: var(--green);
+    border-radius: 4px;
+}
+
+/* DESKTOP DROPDOWN */
+.dropdown { position: relative; }
+
+.submenu {
+    position: absolute;
+    top: 110%; /* Starts slightly lower for the slide-up effect */
+    left: 0;
+    background: var(--white);
+    min-width: 210px;
+    list-style: none;
+    padding: 10px 0;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    border-top: 3px solid var(--green);
+    
+    /* THE ANIMATION MAGIC */
+    display: block; /* We keep it block but hide it with opacity */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px); /* Moves it down 10px */
+    transition: all 0.3s ease-in-out; /* Smooths the transition */
+    pointer-events: none; /* Prevents clicking it while invisible */
+}
+
+/* THE TRIGGER */
+.dropdown:hover .submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0); /* Slides up to its original position */
+    top: 100%; /* Snaps to the bottom of the nav bar */
+    pointer-events: auto;
+}
+
+/* Force dropdown text to be visible */
+.submenu li a {
+    color: #09223f !important; /* Dark Navy from your brand */
+    display: block !important;
+    padding: 12px 20px !important;
+    background: transparent !important;
+}
+
+.submenu li a:hover {
+    background-color: #f4f4f4 !important;
+    color: #258d40 !important; /* Green on hover */
+}
+
+.dropdown:hover .submenu { display: block; }
+
+/* MOBILE STYLES */
+.nav-toggle { display: none; color: white; font-size: 24px; cursor: pointer; }
+
+.menu-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    z-index: 1500;
+}
+
+
+.school-navbar {
+    z-index: 9999 !important; /* High number to stay on top */
+}
+
+.submenu {
+    z-index: 10000 !important; /* Even higher than the navbar */
+}
+
+@media (max-width: 1024px) {
+    .nav-toggle { display: block; }
+
+    .nav-menu {
+        position: fixed;
+        right: -100%; /* Hidden off-screen to the right */
+        top: 0;
+        width: 280px;
+        height: 100vh;
+        background: var(--navy);
+        flex-direction: column;
+        padding-top: 80px;
+        transition: 0.4s ease-in-out;
+        z-index: 1600;
     }
 
-    /* Since the strip is gone, we make sure the rest of the site looks tight */
-    .container {
-        display: none; /* Just to be safe, hide the inner container too */
+    .nav-menu.active { right: 0; }
+
+    .nav-menu li { width: 100%; }
+
+    /* Mobile Accordion Dropdown */
+    .submenu {
+        position: static;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.2);
+        display: none; /* Controlled by JS */
+        box-shadow: none;
+        border: none;
+    }
+
+    .submenu li a { color: var(--white) !important; }
+
+    
+}
+
+
+
+@media screen and (min-width: 1025px) {
+    /* This forces the dropdown to show on desktop, even if JS hid it on mobile */
+    .dropdown:hover .submenu {
+        display: block !important;
+    }
+
+    /* Safety: ensures the mobile sidebar doesn't stay stuck on screen if you resize */
+    .nav-menu {
+        position: static !important;
+        display: flex !important;
+        height: auto !important;
+        width: auto !important;
+        background: transparent !important;
+        flex-direction: row !important;
+        padding-top: 0 !important;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
