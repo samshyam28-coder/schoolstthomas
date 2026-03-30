@@ -1,0 +1,136 @@
+/* ROOT COLORS BASED ON LOGO & REFERENCE */
+:root {
+    --dark-blue: #09223f;    /* Dark background from reference */
+    --light-blue: #00abf0;   /* Your specific blue code */
+    --yellow: #fae91f;       /* Your specific yellow code */
+    --white: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+    position: relative;
+}
+
+body {
+    font-family: 'Poppins', Arial, sans-serif; /* Adds Arial as a backup */
+}
+
+/* IMPORTANT: This tells the site to ONLY be 'responsive' on actual mobile screens */
+@media screen and (max-width: 970px) {
+    body {
+        min-width: 100%; 
+        overflow-x: hidden;
+    }
+}
+
+/* UPDATED STRIP WITH GRADIENT */
+.top-info-strip {
+    /* Left side is Dark Navy, Right side is the School Blue #00abf0 at low opacity or a darker variant */
+    /* Starts with your Deep Navy (#09223f) 
+       Transitions into a Forest Green (#1b4d3e) to match the "Nature" vibe in the mockup 
+    */
+    background: linear-gradient(90deg, #09223f 0%, #0d325a 30%, #258d40 100%);
+    padding: 10px 0;
+    /* That thin light blue line at the bottom to separate it from the Nav bar */
+    border-bottom: 2px solid #00abf0; 
+    position: relative;
+}
+
+/* SECTION 1: UPDATED FOR RIGHT ALIGNMENT */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    /* This pushes everything to the right */
+    justify-content: flex-end; 
+    align-items: center;
+}
+
+.contact-links {
+    display: flex;
+    gap: 30px;
+    /* Margin-right adds space between the links and the social icons */
+    margin-right: 20px; 
+}
+
+.info-item {
+    text-decoration: none;
+    color: var(--white);
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.3s;
+}
+
+.info-item i {
+    color: #fae91f; /* Your School Yellow */
+    font-size: 14px;
+    filter: drop-shadow(0px 0px 2px rgba(0,0,0,0.3)); /* Makes yellow pop more */
+}
+
+
+.info-item:hover {
+    color: var(--light-blue);
+}
+
+.top-social {
+    display: flex;
+    gap: 10px; /* Space between the circles */
+}
+
+.top-social a {
+    color: var(--white);
+    background-color: rgba(255, 255, 255, 0.15); /* Subtle transparent white circle */
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%; /* This makes it a perfect circle */
+    font-size: 14px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Very thin border */
+}
+
+/* Hover Effect: Turns School Yellow when touched */
+.top-social a:hover {
+    background-color: var(--yellow);
+    color: var(--dark-blue); /* Text turns dark so it's readable on yellow */
+    transform: translateY(-3px); /* Slight lift-up effect */
+}
+
+/* MOBILE RESPONSIVE: Stack items or hide text on small screens */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .info-item span {
+        font-size: 11px;
+    }
+    .top-social {
+        display: none; /* Hide social on tiny top bars to save space */
+    }
+}
+
+/* MOBILE RESPONSIVE: HIDE TOP STRIP COMPLETELY */
+@media (max-width: 768px) {
+    .top-info-strip {
+        display: none !important; /* This removes the entire top bar on mobile */
+    }
+
+    /* Since the strip is gone, we make sure the rest of the site looks tight */
+    .container {
+        display: none; /* Just to be safe, hide the inner container too */
+    }
+}
