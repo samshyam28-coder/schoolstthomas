@@ -62,3 +62,35 @@ navMenu.addEventListener('touchend', (e) => {
         mobileToggle.querySelector('i').classList.remove('fa-times');
     }
 }, {passive: true});
+
+
+
+
+
+
+
+
+
+
+
+
+const heroSwiper = new Swiper('#heroSwiper', {
+    loop: true,
+    speed: 1000,
+    effect: 'fade', // Fade effect looks much cleaner for high-end school sites
+    fadeEffect: {
+        crossFade: true
+    },
+    autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+    },
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+});
