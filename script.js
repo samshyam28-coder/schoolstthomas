@@ -94,3 +94,66 @@ const heroSwiper = new Swiper('#heroSwiper', {
         prevEl: '.swiper-button-prev',
     },
 });
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- LEADERSHIP MODAL SYSTEM --- */
+
+/**
+ * Opens a specific modal by ID
+ * @param {string} modalId - The ID of the modal element
+ */
+function openModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.style.display = "block";
+        // Lock background scroll for a professional feel
+        document.body.style.overflow = "hidden";
+    }
+}
+
+/**
+ * Closes a specific modal by ID
+ * @param {string} modalId - The ID of the modal element
+ */
+function closeModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.style.display = "none";
+        // Restore background scroll
+        document.body.style.overflow = "auto";
+    }
+}
+
+/* --- EVENT LISTENERS --- */
+
+// 1. Close modal if user clicks on the dark background (outside the white box)
+window.onclick = function(event) {
+    if (event.target.classList.contains('modal')) {
+        const allModals = document.querySelectorAll('.modal');
+        allModals.forEach(modal => {
+            modal.style.display = "none";
+        });
+        document.body.style.overflow = "auto";
+    }
+};
+
+// 2. Close modal when the 'Escape' key is pressed
+document.addEventListener('keydown', function(event) {
+    if (event.key === "Escape") {
+        const allModals = document.querySelectorAll('.modal');
+        allModals.forEach(modal => {
+            modal.style.display = "none";
+        });
+        document.body.style.overflow = "auto";
+    }
+});
