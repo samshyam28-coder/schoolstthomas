@@ -1456,28 +1456,64 @@ body {
 .main-footer {
     background: #09223f; /* Your School Navy */
     color: #ffffff;
-    padding: 80px 0 0;
+    padding: 60px 0 0;
     font-family: 'Poppins', sans-serif;
     position: relative;
     border-top: 5px solid #258d40; /* Your School Green */
+    width: 100%;
+    overflow-x: hidden;
 }
 
 .footer-container {
     display: grid;
-    grid-template-columns: 1.5fr 1fr 1.2fr 1.3fr; /* Custom widths for balance */
+    grid-template-columns: 1.5fr 1fr 1.2fr 1.3fr;
     gap: 50px;
     max-width: 1200px;
     width: 90%;
     margin: 0 auto;
-    padding-bottom: 60px;
+    padding-bottom: 40px;
+    box-sizing: border-box;
 }
 
-/* Brand Column */
-.footer-logo { width: 80px; margin-bottom: 20px; filter: drop-shadow(0 5px 15px rgba(0,0,0,0.2)); }
-.school-name { font-size: 1.3rem; font-weight: 700; margin-bottom: 15px; letter-spacing: 0.5px; }
-.brand-text { color: #a1b1c1; line-height: 1.7; font-size: 0.95rem; }
+/* --- BRAND COLUMN (Logo & Name side-by-side) --- */
+.brand-header-flex {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
 
-/* Headings */
+.footer-logo { 
+    width: 70px; 
+    height: auto; 
+    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.2)); 
+}
+
+.school-name { 
+    font-size: 1.1rem; 
+    font-weight: 800; 
+    margin: 0; 
+    line-height: 1.1; 
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.location-sub {
+    color: #258d40; /* Green */
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin: 5px 0 0 0;
+    letter-spacing: 0.5px;
+}
+
+.brand-text { 
+    color: #a1b1c1; 
+    line-height: 1.7; 
+    font-size: 0.95rem; 
+    margin-bottom: 20px;
+}
+
+/* --- HEADINGS --- */
 .footer-heading {
     font-size: 1.1rem;
     font-weight: 700;
@@ -1497,7 +1533,7 @@ body {
     border-radius: 10px;
 }
 
-/* Links */
+/* --- QUICK LINKS (With Arrows) --- */
 .footer-links { list-style: none; padding: 0; }
 .footer-links li { margin-bottom: 12px; }
 .footer-links a { 
@@ -1505,23 +1541,52 @@ body {
     text-decoration: none; 
     transition: all 0.3s ease; 
     font-size: 0.95rem;
-    display: inline-block;
+    display: flex;
+    align-items: center;
 }
-.footer-links a:hover { color: #fff; transform: translateX(8px); }
 
-/* Contact Items */
-.contact-item { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px; }
+.link-arrow {
+    font-size: 0.7rem;
+    margin-right: 10px;
+    color: #258d40;
+    transition: 0.3s;
+}
+
+.footer-links a:hover { color: #fff; transform: translateX(8px); }
+.footer-links a:hover .link-arrow { color: #fff; margin-right: 15px; }
+
+/* --- CONTACT ITEMS (With Hover Effects) --- */
+.contact-item { 
+    display: flex; 
+    align-items: center; 
+    gap: 15px; 
+    margin-bottom: 20px; 
+    transition: 0.3s ease;
+}
+
 .contact-icon { 
     background: rgba(37, 141, 64, 0.15); 
     color: #258d40; 
-    width: 35px; height: 35px; 
+    width: 38px; height: 38px; 
     border-radius: 10px; 
-    display: flex; align-items: center; justify-content: center;
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
     flex-shrink: 0;
+    transition: 0.3s ease;
 }
-.contact-item p { font-size: 0.95rem; color: #a1b1c1; line-height: 1.5; margin: 0; }
 
-/* Social Icons */
+.contact-item p { font-size: 0.95rem; color: #a1b1c1; margin: 0; }
+
+.contact-item:hover .contact-icon {
+    background: #258d40;
+    color: #fff;
+    transform: scale(1.1);
+}
+
+.contact-item:hover p { color: #fff; }
+
+/* --- SOCIAL ICONS --- */
 .social-links { display: flex; gap: 12px; margin-top: 25px; }
 .social-icon { 
     width: 40px; height: 40px; 
@@ -1530,17 +1595,21 @@ body {
     display: flex; align-items: center; justify-content: center; 
     color: #fff; transition: 0.4s; 
     border: 1px solid rgba(255,255,255,0.1);
+    text-decoration: none;
 }
-.social-icon:hover { background: #258d40; border-color: #258d40; transform: translateY(-5px) rotate(360deg); }
+.social-icon:hover { background: #258d40; transform: translateY(-5px) rotate(360deg); }
 
-/* Map */
+/* --- MAP --- */
 .map-container { 
-    border-radius: 20px; overflow: hidden; 
+    border-radius: 15px; 
+    overflow: hidden; 
     border: 3px solid rgba(255,255,255,0.05);
-    filter: grayscale(0.5) contrast(1.1); /* Matches the professional theme */
+    height: 160px;
+    width: 100%;
 }
+.map-container iframe { width: 100%; height: 100%; }
 
-/* Bottom Bar */
+/* --- BOTTOM BAR --- */
 .footer-bottom { 
     background: #051426; 
     padding: 25px 0; 
@@ -1551,16 +1620,32 @@ body {
     display: flex; justify-content: space-between; align-items: center;
 }
 .footer-bottom p { font-size: 0.85rem; color: #64748b; margin: 0; }
-.dev-tag { font-weight: 600; color: #258d40 !important; }
+.dev-tag { font-weight: 600; color: #258d40; }
 
-/* Responsive */
+/* --- MOBILE RESPONSIVE FIXES --- */
 @media (max-width: 1024px) {
-    .footer-container { grid-template-columns: repeat(2, 1fr); gap: 40px; }
+    .footer-container { grid-template-columns: repeat(2, 1fr); }
 }
+
 @media (max-width: 600px) {
-    .footer-container { grid-template-columns: 1fr; text-align: center; }
+    .footer-container { 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+        padding: 0 20px 40px;
+    }
+
+    .brand-header-flex { flex-direction: column; }
+    
+    .footer-col { width: 100%; margin-bottom: 40px; }
+
     .footer-heading::after { left: 50%; transform: translateX(-50%); }
-    .contact-item { justify-content: center; }
+
+    .contact-item { justify-content: center; flex-direction: column; }
+
     .social-links { justify-content: center; }
-    .bottom-container { flex-direction: column; gap: 10px; }
+
+    .bottom-container { flex-direction: column; gap: 15px; text-align: center; }
 }
