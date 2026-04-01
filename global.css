@@ -1208,3 +1208,26 @@ body {
         height: 140px;
     }
 }
+
+
+
+/* --- THE MOBILE MEDIA QUERY OVERRIDE --- */
+@media (max-width: 600px) {
+    .modal-content {
+        width: 94%; /* Slightly wider for small screens but still safe */
+        margin: 3vh auto;
+        padding: 0;
+    }
+
+    .modal-header {
+        padding: 35px 20px 10px;
+    }
+
+    .modal-body {
+        padding: 10px 20px 40px; /* Tighter but safe sides */
+    }
+
+    .modal-header h2 {
+        font-size: 1.5rem; /* Prevents long titles from overflowing */
+    }
+}
