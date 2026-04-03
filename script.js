@@ -157,3 +157,59 @@ document.addEventListener('keydown', function(event) {
         document.body.style.overflow = "auto";
     }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    const pupilNameInput = document.querySelector('input[name="pupil_name"]');
+    const declarationName = document.getElementById('display_name');
+    const form = document.getElementById('admissionForm');
+    const submitBtn = document.querySelector('.submit-btn');
+
+    // Live Sync for Declaration
+    pupilNameInput.addEventListener('input', function() {
+        let typedName = this.value.toUpperCase();
+        declarationName.innerText = typedName || "[STUDENT NAME]";
+    });
+
+    // Google Sheets Connection
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbx7oCxs4gKAEuLGyu5_WOGJV1_eAkL2HBq7I9pc7ok/dev'; 
+
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting Application...';
+
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                alert("Success! Application submitted to St. Thomas HSS.");
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = 'SUBMIT ONLINE APPLICATION';
+                form.reset();
+                declarationName.innerText = "[STUDENT NAME]";
+            })
+            .catch(error => {
+                console.error('Error!', error.message);
+                alert("Submission failed. Check your connection.");
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = 'SUBMIT ONLINE APPLICATION';
+            });
+    });
