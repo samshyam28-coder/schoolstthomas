@@ -191,7 +191,7 @@ document.addEventListener('keydown', function(event) {
     });
 
     // Google Sheets Connection
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbx7oCxs4gKAEuLGyu5_WOGJV1_eAkL2HBq7I9pc7ok/dev'; 
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyvDLpOHtTQzuwELudG0YkXt9r9gXTwOGAIbY9UenpIeuHMnugs0gFBG4FNq8Lns3A/exec'; 
 
     form.addEventListener('submit', e => {
         e.preventDefault();
