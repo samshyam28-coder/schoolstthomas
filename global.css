@@ -192,6 +192,9 @@ body {
     gap: 12px;
     text-decoration: none;
 }
+.name-main {
+    padding-top: 20px;
+}
 
 .school-logo { height: 70px; width: auto; }
 
