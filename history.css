@@ -87,6 +87,7 @@
     align-items: center;
     justify-content: center;
     position: relative;
+    
 }
 
 /* ALUMNI SECTION FIX (Ensures cards stay inside) */
@@ -184,25 +185,41 @@
         overflow: hidden;
         background-position: center 0; /* Starts at the top */
         transition: background-position 0.1s ease-out; /* Makes the movement silky smooth */
+        background-attachment: scroll !important; 
+        background-image: none !important; 
+    
     }
 
-    /* This forces the 'fixed' feel on many mobile browsers */
+    /* 2. THE SINGLE IMAGE LAYER */
     .parallax-window::before {
         content: "";
         position: absolute;
-        top: 0; 
-        left: 0; 
-        width: 100%; 
-        height: 100%;
-        background-image: inherit;
-        background-attachment: fixed; /* Try to force it */
-        background-position: center;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%; /* Keeps it to exactly one image */
+        background-image: inherit; /* Pulls from your HTML style */
         background-size: cover;
-        z-index: -1;
+        background-position: center;
+        /* IMPORTANT: 'scroll' stops the image from doubling on phones */
+        background-attachment: scroll !important; 
+        z-index: 1;
+        display: block !important;
+    }
+
+
+    /* 3. ENSURE TEXT IS ON TOP */
+    .parallax-content {
+        position: relative;
+        z-index: 10;
+        width: 100%;
+        text-align: center;
     }
 
     .parallax-content h2 {
-        font-size: 2rem !important; /* Scale down the text inside parallax */
+        font-size: 1.8rem !important;
+        color: #ffffff;
+        text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
     }
 
     /* 4. Alumni Grid Fix */
