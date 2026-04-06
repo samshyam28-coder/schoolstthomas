@@ -1,0 +1,232 @@
+/* FIX FOR THE FIRST HEADLINE */
+.history-hero {
+    height: 40vh; /* This gives it enough height to be seen */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: #000; /* Fallback color */
+    overflow: hidden;
+    padding-top: 60px;
+}
+
+.hero-overlay {
+    position: relative;
+    z-index: 10; /* Ensures it stays above any background images */
+    text-align: center;
+    padding: 20px;
+}
+
+.hero-overlay h1 {
+    font-size: 4rem; /* Big and bold */
+    color: #ffffff !important; /* Forces it to be white */
+    text-transform: uppercase;
+    font-weight: 800;
+    margin: 0;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.8); /* Shadow helps visibility */
+    padding-top: 100px;
+}
+
+.hero-overlay p {
+    font-size: 1.5rem;
+    color: #4CAF50; /* Your green theme color */
+    margin-top: 0px;
+}
+
+
+
+
+
+/* --- HISTORY PAGE BASE --- */
+.history-page {
+    background-color: #0d0d0d;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+}
+
+.hiscontainer {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: block;
+}
+
+.history-section {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.parallax-content{
+    text-align: center;
+     font-size: 4rem; /* Big and bold */
+
+}
+.chapter-title {
+    font-size: 2.8rem;
+    color: #4CAF50;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+.history-text {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #cccccc;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+/* PARALLAX WINDOW */
+.parallax-window {
+    height: 500px;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* ALUMNI SECTION FIX (Ensures cards stay inside) */
+.alumni-section {
+    background-color: #0a0a0a; /* Dark background */
+    padding: 100px 0;
+    width: 100%;
+    position: relative;
+    overflow: hidden; /* Prevents cards from spilling out */
+    clear: both;
+}
+
+.alumni-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+/* HOVER EFFECT & DESIGN */
+.alumni-card {
+    background: #181818;
+    padding: 40px 30px;
+    border-radius: 12px;
+    border-bottom: 4px solid #4CAF50; /* The green line from your photo */
+    text-align: center;
+    transition: all 0.4s ease-in-out;
+    cursor: default;
+}
+
+/* THE HOVER MAGIC */
+.alumni-card:hover {
+    transform: translateY(-15px); /* Moves up smoothly */
+    background: #202020;
+    border-color: #81C784; /* Lighter green on hover */
+    box-shadow: 0 10px 30px rgba(76, 175, 80, 0.3); /* GREEN GLOW EFFECT */
+}
+
+.alumni-card h3 {
+    color: #ffffff;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+}
+
+.alumni-card p {
+    color: #aaaaaa;
+    line-height: 1.6;
+}
+
+.text-center{
+     text-align: center;
+}
+/* ================================================================
+   MOBILE RESPONSIVE & PARALLAX FIX (Add this at the bottom)
+   ================================================================ */
+
+@media screen and (max-width: 768px) {
+    
+    /* 1. Fix the Hero Section (Our Rich Heritage) */
+    .history-hero {
+        height: 30vh; /* Better height for mobile */
+        padding-top: 20px;
+    }
+    
+    .hero-overlay h1 {
+        font-size: 2.2rem; /* Smaller font for mobile screens */
+        padding-top: 80px;  /* Reduced the massive gap */
+    }
+
+    .hero-overlay p {
+        font-size: 1rem;
+    }
+
+    /* 2. Content Spacing */
+    .history-section {
+        padding: 50px 0;
+    }
+
+    .chapter-title {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+        padding: 0 15px;
+    }
+
+    .history-text {
+        font-size: 1rem;
+        padding: 0 20px;
+        line-height: 1.6;
+    }
+
+    /* 3. MOBILE PARALLAX FIX */
+    .parallax-window {
+        height: 300px; /* Shorter for mobile */
+        background-attachment: scroll; /* Fallback for older phones */
+        overflow: hidden;
+        background-position: center 0; /* Starts at the top */
+        transition: background-position 0.1s ease-out; /* Makes the movement silky smooth */
+    }
+
+    /* This forces the 'fixed' feel on many mobile browsers */
+    .parallax-window::before {
+        content: "";
+        position: absolute;
+        top: 0; 
+        left: 0; 
+        width: 100%; 
+        height: 100%;
+        background-image: inherit;
+        background-attachment: fixed; /* Try to force it */
+        background-position: center;
+        background-size: cover;
+        z-index: -1;
+    }
+
+    .parallax-content h2 {
+        font-size: 2rem !important; /* Scale down the text inside parallax */
+    }
+
+    /* 4. Alumni Grid Fix */
+    .alumni-grid {
+        grid-template-columns: 1fr; /* One card per row on phone */
+        gap: 20px;
+        padding: 0 20px;
+    }
+
+    .alumni-card {
+        padding: 30px 20px;
+    }
+    
+    .alumni-card:hover {
+        transform: translateY(-8px); /* Less aggressive jump on touch */
+    }
+}
+
+/* Extra fix for very small phones (like iPhone SE) */
+@media screen and (max-width: 480px) {
+    .hero-overlay h1 {
+        font-size: 1.8rem;
+    }
+    .chapter-title {
+        font-size: 1.5rem;
+    }
+}
