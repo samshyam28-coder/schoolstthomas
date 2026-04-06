@@ -46,6 +46,39 @@ dropdowns.forEach(drop => {
     });
 });
 
+
+
+
+
+
+// 3. AUTO-CLOSE MENU ON LINK CLICK (Fix for Anchor Links)
+document.querySelectorAll('#navMenu a').forEach(link => {
+    link.addEventListener('click', () => {
+        // Only close if it's an anchor link (starts with #)
+        if (link.getAttribute('href').startsWith('#')) {
+            navMenu.classList.remove('active');
+            overlay.style.display = 'none';
+            document.body.style.overflow = 'auto';
+            
+            const icon = mobileToggle.querySelector('i');
+            icon.classList.add('fa-bars');
+            icon.classList.remove('fa-times');
+        }
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
 // 4. SWIPE TO CLOSE
 let touchStartX = 0;
 navMenu.addEventListener('touchstart', (e) => {
