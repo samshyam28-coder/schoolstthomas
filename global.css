@@ -11,6 +11,9 @@
 
 html {
     scroll-behavior: smooth;
+    /* This ensures that when jumping to an ID, 
+       the fixed header doesn't cover the title */
+    scroll-padding-top: 90px; 
 }
 
 html, body {
