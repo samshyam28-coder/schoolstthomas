@@ -20,10 +20,16 @@ mobileToggle.addEventListener('click', () => {
 overlay.addEventListener('click', () => {
     navMenu.classList.remove('active');
     overlay.style.display = 'none';
-    document.body.style.overflow = 'auto'; // Release scroll
+    document.body.style.overflow = 'auto';
+    
+    // Reset Icon
     mobileToggle.querySelector('i').classList.add('fa-bars');
     mobileToggle.querySelector('i').classList.remove('fa-times');
+
+    // RESET SUBMENUS: Ensures menu is fresh when you re-open it
+    document.querySelectorAll('.submenu').forEach(s => s.style.display = 'none');
 });
+
 
 dropdowns.forEach(drop => {
     const trigger = drop.querySelector('.drop-trigger');
@@ -51,11 +57,13 @@ dropdowns.forEach(drop => {
 
 
 
-// 3. AUTO-CLOSE MENU ON LINK CLICK (Fix for Anchor Links)
+// 3. AUTO-CLOSE MENU ON LINK CLICK (Works for index.html#section and #section)
 document.querySelectorAll('#navMenu a').forEach(link => {
     link.addEventListener('click', () => {
-        // Only close if it's an anchor link (starts with #)
-        if (link.getAttribute('href').startsWith('#')) {
+        const href = link.getAttribute('href');
+        
+        // If it's an anchor link OR a cross-page link to home
+        if (href.includes('#')) {
             navMenu.classList.remove('active');
             overlay.style.display = 'none';
             document.body.style.overflow = 'auto';
@@ -63,10 +71,12 @@ document.querySelectorAll('#navMenu a').forEach(link => {
             const icon = mobileToggle.querySelector('i');
             icon.classList.add('fa-bars');
             icon.classList.remove('fa-times');
+
+            // RESET SUBMENUS: This fixes the "Invisible Dropdown" issue
+            document.querySelectorAll('.submenu').forEach(s => s.style.display = 'none');
         }
     });
 });
-
 
 
 
