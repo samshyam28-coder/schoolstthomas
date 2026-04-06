@@ -374,24 +374,27 @@
 
 
 <script>
-// Check if the user is on a mobile device
-if (window.innerWidth <= 768) {
-    window.addEventListener('scroll', function() {
-        const parallaxLayers = document.querySelectorAll('.parallax-window');
-        
-        parallaxLayers.forEach(layer => {
-            let speed = 0.5; // Adjust this for more or less movement
-            let rect = layer.getBoundingClientRect();
+document.addEventListener("DOMContentLoaded", function() {
+    // Only run this logic on mobile devices
+    if (window.innerWidth <= 768) {
+        window.addEventListener('scroll', function() {
+            const parallaxLayers = document.querySelectorAll('.parallax-window');
             
-            // Only move the background if the element is visible on screen
-            if (rect.top < window.innerHeight && rect.bottom > 0) {
-                // Calculate the shift
-                let shift = (window.pageYOffset - layer.offsetTop) * speed;
-                layer.style.backgroundPosition = `center ${shift}px`;
-            }
+            parallaxLayers.forEach(layer => {
+                let rect = layer.getBoundingClientRect();
+                
+                // Only animate if the section is visible
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    // This creates the "One Image" parallax effect on mobile
+                    // It moves the background-position slightly as you scroll
+                    let speed = 0.3; 
+                    let yPos = -(rect.top * speed);
+                    layer.style.backgroundPosition = `center ${yPos}px`;
+                }
+            });
         });
-    });
-}
+    }
+});
 </script>
 
 
