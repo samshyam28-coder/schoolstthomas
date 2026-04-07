@@ -1,0 +1,84 @@
+/* 1. BRAND COLORS & FONTS */
+:root {
+    --lp-green: #4CAF50;    /* Your School Green */
+    --lp-yellow: #F48C06;   /* Template Yellow for "Bright" feel */
+    --lp-cream: #FFF2E1;    /* Light Background */
+    --lp-dark: #2F327D;     /* Professional Dark Blue from Template */
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    /* This automatically pushes everything down by 100px */
+    padding-top: 100px; 
+}
+
+/* 2. BACKGROUND & TEXT HELPERS */
+.bg-cream { background-color: var(--lp-cream); }
+.text-darken { color: var(--lp-dark); }
+.text-yellow-500 { color: var(--lp-yellow); }
+.bg-yellow-500 { background-color: var(--lp-yellow); }
+.bg-green-500 { background-color: var(--lp-green); }
+.text-green-600 { color: var(--lp-green); }
+
+/* 3. THE FLOATING ANIMATION (Fixed Jitter) */
+.floating { 
+    animation: floating-lp 3s ease-in-out infinite;
+    will-change: transform; /* Tells the browser to keep it smooth */
+} 
+
+@keyframes floating-lp { 
+    0% { transform: translateY(0px); } 
+    50% { transform: translateY(-15px); } 
+    100% { transform: translateY(0px); }  
+}
+
+/* 4. TEACHER CARD HOVER EFFECTS */
+.group:hover img {
+    border-color: var(--lp-yellow) !important;
+    transform: scale(1.05);
+    transition: all 0.3s ease-in-out;
+}
+
+/* 5. ACHIEVEMENT CARD OVERLAY */
+/* This makes the text readable over the achievement images */
+.achievement-gradient {
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+}
+
+/* 6. MOBILE RESPONSIVENESS (Crucial) */
+@media (max-width: 768px) {
+    /* Stop floating on mobile to save battery and reduce lag */
+    .floating { 
+        animation: none; 
+    }
+    
+    /* Make headings slightly smaller so they don't break lines weirdly */
+    h1 { 
+        font-size: 2.25rem !important; 
+        line-height: 1.2 !important;
+    }
+    
+    /* Give more space between stacked cards */
+    .grid {
+        gap: 2rem !important;
+    }
+    
+    /* Ensure images don't overflow */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+/* 7. AOS ANIMATION TWEAK */
+/* Prevents horizontal scrollbars when elements slide in from the side */
+[data-aos] {
+    pointer-events: none;
+}
+.aos-animate {
+    pointer-events: auto;
+}
