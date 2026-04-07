@@ -5,41 +5,37 @@
     --yellow: #fae91f;
     --white: #ffffff;
     --green: #258d40;
+    /* ADJUST THIS NUMBER to match the actual height of your header */
+    --header-height: 145px; 
 }
 
-*
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 html {
     scroll-behavior: smooth;
-    /* This ensures that when jumping to an ID, 
-       the fixed header doesn't cover the title */
-    scroll-padding-top: 90px; 
+    scroll-padding-top: var(--header-height);
 }
 
-html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    max-width: 100%;
-    overflow-x: hidden; /* This hides the -100% menu until it's active */
-    position: relative;
-}
-
-
+/* THE FIX: Body padding ensures content starts after the header */
 body {
     font-family: 'Poppins', Arial, sans-serif;
+    padding-top: var(--header-height);
+    overflow-x: hidden;
 }
 
+
+/* HEADER STYLING */
 .main-site-header {
     position: fixed; 
     top: 0;
     left: 0;
     width: 100%;
     z-index: 9999;
-    margin: 0;
-    padding: 0;
 }
-
 
 .top-info-strip {
     /* FIX 1: Add your specific Green/Blue gradient back here */
@@ -394,11 +390,242 @@ body {
 
 
 
+
+
+
+
+
+
+/* --- ELITE FOOTER STYLING --- */
+.main-footer {
+    background: #09223f; /* Your School Navy */
+    color: #ffffff;
+    padding: 60px 0 0;
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    border-top: 5px solid #258d40; /* Your School Green */
+    width: 100%;
+    overflow-x: hidden;
+    margin-top: 0px;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1.2fr 1.3fr;
+    gap: 50px;
+    max-width: 1200px;
+    width: 90%;
+    margin: 0 auto;
+    padding-bottom: 40px;
+    box-sizing: border-box;
+}
+
+/* --- BRAND COLUMN (Logo & Name side-by-side) --- */
+.brand-header-flex {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.footer-logo { 
+    width: 70px; 
+    height: auto; 
+    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.2)); 
+}
+
+.school-name { 
+    font-size: 1.1rem; 
+    font-weight: 800; 
+    margin: 0; 
+    line-height: 1.1; 
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.location-sub {
+    color: #258d40; /* Green */
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin: 5px 0 0 0;
+    letter-spacing: 0.5px;
+}
+
+.brand-text { 
+    color: #a1b1c1; 
+    line-height: 1.7; 
+    font-size: 0.95rem; 
+    margin-bottom: 20px;
+}
+
+/* --- HEADINGS --- */
+.footer-heading {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    position: relative;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-heading::after {
+    content: '';
+    position: absolute;
+    left: 0; bottom: 0;
+    width: 40px; height: 3px;
+    background: #258d40;
+    border-radius: 10px;
+}
+
+/* --- QUICK LINKS (With Arrows) --- */
+.footer-links { list-style: none; padding: 0; }
+.footer-links li { margin-bottom: 12px; }
+.footer-links a { 
+    color: #a1b1c1; 
+    text-decoration: none; 
+    transition: all 0.3s ease; 
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+}
+
+.link-arrow {
+    font-size: 0.7rem;
+    margin-right: 10px;
+    color: #258d40;
+    transition: 0.3s;
+}
+
+.footer-links a:hover { color: #fff; transform: translateX(8px); }
+.footer-links a:hover .link-arrow { color: #fff; margin-right: 15px; }
+
+/* --- CONTACT ITEMS (With Hover Effects) --- */
+.contact-item { 
+    display: flex; 
+    align-items: center; 
+    gap: 15px; 
+    margin-bottom: 20px; 
+    transition: 0.3s ease;
+}
+
+.contact-icon { 
+    background: rgba(37, 141, 64, 0.15); 
+    color: #258d40; 
+    width: 38px; height: 38px; 
+    border-radius: 10px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    flex-shrink: 0;
+    transition: 0.3s ease;
+}
+
+.contact-item p { font-size: 0.95rem; color: #a1b1c1; margin: 0; }
+
+.contact-item:hover .contact-icon {
+    background: #258d40;
+    color: #fff;
+    transform: scale(1.1);
+}
+
+.contact-item:hover p { color: #fff; }
+
+/* --- SOCIAL ICONS --- */
+.social-links { display: flex; gap: 12px; margin-top: 25px; }
+.social-icon { 
+    width: 40px; height: 40px; 
+    background: rgba(255,255,255,0.05); 
+    border-radius: 12px; 
+    display: flex; align-items: center; justify-content: center; 
+    color: #fff; transition: 0.4s; 
+    border: 1px solid rgba(255,255,255,0.1);
+    text-decoration: none;
+}
+.social-icon:hover { background: #258d40; transform: translateY(-5px) rotate(360deg); }
+
+/* --- MAP --- */
+.map-container { 
+    border-radius: 15px; 
+    overflow: hidden; 
+    border: 3px solid rgba(255,255,255,0.05);
+    height: 160px;
+    width: 100%;
+}
+.map-container iframe { width: 100%; height: 100%; }
+
+/* --- BOTTOM BAR --- */
+.footer-bottom { 
+    background: #051426; 
+    padding: 25px 0; 
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+.bottom-container { 
+    max-width: 1200px; width: 90%; margin: 0 auto; 
+    display: flex; justify-content: space-between; align-items: center;
+}
+.footer-bottom p { font-size: 0.85rem; color: #64748b; margin: 0; }
+.dev-tag { font-weight: 600; color: #258d40; }
+
+/* --- MOBILE RESPONSIVE FIXES --- */
+@media (max-width: 1024px) {
+    .footer-container { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+    .footer-container { 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+        padding: 0 20px 40px;
+    }
+
+    .brand-header-flex { flex-direction: column; }
+    
+    .footer-col { width: 100%; margin-bottom: 40px; }
+
+    .footer-heading::after { left: 50%; transform: translateX(-50%); }
+
+    .contact-item { justify-content: center; flex-direction: column; }
+
+    .social-links { justify-content: center; }
+
+    .bottom-container { flex-direction: column; gap: 15px; text-align: center; }
+}
+
+
+
+
+/* MOBILE FIXES */
+@media (max-width: 1024px) {
+    :root { --header-height: 90px; }
+    .top-info-strip { display: none !important; }
+    .footer-container { grid-template-columns: 1fr 1fr; }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* --- HERO SECTION FIXED --- */
 .hero-wrapper {
     width: 100%;
     height: 60vh; /* Increased slightly for better mobile appearance */
-    margin-top: 120px; /* ERROR FIX: Pushes the Hero out from behind the Navbar */
+    margin-top: 20px; /* ERROR FIX: Pushes the Hero out from behind the Navbar */
     position: relative;
     overflow: hidden;
     background: #09223f;
@@ -429,7 +656,7 @@ body {
     transform: scale(1.15); 
 }
 
-/* 2. TEXT CONTENT: ERROR FIX FOR CENTERING */
+/* --- HERO CONTENT: ANTI-JERK VERSION --- */
 .hero-content {
     position: absolute;
     z-index: 10;
@@ -437,18 +664,29 @@ body {
     max-width: 850px;
     padding: 0 20px;
     
-    /* Starting state: Centered but slightly lower and smaller */
+    /* Center it exactly */
     left: 50%;
     top: 50%;
-    opacity: 1;
-    transform: translate(-50%, -40%) scale(0.8); 
-    transition: all 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+    
+    /* THE FIX 1: Use only specific properties for transition */
+    /* THE FIX 2: Added a smoother cubic-bezier */
+    transition: transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1), 
+                opacity 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+
+    /* THE FIX 3: Hardware Acceleration */
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
+    transform: translate(-50%, -40%) scale(0.85) translateZ(0); 
+    opacity: 0; /* Changed to 0 so it actually fades IN */
+    will-change: transform, opacity;
 }
 
-/* When slide is active: Dead Center */
+/* When slide is active: Smooth Finish */
 .swiper-slide-active .hero-content {
     opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
+    /* translateZ(0) keeps the text "glued" to the GPU layer */
+    transform: translate(-50%, -50%) scale(1) translateZ(0);
 }
 
 .hero-content h2 {
@@ -498,7 +736,7 @@ body {
 @media (max-width: 768px) {
     .hero-wrapper {
         height: 55vh;
-        margin-top: 70px; /* Matches mobile navbar height */
+        margin-top: 25px; /* Matches mobile navbar height */
     }
 }
 
@@ -525,7 +763,7 @@ body {
 
 
 
-/* --- NEWS BAR: NO OVERLAP VERSION --- */
+/* --- NEWS BAR: STABLE & SMOOTH VERSION --- */
 
 .school-news-zone {
     width: 100%;
@@ -533,7 +771,7 @@ body {
     background: linear-gradient(90deg, #2d5a3f 0%, #09223f 100%);
     display: flex;
     align-items: center;
-    position: relative; /* This is the secret - it stays in the flow */
+    position: relative;
     overflow: hidden;
     z-index: 10;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -541,7 +779,7 @@ body {
 }
 
 .news-tag {
-    background: #00abf0; /* Sky Blue Badge */
+    background: #00abf0;
     color: #ffffff;
     height: 100%;
     display: flex;
@@ -565,6 +803,9 @@ body {
 .news-loop-track {
     display: inline-block;
     white-space: nowrap;
+    /* FIX 1: Use 3D transform for GPU acceleration */
+    will-change: transform;
+    transform: translate3d(0, 0, 0); 
     animation: newsMoveLoop 30s linear infinite;
 }
 
@@ -574,13 +815,19 @@ body {
     font-size: 15px;
     font-weight: 600;
     display: inline-block;
-    transition: all 0.3s ease;
+    /* FIX 2: Never use 'all'. Target only transform for speed. */
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    /* FIX 3: Hardware rendering for the text layer */
+    -webkit-font-smoothing: antialiased;
+    backface-visibility: hidden;
 }
 
-/* THE POP FORWARD HOVER */
+/* THE POP FORWARD HOVER - STABILIZED */
 .news-link-item:hover {
     color: #ffffff !important;
-    transform: scale(1.1) translateY(-1px);
+    /* FIX 4: Reduced scale from 1.1 to 1.05. 
+       Big scales on moving objects cause visual 'jitter'. */
+    transform: scale(1.05) translateY(-1px) translateZ(0);
     text-shadow: 0 0 10px rgba(255,255,255,0.5);
 }
 
@@ -591,9 +838,10 @@ body {
     opacity: 0.6;
 }
 
+/* FIX 5: Use translate3d for the smoothest motion possible */
 @keyframes newsMoveLoop {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-50%, 0, 0); }
 }
 
 .school-news-zone:hover .news-loop-track {
@@ -607,7 +855,6 @@ body {
     .news-link-item { font-size: 13px; }
     .news-star-point { margin: 0 20px; }
 }
-
 
 
 
@@ -775,10 +1022,22 @@ body {
 }
 
 .motto-malayalam-txt:hover {
-    background: linear-gradient(90deg, #2d5a3f, #ffcc00, #2d5a3f);
+    /* 1. This creates the colorful background */
+    background: linear-gradient(90deg, #2d5a3f, #ffcc00, #2d5a3f, #00abf0, #2d5a3f);
     background-size: 200% auto;
-    -webkit-text-fill-color: transparent;
+
+    /* 2. THE SECRET SAUCE: These two lines clip the color INSIDE the text */
+    -webkit-background-clip: text; 
+    background-clip: text;
+
+    /* 3. Make the original color transparent so the gradient shows through */
+    -webkit-text-fill-color: transparent; 
+    color: transparent; /* Fallback */
+
+    /* 4. Keep your smooth animation */
     animation: textShine 2s linear infinite;
+    transform: scale(1.02); /* Added a tiny scale-up for a premium feel */
+    transition: 0.5s ease;
 }
 
 @keyframes textShine {
@@ -815,6 +1074,11 @@ body {
     
     .motto-malayalam-txt { 
         font-size: 2.2rem; 
+    }
+}
+@media (max-width: 850px) {
+    .motto-area-fixed {
+        background-attachment: scroll; /* Disables parallax for mobile performance */
     }
 }
 
@@ -1435,227 +1699,3 @@ body {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* --- ELITE FOOTER STYLING --- */
-.main-footer {
-    background: #09223f; /* Your School Navy */
-    color: #ffffff;
-    padding: 60px 0 0;
-    font-family: 'Poppins', sans-serif;
-    position: relative;
-    border-top: 5px solid #258d40; /* Your School Green */
-    width: 100%;
-    overflow-x: hidden;
-}
-
-.footer-container {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr 1.2fr 1.3fr;
-    gap: 50px;
-    max-width: 1200px;
-    width: 90%;
-    margin: 0 auto;
-    padding-bottom: 40px;
-    box-sizing: border-box;
-}
-
-/* --- BRAND COLUMN (Logo & Name side-by-side) --- */
-.brand-header-flex {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 20px;
-}
-
-.footer-logo { 
-    width: 70px; 
-    height: auto; 
-    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.2)); 
-}
-
-.school-name { 
-    font-size: 1.1rem; 
-    font-weight: 800; 
-    margin: 0; 
-    line-height: 1.1; 
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.location-sub {
-    color: #258d40; /* Green */
-    font-size: 0.75rem;
-    font-weight: 700;
-    margin: 5px 0 0 0;
-    letter-spacing: 0.5px;
-}
-
-.brand-text { 
-    color: #a1b1c1; 
-    line-height: 1.7; 
-    font-size: 0.95rem; 
-    margin-bottom: 20px;
-}
-
-/* --- HEADINGS --- */
-.footer-heading {
-    font-size: 1.1rem;
-    font-weight: 700;
-    margin-bottom: 30px;
-    position: relative;
-    padding-bottom: 10px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.footer-heading::after {
-    content: '';
-    position: absolute;
-    left: 0; bottom: 0;
-    width: 40px; height: 3px;
-    background: #258d40;
-    border-radius: 10px;
-}
-
-/* --- QUICK LINKS (With Arrows) --- */
-.footer-links { list-style: none; padding: 0; }
-.footer-links li { margin-bottom: 12px; }
-.footer-links a { 
-    color: #a1b1c1; 
-    text-decoration: none; 
-    transition: all 0.3s ease; 
-    font-size: 0.95rem;
-    display: flex;
-    align-items: center;
-}
-
-.link-arrow {
-    font-size: 0.7rem;
-    margin-right: 10px;
-    color: #258d40;
-    transition: 0.3s;
-}
-
-.footer-links a:hover { color: #fff; transform: translateX(8px); }
-.footer-links a:hover .link-arrow { color: #fff; margin-right: 15px; }
-
-/* --- CONTACT ITEMS (With Hover Effects) --- */
-.contact-item { 
-    display: flex; 
-    align-items: center; 
-    gap: 15px; 
-    margin-bottom: 20px; 
-    transition: 0.3s ease;
-}
-
-.contact-icon { 
-    background: rgba(37, 141, 64, 0.15); 
-    color: #258d40; 
-    width: 38px; height: 38px; 
-    border-radius: 10px; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center;
-    flex-shrink: 0;
-    transition: 0.3s ease;
-}
-
-.contact-item p { font-size: 0.95rem; color: #a1b1c1; margin: 0; }
-
-.contact-item:hover .contact-icon {
-    background: #258d40;
-    color: #fff;
-    transform: scale(1.1);
-}
-
-.contact-item:hover p { color: #fff; }
-
-/* --- SOCIAL ICONS --- */
-.social-links { display: flex; gap: 12px; margin-top: 25px; }
-.social-icon { 
-    width: 40px; height: 40px; 
-    background: rgba(255,255,255,0.05); 
-    border-radius: 12px; 
-    display: flex; align-items: center; justify-content: center; 
-    color: #fff; transition: 0.4s; 
-    border: 1px solid rgba(255,255,255,0.1);
-    text-decoration: none;
-}
-.social-icon:hover { background: #258d40; transform: translateY(-5px) rotate(360deg); }
-
-/* --- MAP --- */
-.map-container { 
-    border-radius: 15px; 
-    overflow: hidden; 
-    border: 3px solid rgba(255,255,255,0.05);
-    height: 160px;
-    width: 100%;
-}
-.map-container iframe { width: 100%; height: 100%; }
-
-/* --- BOTTOM BAR --- */
-.footer-bottom { 
-    background: #051426; 
-    padding: 25px 0; 
-    border-top: 1px solid rgba(255,255,255,0.05);
-}
-.bottom-container { 
-    max-width: 1200px; width: 90%; margin: 0 auto; 
-    display: flex; justify-content: space-between; align-items: center;
-}
-.footer-bottom p { font-size: 0.85rem; color: #64748b; margin: 0; }
-.dev-tag { font-weight: 600; color: #258d40; }
-
-/* --- MOBILE RESPONSIVE FIXES --- */
-@media (max-width: 1024px) {
-    .footer-container { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (max-width: 600px) {
-    .footer-container { 
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        width: 100%;
-        padding: 0 20px 40px;
-    }
-
-    .brand-header-flex { flex-direction: column; }
-    
-    .footer-col { width: 100%; margin-bottom: 40px; }
-
-    .footer-heading::after { left: 50%; transform: translateX(-50%); }
-
-    .contact-item { justify-content: center; flex-direction: column; }
-
-    .social-links { justify-content: center; }
-
-    .bottom-container { flex-direction: column; gap: 15px; text-align: center; }
-}
