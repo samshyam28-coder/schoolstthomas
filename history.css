@@ -1,6 +1,6 @@
 /* --- HISTORY PAGE BASE --- */
 .history-page {
-    background-color: #0d0d0d;
+    background-color: #1b1a1a;
     color: #ffffff;
     font-family: 'Poppins', sans-serif;
     overflow-x: hidden;
@@ -33,7 +33,6 @@
     font-weight: 800;
     margin: 0;
     text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
-    padding-top: 140px;
     text-align: center;
     
 }
@@ -136,7 +135,6 @@
         display: flex;
         align-items: center; /* Centers the text vertically */
         justify-content: center;
-        padding-top: 40px !important; /* Pushes text down so it's not under the header */
         background: #000;
         position: relative;
     }
@@ -151,7 +149,6 @@
         font-size: 2.2rem !important; /* Smaller size for mobile */
         line-height: 1.2;
         margin: 0;
-        padding-top: 180px;
         display: block !important; /* Ensures it's not hidden */
         color: #ffffff !important;
     }
