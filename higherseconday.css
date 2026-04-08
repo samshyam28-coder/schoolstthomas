@@ -1,0 +1,236 @@
+/* --- HSS MASTER THEME: BURGUNDY & PLATINUM --- */
+:root {
+    --burgundy: #800020;
+    --burgundy-dark: #600018;
+    --platinum: #E5E7EB;
+    --gold: #D4AF37;
+    --white: #FFFFFF;
+}
+
+/* 1. Hero Styles */
+.hss-hero-bg {
+    background: linear-gradient(to bottom, rgba(128, 0, 32, 0.95), rgba(96, 0, 24, 0.9)), 
+                url('../images/hss/hero-bg.jpg') center/cover;
+}
+
+.hss-badge {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--platinum);
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 2px;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.text-platinum { color: var(--platinum); }
+
+/* 2. Stream Cards */
+.stream-card {
+    background: var(--white);
+    padding: 50px 30px;
+    border-radius: 30px;
+    text-align: center;
+    border: 1px solid #F1F5F9;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.stream-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 30px 60px rgba(128, 0, 32, 0.1);
+    border-color: var(--burgundy);
+}
+
+.stream-icon {
+    font-size: 3.5rem;
+    color: var(--burgundy);
+    margin-bottom: 25px;
+}
+
+.stream-card h3 { font-size: 1.6rem; font-weight: 800; color: var(--burgundy-dark); }
+.stream-line { width: 50px; height: 5px; background: var(--burgundy); margin: 20px auto 0; border-radius: 10px; }
+
+/* --- HSS VERTICAL FACULTY CARDS --- */
+
+.hss-vertical-card {
+    background: var(--white);
+    border-radius: 25px;
+    overflow: hidden;
+    text-align: center;
+    border: 1px solid #f0f0f0;
+    /* Anti-Jitter */
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
+                box-shadow 0.4s ease, 
+                border-color 0.4s ease;
+    will-change: transform;
+    backface-visibility: hidden;
+}
+
+.hss-card-top {
+    padding: 40px 20px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.hss-avatar-circle {
+    width: 100px;
+    height: 100px;
+    background: rgba(128, 0, 32, 0.05);
+    color: var(--burgundy);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 2px solid transparent;
+}
+
+.hss-card-bottom {
+    padding: 0 20px 40px;
+    position: relative;
+}
+
+.hss-card-bottom h4 {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--burgundy-dark);
+    margin-bottom: 5px;
+}
+
+.hss-card-bottom p {
+    color: #6B7280;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Hover Effects */
+.hss-vertical-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 25px 50px rgba(128, 0, 32, 0.1);
+    border-color: var(--burgundy);
+}
+
+.hss-vertical-card:hover .hss-avatar-circle {
+    background: var(--burgundy);
+    color: white;
+    transform: scale(1.1);
+}
+
+/* Small accent line that grows on hover */
+.hss-card-accent {
+    width: 0;
+    height: 3px;
+    background: var(--burgundy);
+    margin: 15px auto 0;
+    transition: width 0.4s ease;
+    border-radius: 10px;
+}
+
+.hss-vertical-card:hover .hss-card-accent {
+    width: 40px;
+}
+
+/* 4. Infrastructure & Labs */
+.hss-check {
+    width: 30px; height: 30px; background: var(--burgundy);
+    color: white; border-radius: 50%; display: flex;
+    align-items: center; justify-content: center; flex-shrink: 0;
+}
+
+/* 5. Toppers */
+.topper-img-wrapper {
+    width: 150px; height: 150px; margin: 0 auto;
+    border-radius: 50%; border: 5px solid var(--platinum);
+    overflow: hidden; transition: 0.4s;
+}
+
+.topper-card:hover .topper-img-wrapper { border-color: var(--gold); transform: scale(1.05); }
+
+/* 6. Gallery */
+.bg-burgundy { background: var(--burgundy); }
+.gallery-frame { border-radius: 20px; overflow: hidden; height: 250px; }
+.gallery-frame img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+.gallery-frame:hover img { transform: scale(1.1); }
+
+
+
+/* --- HSS TOPPERS CENTERED STYLES --- */
+
+.topper-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* This centers the entire stack */
+    text-align: center;
+}
+
+.topper-frame {
+    position: relative;
+    width: 180px; /* Adjust size as needed */
+    height: 180px;
+    border-radius: 50%;
+    border: 6px solid var(--white);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    overflow: hidden;
+    transition: all 0.4s ease;
+    margin-bottom: 20px;
+}
+
+.topper-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.topper-badge {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%); /* Start hidden/low */
+    background: var(--gold);
+    color: var(--white);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    white-space: nowrap;
+    box-shadow: 0 4px 10px rgba(212, 175, 55, 0.4);
+    transition: all 0.4s ease;
+    z-index: 10;
+}
+
+/* Topper Hover Effects */
+.topper-card:hover .topper-frame {
+    border-color: var(--gold);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(212, 175, 55, 0.2);
+}
+
+.topper-card:hover .topper-badge {
+    transform: translate(-50%, -10px); /* Pops up on hover */
+}
+
+.topper-card:hover img {
+    transform: scale(1.1);
+}
+
+.topper-info-box h4 {
+    color: var(--burgundy-dark);
+    font-size: 1.2rem;
+    font-weight: 800;
+    margin-bottom: 5px;
+}
+
+.topper-info-box p {
+    color: #6B7280;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
