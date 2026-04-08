@@ -137,3 +137,10 @@ document.addEventListener('DOMContentLoaded', () => {
         doc.save(`Receipt_${capturedData.get('pupil_name')}_${refID}.pdf`);
     }
 });
+
+
+fetch(scriptURL, { 
+            method: 'POST', 
+            body: formData,
+            mode: 'no-cors' // ADD THIS LINE HERE
+        })
