@@ -1,5 +1,6 @@
 /**
- * ST. THOMAS HSS - MASTER ADMISSION LOGIC (FINAL VERIFIED VERSION)
+ * ST. THOMAS HSS - MASTER ADMISSION LOGIC (FINAL STABLE VERSION)
+ * Features: Live Sync, Logo Support, Ref ID, and Anti-Double Submission
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -20,27 +21,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 2. GOOGLE SHEETS CONNECTION & SUBMISSION
     const scriptURL = 'https://script.google.com/macros/s/AKfycbyvDLpOHtTQzuwELudG0YkXt9r9gXTwOGAIbY9UenpIeuHMnugs0gFBG4FNq8Lns3A/exec'; 
-    let isSubmitting = false; // This is the "Lock"
 
-    form.addEventListener('submit', e => {
+    // Define the submission function separately so we can remove it easily
+    function handleFormSubmit(e) {
         e.preventDefault();
         
-        // If already submitting, STOP here so it doesn't double-post
-        if (isSubmitting) return; 
-        
-        isSubmitting = true; // Set the lock to true
+        // --- A. THE DOUBLE-ENTRY KILLER ---
+        // We remove the listener immediately so the form cannot be submitted again
+        form.removeEventListener('submit', handleFormSubmit);
 
-        // --- A. GENERATE REFERENCE ID ---
+        // --- B. GENERATE REFERENCE ID ---
         const now = new Date();
         const datePart = now.toISOString().split('T')[0].replace(/-/g, ''); 
         const timePart = now.getHours().toString().padStart(2, '0') + now.getMinutes().toString().padStart(2, '0');
         const finalRefID = `STHSS-${datePart}-${timePart}`;
 
-        // --- B. CAPTURE DATA ---
+        // --- C. CAPTURE DATA ---
         let formData = new FormData(form);
         formData.append('reference_id', finalRefID);
 
-        // Visual Feedback: Disable button immediately
+        // Visual Feedback
         submitBtn.disabled = true;
         const originalText = submitBtn.innerHTML;
         submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
@@ -56,24 +56,19 @@ document.addEventListener('DOMContentLoaded', () => {
             // SUCCESS: 2. Notify User
             alert("Success! Application submitted.\nReference ID: " + finalRefID);
             
-            // SUCCESS: 3. Reset everything
-            form.reset();
-            isSubmitting = false; // Unlock for next time
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = originalText;
-            
-            if (declarationName) {
-                declarationName.innerText = "[STUDENT NAME]";
-            }
+            // SUCCESS: 3. Reload Page
+            // We reload to clean everything and prevent any weird behavior
+            window.location.reload();
         })
         .catch(error => {
             console.error('Submission Error!', error.message);
-            alert("Submission failed. Please check your internet connection.");
-            isSubmitting = false; // Unlock so they can try again
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = originalText;
+            alert("Submission failed. Refreshing page. Please try again.");
+            window.location.reload();
         });
-    });
+    }
+
+    // Attach the submission listener
+    form.addEventListener('submit', handleFormSubmit);
 
     // 3. PDF GENERATION LOGIC
     function generatePDF(refID, capturedData) {
