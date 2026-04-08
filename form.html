@@ -139,7 +139,7 @@
 <section class="admission-section">
     <div class="form-container">
         <div class="form-header">
-            <img src="images/footerlogo.webp" id="pdfLogo" alt="School Logo" class="form-logo">
+            <img src="images/footerlogo.png" id="pdfLogo" alt="School Logo" class="form-logo">
             <h2>APPLICATION FOR ADMISSION</h2>
             <p class="form-sub">FORM 3 [See Rule VI-1 (1)] - ST. THOMAS HSS</p>
         </div>
@@ -182,23 +182,26 @@
                         <input type="text" name="parent_details" placeholder="Name & Relation" required>
                     </div>
                     <div class="input-group">
-                        <label>3. Occupation & Address of Parent *</label>
-                        <input type="text" name="parent_occupation_address" required>
+                        <label>2a. Contact Phone Number *</label>
+                        <input type="tel" name="phone_no" placeholder="10 Digit Mobile No." pattern="[0-9]{10}" required>
                     </div>
+
                     <div class="input-group full-width">
-                        <label>4. Name, Address & Occupation of Local Guardian (If applicable)</label>
-                        <textarea name="local_guardian" rows="3" placeholder="Enter details if living with guardian"></textarea>
+                        <label>3. Occupation & Permanent Address of Parent *</label>
+                        <textarea name="parent_occupation_address" rows="2" placeholder="Enter Occupation and Full Home Address" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-family: inherit;"></textarea>
                     </div>
+
                     <div class="input-group">
-                        <label>8. Religion & Caste</label>
-                        <input type="text" name="religion_caste">
+                        <label>8. Religion & Caste *</label>
+                        <input type="text" name="religion_caste" placeholder="e.g. Christian, RC" required>
                     </div>
                     <div class="input-group">
                         <label>9. Nationality & State</label>
                         <input type="text" name="nationality_state" value="Indian, Kerala">
                     </div>
-                    <div class="input-group full-width">
-                        <label>10. Does candidate belong to SC / ST / OBC / OEC? *</label>
+
+                    <div class="input-group">
+                        <label>10. Category (SC/ST/OBC/OEC) *</label>
                         <select name="social_category" required>
                             <option value="">--Select Category--</option>
                             <option value="General">General</option>
@@ -207,6 +210,10 @@
                             <option value="OBC">OBC</option>
                             <option value="OEC">OEC</option>
                         </select>
+                    </div>
+                    <div class="input-group">
+                        <label>4. Local Guardian (If applicable)</label>
+                        <input type="text" name="local_guardian" placeholder="Name & Address">
                     </div>
                 </div>
             </div>
@@ -235,7 +242,7 @@
                 </div>
                 <div class="input-grid" style="margin-top: 25px;">
                     <div class="input-group">
-                        <label>11. Standard to which admission is sought *</label>
+                        <label>11. Standard Seeking Admission *</label>
                         <input type="text" name="target_std" placeholder="e.g. Plus One" required>
                     </div>
                     <div class="input-group">
@@ -253,7 +260,7 @@
                         <input type="date" name="last_vax_date">
                     </div>
                     <div class="input-group">
-                        <label>15. Immunization Details (Tetanus, Polio, etc.)</label>
+                        <label>15. Immunization Details</label>
                         <input type="text" name="vax_details" placeholder="e.g. Fully Immunized">
                     </div>
                 </div>
