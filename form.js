@@ -20,10 +20,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 2. GOOGLE SHEETS CONNECTION & SUBMISSION
     const scriptURL = 'https://script.google.com/macros/s/AKfycbyvDLpOHtTQzuwELudG0YkXt9r9gXTwOGAIbY9UenpIeuHMnugs0gFBG4FNq8Lns3A/exec'; 
+    let isSubmitting = false; // This is the "Lock"
 
     form.addEventListener('submit', e => {
         e.preventDefault();
         
+        // If already submitting, STOP here so it doesn't double-post
+        if (isSubmitting) return; 
+        
+        isSubmitting = true; // Set the lock to true
+
         // --- A. GENERATE REFERENCE ID ---
         const now = new Date();
         const datePart = now.toISOString().split('T')[0].replace(/-/g, ''); 
@@ -34,26 +40,27 @@ document.addEventListener('DOMContentLoaded', () => {
         let formData = new FormData(form);
         formData.append('reference_id', finalRefID);
 
-        // Visual Feedback
+        // Visual Feedback: Disable button immediately
         submitBtn.disabled = true;
         const originalText = submitBtn.innerHTML;
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting Application...';
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
 
         fetch(scriptURL, { 
             method: 'POST', 
             body: formData
         })
         .then(response => {
-            // SUCCESS: 1. Generate PDF (Pass the data we captured)
+            // SUCCESS: 1. Generate PDF
             generatePDF(finalRefID, formData);
 
             // SUCCESS: 2. Notify User
             alert("Success! Application submitted.\nReference ID: " + finalRefID);
             
-            // SUCCESS: 3. Reset UI
+            // SUCCESS: 3. Reset everything
+            form.reset();
+            isSubmitting = false; // Unlock for next time
             submitBtn.disabled = false;
             submitBtn.innerHTML = originalText;
-            form.reset();
             
             if (declarationName) {
                 declarationName.innerText = "[STUDENT NAME]";
@@ -62,6 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .catch(error => {
             console.error('Submission Error!', error.message);
             alert("Submission failed. Please check your internet connection.");
+            isSubmitting = false; // Unlock so they can try again
             submitBtn.disabled = false;
             submitBtn.innerHTML = originalText;
         });
