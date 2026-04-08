@@ -568,9 +568,6 @@ body {
 .dev-tag { font-weight: 600; color: #258d40; }
 
 /* --- MOBILE RESPONSIVE FIXES --- */
-@media (max-width: 1024px) {
-    .footer-container { grid-template-columns: repeat(2, 1fr); }
-}
 
 @media (max-width: 600px) {
     .footer-container { 
