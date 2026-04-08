@@ -23,7 +23,7 @@
 }
 
 .form-logo { width: 80px; margin-bottom: 15px; }
-.form-header h2 { font-weight: 800; letter-spacing: 1px; margin: 0; }
+.form-header h2 { font-weight: 800; letter-spacing: 1px; margin: 0; font-size: 1.8rem; }
 .form-sub { color: #258d40; font-weight: 600; margin-top: 10px; font-size: 0.9rem; }
 
 .form-card {
@@ -54,7 +54,10 @@
     box-sizing: border-box;
 }
 
-.full-width { grid-column: span 2; }
+/* This ensures full-width items take up both columns */
+.full-width { 
+    grid-column: span 2; 
+}
 
 .dual-input {
     display: grid;
@@ -85,6 +88,14 @@
     transition: all 0.3s ease;
     box-sizing: border-box;
     display: block;
+    font-family: inherit; /* Ensures font matches inputs */
+}
+
+/* Specific styling for the big Address box */
+.input-group textarea {
+    resize: vertical; /* Allows user to pull it down but not wide */
+    min-height: 80px;
+    line-height: 1.5;
 }
 
 .input-group input:focus, 
@@ -99,7 +110,7 @@
 
 /* FIXING THE SCHOOL HISTORY TABLE */
 .table-container-wrapper {
-    overflow-x: auto; /* Enables scrolling on mobile */
+    overflow-x: auto; 
     border-radius: 12px;
     border: 2px solid #e2e8f0;
     margin-top: 10px;
@@ -109,7 +120,7 @@
 .history-table {
     width: 100%;
     border-collapse: collapse;
-    min-width: 700px; /* Ensures columns stay wide enough */
+    min-width: 700px; 
 }
 
 .history-table th {
@@ -162,14 +173,25 @@
     font-weight: 800;
     cursor: pointer;
     transition: 0.4s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-.submit-btn:hover { background: #09223f; transform: scale(1.01); }
+.submit-btn:hover { 
+    background: #09223f; 
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(9, 34, 63, 0.2);
+}
 
 /* MOBILE RESPONSIVE */
 @media (max-width: 768px) {
-    .input-grid, .dual-input { grid-template-columns: 1fr; }
+    .input-grid, .dual-input { 
+        grid-template-columns: 1fr; 
+        gap: 20px;
+    }
     .full-width { grid-column: span 1; }
     .form-card { padding: 25px; }
-    .submit-btn { width: calc(100% - 50px); margin: 30px 25px; }
+    .form-header { padding: 30px 20px; }
+    .form-header h2 { font-size: 1.4rem; }
+    .submit-btn { width: calc(100% - 50px); margin: 30px 25px; font-size: 1rem; }
 }
