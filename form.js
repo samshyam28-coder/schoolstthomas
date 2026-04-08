@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 2. GOOGLE SHEETS CONNECTION & SUBMISSION
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbyvDLpOHtTQzuwELudG0YkXt9r9gXTwOGAIbY9UenpIeuHMnugs0gFBG4FNq8Lns3A/exec'; 
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxsDdX4yG32IiGCaPtZRbI6RSsufzKJk8ee139zBimzGAu8BcBM-j0kA57L7e51-z4/exec'; 
 
     // Define the submission function separately so we can remove it easily
     function handleFormSubmit(e) {
