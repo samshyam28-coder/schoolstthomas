@@ -1,0 +1,390 @@
+/* ELITE BRANDING CSS FOR ST. THOMAS HSS - UPDATED NO-BOX HERO */
+
+:root {
+    --primary-navy: #2F327D;
+    --primary-orange: #F48C06;
+    --school-green: #2D5A3F;
+    --school-blue: #00ABF0;
+    --bg-cream: #FFF2E1;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #4A4A4A;
+    overflow-x: hidden;
+}
+
+/* 1. TYPOGRAPHY & COLORS */
+.text-navy { color: var(--primary-navy); }
+.text-orange { color: var(--primary-orange); }
+
+.text-gradient {
+    background: linear-gradient(90deg, #F48C06, #FFB703);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+}
+
+.lp-hero-bg { background-color: var(--bg-cream); }
+
+/* 2. THE PREMIUM BUTTON */
+.btn-premium {
+    background: linear-gradient(135deg, var(--primary-orange), #FFB703);
+    color: white !important;
+    padding: 18px 40px;
+    border-radius: 50px;
+    font-weight: 700;
+    display: inline-block;
+    box-shadow: 0 10px 20px rgba(244, 140, 6, 0.3);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+}
+
+.btn-premium:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(244, 140, 6, 0.4);
+}
+
+/* 3. UPDATED HERO IMAGE STAGE (NO BOX) */
+.lp-hero-stage {
+    width: 100%;
+    height: 500px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent !important; /* Removes the gray box */
+    border: none !important;
+    box-shadow: none !important;
+    will-change: transform;
+}
+
+.lp-hero-img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: contain; /* Shows full students without cutting */
+    z-index: 2; 
+    position: absolute; 
+}
+
+.lp-hero-placeholder { 
+    font-size: 8rem; 
+    color: rgba(0,0,0,0.05); 
+    z-index: 1; 
+}
+
+/* FLOATING ANIMATION */
+.floating { animation: float 4s ease-in-out infinite; }
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+.stats-badge {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    background: white;
+    padding: 15px 25px;
+    border-radius: 20px;
+    z-index: 10;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.badge-icon {
+    background: #FFD700;
+    color: white;
+    padding: 10px;
+    border-radius: 12px;
+}
+
+/* 4. ACADEMIC CARDS */
+.pro-label {
+    color: var(--primary-orange);
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 12px;
+}
+
+.pro-card {
+    background: white;
+    padding: 50px 35px;
+    border-radius: 30px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(47, 50, 125, 0.05);
+    transition: 0.4s;
+    border-top: 8px solid transparent;
+}
+
+.pro-card:hover { transform: translateY(-15px); box-shadow: 0 25px 50px rgba(0,0,0,0.1); }
+.card-top-orange { border-top-color: var(--primary-orange); }
+.card-top-green { border-top-color: var(--school-green); }
+.card-top-blue { border-top-color: var(--school-blue); }
+
+.pro-card-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 20px;
+    margin: 0 auto 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+}
+
+.bg-orange-light { background: #FFF5E6; }
+.bg-green-light { background: #E6F0E9; }
+.bg-blue-light { background: #E6F7FF; }
+
+/* 5. GLASS-MORPHISM ACHIEVEMENTS */
+.glass-achieve-card {
+    height: 380px;
+    border-radius: 30px;
+    position: relative;
+    overflow: hidden;
+    background: var(--primary-navy);
+}
+
+.glass-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.6s;
+}
+
+.glass-achieve-card:hover .glass-img { transform: scale(1.1); filter: brightness(0.7); }
+
+.glass-content {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.glass-tag {
+    font-size: 10px;
+    font-weight: 800;
+    color: var(--primary-orange);
+    text-transform: uppercase;
+}
+
+.glass-content h4 { font-weight: 700; color: var(--primary-navy); margin: 5px 0; }
+.glass-content p { font-size: 13px; color: #666; }
+
+/* 6. PARENT REVIEWS Bubbles */
+.review-bubble {
+    background: white;
+    padding: 40px;
+    border-radius: 30px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    border-left: 10px solid transparent;
+}
+
+.bubble-orange { border-left-color: var(--primary-orange); }
+.bubble-green { border-left-color: var(--school-green); }
+.bubble-blue { border-left-color: var(--school-blue); }
+
+.quote-icon { position: absolute; top: 20px; right: 30px; font-size: 2.5rem; color: #F0F0F0; }
+
+.review-text { font-style: italic; color: #555; margin-bottom: 30px; position: relative; z-index: 2; }
+
+.reviewer { display: flex; align-items: center; space-x: 15px; }
+.rev-avatar {
+    width: 45px;
+    height: 45px;
+    background: var(--primary-navy);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 12px;
+}
+
+.reviewer h5 { font-weight: 700; color: var(--primary-navy); line-height: 1; }
+.reviewer span { font-size: 11px; color: #999; }
+
+/* TEACHER SECTION ELITE STYLING */
+.teacher-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.teacher-item {
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.teacher-item:hover {
+    transform: translateX(10px);
+    box-shadow: 0 10px 25px rgba(47, 50, 125, 0.1);
+    border-color: var(--primary-orange);
+}
+
+.teacher-avatar {
+    width: 60px;
+    height: 60px;
+    background: var(--bg-cream);
+    color: var(--primary-orange);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.teacher-item:hover .teacher-avatar {
+    background: var(--primary-orange);
+    color: white;
+    transform: rotate(-5deg) scale(1.1);
+}
+
+.teacher-info h4 {
+    color: var(--primary-navy);
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+.teacher-info p {
+    color: var(--school-green);
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .teacher-grid { grid-template-columns: 1fr; }
+    .lp-hero-stage { height: 350px; }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- HERO INTERACTIVE ANIMATIONS --- */
+
+/* 1. The Glowing Aura */
+.lp-hero-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(244, 140, 6, 0.2) 0%, transparent 70%);
+    border-radius: 50%;
+    z-index: 1;
+    animation: pulseGlow 4s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+    0%, 100% { width: 300px; height: 300px; opacity: 0.5; }
+    50% { width: 450px; height: 450px; opacity: 0.8; }
+}
+
+/* 2. Floating Learning Icons */
+.learning-icon {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: white;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    z-index: 5;
+    font-size: 1.2rem;
+    transition: 0.3s;
+}
+
+/* Individual Icon Positions & Colors */
+.icon-1 { top: 10%; left: 10%; color: #FF4D6D; animation: orbit 6s ease-in-out infinite; }
+.icon-2 { top: 20%; right: 10%; color: #2D5A3F; animation: orbit 8s ease-in-out infinite reverse; }
+.icon-3 { bottom: 20%; left: 5%; color: #00ABF0; animation: orbit 7s ease-in-out infinite 1s; }
+.icon-4 { bottom: 30%; right: 5%; color: #F48C06; animation: orbit 9s ease-in-out infinite 0.5s; }
+
+/* Orbit / Floating Movement for Icons */
+@keyframes orbit {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(10px, -15px) rotate(10deg); }
+    50% { transform: translate(-5px, 10px) rotate(-10deg); }
+    75% { transform: translate(-15px, -5px) rotate(5deg); }
+}
+
+/* 3. The Stage & Students */
+.lp-hero-stage {
+    position: relative;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    background: transparent !important;
+}
+
+.lp-student-img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Interactive Hover - Students react when mouse enters */
+.lp-hero-stage:hover .lp-student-img {
+    transform: scale(1.05);
+}
+
+.lp-hero-stage:hover .learning-icon {
+    background: var(--primary-navy);
+    color: white !important;
+}
+
+/* 4. Smooth Floating for the whole group */
+.floating {
+    animation: mainFloat 5s ease-in-out infinite;
+}
+
+@keyframes mainFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .lp-hero-stage { height: 350px; }
+    .learning-icon { width: 40px; height: 40px; font-size: 1rem; }
+    .lp-hero-glow { width: 200px; height: 200px; }
+}

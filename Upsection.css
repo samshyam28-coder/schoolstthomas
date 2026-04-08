@@ -1,0 +1,264 @@
+/* ELITE MASTER CSS FOR ST. THOMAS HSS - UP SECTION 
+    Theme: Discovery, Growth, and Leadership
+    Colors: Royal Blue & Emerald Green
+*/
+
+:root {
+    --up-navy: #2F327D;
+    --up-orange: #F48C06;
+    --up-green: #2D5A3F;      /* Deep Emerald */
+    --up-blue-royal: #1E3A8A; /* Professional Blue */
+    --up-teal: #0D9488;
+    --bg-emerald-soft: #E6F0E9;
+    --bg-mist: #F8FAFC;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #4A4A4A;
+    overflow-x: hidden;
+}
+
+/* --- 1. TYPOGRAPHY & GRADIENTS --- */
+.text-navy { color: var(--up-navy); }
+
+.up-text-gradient {
+    background: linear-gradient(90deg, var(--up-green), var(--up-blue-royal));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+}
+
+.pro-label {
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 12px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 10px;
+    color: var(--up-green);
+}
+
+/* --- 2. PREMIUM BUTTONS --- */
+.btn-up-premium {
+    background: linear-gradient(135deg, var(--up-green), var(--up-blue-royal));
+    color: white !important;
+    padding: 18px 40px;
+    border-radius: 50px;
+    font-weight: 700;
+    display: inline-block;
+    box-shadow: 0 10px 20px rgba(30, 58, 138, 0.2);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+}
+
+.btn-up-premium:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(30, 58, 138, 0.3);
+}
+
+/* --- 3. HERO STAGE & DISCOVERY ANIMATIONS --- */
+.up-hero-stage {
+    width: 100%;
+    height: 500px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+}
+
+.up-student-img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    z-index: 5;
+    position: relative;
+    transition: transform 0.5s ease;
+}
+
+.up-hero-glow {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(45, 90, 63, 0.2) 0%, transparent 70%);
+    animation: pulseUP 5s infinite ease-in-out;
+}
+
+/* Orbiting Icons */
+.discovery-icon {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    z-index: 10;
+    font-size: 1.4rem;
+}
+
+.d-icon-1 { top: 15%; left: 5%; color: var(--up-blue-royal); animation: orbitUP 7s infinite; }
+.d-icon-2 { top: 10%; right: 10%; color: var(--up-green); animation: orbitUP 9s infinite reverse; }
+.d-icon-3 { bottom: 25%; right: 5%; color: var(--up-teal); animation: orbitUP 8s infinite 1.5s; }
+
+@keyframes orbitUP {
+    0%, 100% { transform: translate(0, 0) rotate(0); }
+    50% { transform: translate(15px, -25px) rotate(15deg); }
+}
+
+@keyframes pulseUP {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.4; }
+    50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.7; }
+}
+
+.floating { animation: mainFloat 5s ease-in-out infinite; }
+@keyframes mainFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+/* --- 4. ACADEMIC CARDS --- */
+.up-pro-card {
+    background: white;
+    padding: 45px 35px;
+    border-radius: 30px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+    transition: 0.4s ease;
+    border-bottom: 8px solid transparent;
+}
+
+.up-pro-card:hover { 
+    transform: translateY(-15px); 
+    box-shadow: 0 25px 50px rgba(0,0,0,0.08); 
+}
+
+.card-up-green { border-bottom-color: var(--up-green); }
+.card-up-blue { border-bottom-color: var(--up-blue-royal); }
+.card-up-teal { border-bottom-color: var(--up-teal); }
+
+.up-icon-box {
+    width: 75px; height: 75px;
+    border-radius: 20px;
+    margin: 0 auto 25px;
+    display: flex;
+    align-items: center; justify-content: center;
+    font-size: 1.8rem;
+}
+
+.bg-green-soft { background: #E6F0E9; color: var(--up-green); }
+.bg-blue-soft { background: #EBEFFF; color: var(--up-blue-royal); }
+.bg-teal-soft { background: #E6FFFA; color: var(--up-teal); }
+
+/* --- 5. FACULTY / MENTORS (Zig-Zag sync with LP) --- */
+.teacher-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.teacher-item {
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.up-mentor-hover:hover {
+    transform: translateX(10px);
+    box-shadow: 0 10px 25px rgba(30, 58, 138, 0.1);
+    border-color: var(--up-green);
+}
+
+.up-bg-soft {
+    background: var(--bg-emerald-soft);
+    color: var(--up-green);
+    width: 60px; height: 60px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center; justify-content: center;
+    font-size: 1.5rem;
+    transition: 0.3s;
+}
+
+.up-mentor-hover:hover .up-bg-soft {
+    background: var(--up-blue-royal);
+    color: white;
+    transform: rotate(-5deg) scale(1.1);
+}
+
+.teacher-info h4 { color: var(--up-navy); font-weight: 700; font-size: 1.1rem; margin: 0; }
+.teacher-info p { color: var(--up-green); font-size: 0.85rem; font-weight: 500; margin: 0; }
+
+/* --- 6. GLASS-MORPHISM ACHIEVEMENTS --- */
+.glass-achieve-card {
+    height: 400px;
+    border-radius: 30px;
+    position: relative;
+    overflow: hidden;
+    background: var(--up-navy);
+}
+
+.glass-img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: 0.6s;
+}
+
+.glass-achieve-card:hover .glass-img { transform: scale(1.1); filter: brightness(0.6); }
+
+.glass-content {
+    position: absolute;
+    bottom: 20px; left: 20px; right: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.glass-tag { font-size: 10px; font-weight: 800; color: var(--up-blue-royal); text-transform: uppercase; }
+
+/* --- 7. PARENT REVIEWS (Deep Background Version) --- */
+.up-review-card {
+    background: white;
+    padding: 40px;
+    border-radius: 30px;
+    position: relative;
+    transition: 0.3s;
+}
+
+.up-review-card:hover { transform: translateY(-5px); }
+
+.up-border-green { border-top: 8px solid var(--up-green); }
+.up-border-blue { border-top: 8px solid var(--up-blue-royal); }
+.up-border-teal { border-top: 8px solid var(--up-teal); }
+
+.up-quote { position: absolute; top: 20px; right: 25px; color: #F0F0F0; font-size: 2.5rem; z-index: 1; }
+
+.up-avatar {
+    width: 50px; height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center; justify-content: center;
+    color: white; font-weight: 800;
+}
+
+/* --- MOBILE RESPONSIVENESS --- */
+@media (max-width: 768px) {
+    .up-hero-stage { height: 350px; }
+    .discovery-icon { width: 45px; height: 45px; font-size: 1rem; }
+    .up-hero-glow { width: 250px; height: 250px; }
+    .teacher-grid { grid-template-columns: 1fr; }
+}

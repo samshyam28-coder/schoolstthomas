@@ -1,0 +1,234 @@
+/* ST. THOMAS HSS - HIGH SCHOOL SECTION (CLASS VIII - X)
+    Theme: Excellence, Ambition, and Gold Standard
+*/
+
+:root {
+    --hs-navy: #1E293B;       /* Deep Charcoal Navy */
+    --hs-navy-light: #334155;
+    --gold: #D4AF37;          /* Metallic Gold */
+    --gold-dark: #B8860B;
+    --white: #FFFFFF;
+    --slate-bg: #F8FAFC;
+}
+
+/* --- 1. HERO & SUCCESS PATH --- */
+.hs-hero-bg {
+    background-color: var(--hs-navy);
+    position: relative;
+    overflow: hidden;
+}
+
+.hs-badge {
+    background: rgba(212, 175, 55, 0.1);
+    color: var(--gold);
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.text-gold { color: var(--gold); }
+
+/* The Glowing Background Animation */
+.hs-success-path {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%; height: 100%;
+    background: radial-gradient(circle at center, rgba(212, 175, 55, 0.1) 0%, transparent 60%);
+    animation: successPulse 6s infinite ease-in-out;
+    pointer-events: none;
+    z-index: 1;
+}
+
+@keyframes successPulse {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.3; }
+    50% { transform: translate(-50%, -50%) scale(1.4); opacity: 0.6; }
+}
+
+/* Floating Hero Icons */
+.hs-hero-stage {
+    position: relative; height: 500px;
+    display: flex; align-items: center; justify-content: center;
+    z-index: 5;
+}
+
+.hs-student-img {
+    height: 100%; width: auto; object-fit: contain;
+    position: relative; z-index: 10;
+}
+
+.hs-element {
+    position: absolute; width: 65px; height: 65px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    backdrop-filter: blur(10px);
+    border-radius: 18px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--gold); font-size: 1.6rem; z-index: 12;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.el-1 { top: 15%; right: 10%; animation: floatHS 5s infinite; }
+.el-2 { bottom: 20%; right: 5%; animation: floatHS 7s infinite 1s; }
+.el-3 { top: 25%; left: 0%; animation: floatHS 6s infinite 0.5s; }
+
+@keyframes floatHS {
+    0%, 100% { transform: translateY(0) rotate(0); }
+    50% { transform: translateY(-30px) rotate(10deg); }
+}
+
+/* --- 2. SSLC MASTER PLAN --- */
+.hs-plan-item {
+    display: flex; gap: 20px; padding: 25px;
+    border-radius: 20px; transition: all 0.4s ease;
+    border: 1px solid transparent;
+}
+
+.hs-plan-item:hover { 
+    background: var(--white); 
+    transform: translateX(15px); 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border-color: #EEE;
+}
+
+.hs-number {
+    font-size: 2.8rem; font-weight: 900; color: #E2E8F0; line-height: 1;
+}
+
+
+/* Fix for Innovation Labs Text Visibility */
+.bg-navy {
+    background-color: #1E293B !important; /* Ensuring the background is dark */
+}
+
+.bg-navy h3 {
+    color: #D4AF37 !important; /* Makes 'Innovation Labs' Title Gold */
+}
+
+.bg-navy p {
+    color: #E2E8F0 !important; /* Makes the description a clean light gray/white */
+}
+
+.bg-navy ul li {
+    color: #F8FAFC !important; /* Makes the list items bright white */
+}
+
+.bg-navy ul li i {
+    color: #D4AF37 !important; /* Ensures the tick icons stay Gold */
+}
+
+.btn-hs-gold {
+    background: var(--gold);
+    color: var(--hs-navy) !important;
+    padding: 18px 45px;
+    border-radius: 12px;
+    font-weight: 800;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: inline-block;
+    text-decoration: none;
+}
+
+.btn-hs-gold:hover { 
+    background: var(--white); 
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(212, 175, 55, 0.3);
+}
+
+/* --- 3. EXPERT MENTORS (ANTI-JITTER VERSION) --- */
+.teacher-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 25px;
+}
+
+.hs-mentor-hover {
+    background: var(--white);
+    padding: 22px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border: 1px solid rgba(0,0,0,0.05);
+    /* Performance fixes for smooth hover */
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
+                box-shadow 0.4s ease, 
+                border-color 0.4s ease;
+    will-change: transform; 
+    backface-visibility: hidden;
+    position: relative;
+}
+
+.hs-mentor-hover:hover {
+    border-color: var(--gold) !important;
+    transform: translateY(-10px) scale(1.01);
+    box-shadow: 0 20px 40px rgba(212, 175, 55, 0.12) !important;
+    z-index: 20;
+}
+
+/* Icon Box inside Faculty */
+.hs-bg-soft {
+    background: rgba(212, 175, 55, 0.1) !important; 
+    color: var(--gold-dark) !important; 
+    width: 65px; height: 65px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center; justify-content: center;
+    font-size: 1.6rem;
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.hs-mentor-hover:hover .hs-bg-soft {
+    background: var(--gold) !important; 
+    color: var(--hs-navy) !important;
+    transform: rotate(-12deg) scale(1.1);
+}
+
+.teacher-info h4 { color: var(--hs-navy); font-weight: 700; margin: 0; }
+.teacher-info p { color: var(--gold-dark); font-size: 0.85rem; margin-top: 2px; }
+
+/* --- 4. SUCCESSORS GALLERY --- */
+.hs-successor-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 30px; 
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.hs-successor-card:hover { 
+    background: rgba(255,255,255,0.08); 
+    border-color: var(--gold);
+    transform: translateY(-12px);
+}
+
+.successor-img-box {
+    height: 320px; width: 100%; position: relative; overflow: hidden;
+}
+
+.successor-img-box img { 
+    width: 100%; height: 100%; object-fit: cover; transition: 0.6s; 
+}
+
+.successor-overlay {
+    position: absolute; inset: 0; 
+    background: linear-gradient(to top, rgba(30, 41, 59, 0.9), transparent);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; transition: 0.4s;
+}
+
+.hs-successor-card:hover .successor-overlay { opacity: 1; }
+.hs-successor-card:hover img { transform: scale(1.1); }
+
+/* --- MOBILE OPTIMIZATIONS --- */
+@media (max-width: 768px) {
+    .hs-hero-stage { height: 350px; }
+    .hs-element { width: 50px; height: 50px; font-size: 1.2rem; }
+    .hs-student-img { height: 300px; }
+    .teacher-grid { grid-template-columns: 1fr; }
+    .hs-plan-item:hover { transform: translateX(5px); }
+}
