@@ -1,0 +1,84 @@
+/* --- SECTION 1: HERO --- */
+.champ-hero {
+    height: 80vh; display: flex; align-items: center; justify-content: center;
+    text-align: center; color: white; position: relative; overflow: hidden; background: #05162a;
+}
+.hero-bg {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background-size: cover; background-position: center bottom !important; z-index: 0;
+    animation: smoothZoomForward 20s infinite alternate ease-in-out;
+}
+.shine-text {
+    font-size: clamp(2.5rem, 7vw, 5rem); font-weight: 900;
+    background: linear-gradient(to right, #bf953f, #fcf6ba, #bf953f);
+    background-size: 200% auto; -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; animation: shine 3s linear infinite;
+}
+@keyframes shine { to { background-position: 200% center; } }
+
+.explore-btn {
+    display: inline-block; margin-top: 30px; padding: 15px 40px;
+    background: #bf953f; color: #05162a; text-decoration: none;
+    font-weight: 700; border-radius: 50px; transition: 0.3s;
+}
+.explore-btn:hover { background: #fcf6ba; transform: scale(1.05); box-shadow: 0 0 20px rgba(191, 149, 63, 0.4); }
+
+/* --- SECTION 2: ACHIEVEMENT CARDS --- */
+.achieve-section { padding: 80px 10%; background: #05162a; }
+.achieve-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+.achieve-card {
+    background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(191, 149, 63, 0.3);
+    padding: 30px; border-radius: 15px; text-align: center; color: white; transition: 0.4s;
+}
+.achieve-card i { font-size: 2.5rem; color: #bf953f; margin-bottom: 15px; }
+.achieve-card:hover { 
+    background: rgba(191, 149, 63, 0.1); transform: translateY(-10px); 
+    border-color: #fcf6ba; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* --- SECTION 3: GLASS GALLERY HUB --- */
+.gallery-hub { 
+    padding: 100px 10%; background: radial-gradient(circle at center, #09223f, #05162a); 
+    text-align: center;
+}
+.hub-title { color: white; font-size: 2.5rem; margin-bottom: 50px; }
+
+.glass-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; perspective: 1000px; }
+
+.glass-card {
+    text-decoration: none; position: relative;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px; padding: 40px 20px;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    overflow: hidden; display: block;
+}
+
+.glass-content { color: white; transition: 0.5s; }
+.glass-content i { font-size: 3rem; color: #bf953f; margin-bottom: 20px; display: block; }
+.glass-content h3 { font-size: 1.3rem; margin-bottom: 15px; }
+.glass-content span { font-size: 0.8rem; opacity: 0.6; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
+
+/* THE HOVER EFFECT BRO */
+.glass-card:hover {
+    transform: rotateX(10deg) rotateY(-10deg) translateY(-15px);
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(191, 149, 63, 0.5);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+}
+
+.glass-card:hover .glass-content span {
+    opacity: 1; color: #bf953f;
+}
+
+.glass-card::before {
+    content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+    transition: 0.5s;
+}
+.glass-card:hover::before { left: 100%; }
+
+/* Responsive */
+@media (max-width: 1100px) { .glass-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 768px) { .glass-grid { grid-template-columns: 1fr; } }
