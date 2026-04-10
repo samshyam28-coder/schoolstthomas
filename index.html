@@ -60,6 +60,24 @@
     
 </head>
 <body>
+<div id="admPopupOverlay" class="adm-popup-overlay">
+    <div class="adm-popup-container">
+        <span class="adm-close-x" id="admCloseX">&times;</span>
+        
+        <a href="form.html" class="adm-poster-link">
+            <img src="images/popup.png" alt="Admission 2026" class="adm-poster-img">
+        </a>
+        
+        <div class="adm-popup-footer">
+            <a href="form.html" class="adm-btn-apply">APPLY NOW</a>
+            <button class="adm-btn-back" id="admCloseBtn">Back to Website</button>
+        </div>
+    </div>
+</div>
+
+
+
+
 <header class="main-site-header">
     <div class="top-info-strip">
         <div class="container">
@@ -694,7 +712,36 @@
 
 
 
+<script>
+    window.addEventListener('load', function() {
+    var admModal = document.getElementById("admPopupOverlay");
+    var admCloseX = document.getElementById("admCloseX");
+    var admCloseBtn = document.getElementById("admCloseBtn");
 
+    // Show only once per visit
+    if (!sessionStorage.getItem('admPosterShown')) {
+        setTimeout(function() {
+            admModal.style.display = "block";
+            sessionStorage.setItem('admPosterShown', 'true');
+        }, 1000); // 1 second delay
+    }
+
+    // Close logic
+    function closeAdmPopup() {
+        admModal.style.display = "none";
+    }
+
+    admCloseX.onclick = closeAdmPopup;
+    admCloseBtn.onclick = closeAdmPopup;
+
+    // Close on background click
+    window.onclick = function(event) {
+        if (event.target == admModal) {
+            closeAdmPopup();
+        }
+    }
+});
+</script>
 
 
 
