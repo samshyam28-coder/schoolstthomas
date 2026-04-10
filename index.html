@@ -525,7 +525,32 @@
 
 
 
+<section class="edu-section">
+    <div class="edu-container">
+        <h2 class="edu-main-title">Education Ministry</h2>
+        <p class="edu-description">Empowering Our Community Through Knowledge</p>
 
+        <div class="edu-slider-box">
+            <button class="edu-nav-btn edu-prev" id="eduPrevBtn">&#10094;</button>
+            
+            <div class="edu-image-wrapper">
+                <img src="images/education/1.jpg" id="eduSliderImg" alt="Education Report">
+            </div>
+
+            <button class="edu-nav-btn edu-next" id="eduNextBtn">&#10095;</button>
+        </div>
+
+        <div class="edu-counter">
+            Page <span id="eduCurrentPage">1</span> of <span id="eduTotalPages">35</span>
+        </div>
+
+        <div class="edu-download-area">
+            <a href="documents/education-ministry.pdf" target="_blank" class="edu-download-link">
+                Download Full PDF (35 Pages)
+            </a>
+        </div>
+    </div>
+</section>
 
 
 
@@ -774,6 +799,57 @@ window.addEventListener('load', function() {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+let eduCurrentPage = 1;
+const eduTotalPages = 35; // Change this if you add more pages
+const eduImgElement = document.getElementById("eduSliderImg");
+const eduPageDisplay = document.getElementById("eduCurrentPage");
+
+document.getElementById("eduNextBtn").addEventListener("click", function() {
+    if (eduCurrentPage < eduTotalPages) {
+        eduCurrentPage++;
+        updateEduSlider();
+    } else {
+        eduCurrentPage = 1; // Loop back to start
+        updateEduSlider();
+    }
+});
+
+document.getElementById("eduPrevBtn").addEventListener("click", function() {
+    if (eduCurrentPage > 1) {
+        eduCurrentPage--;
+        updateEduSlider();
+    } else {
+        eduCurrentPage = eduTotalPages; // Loop to end
+        updateEduSlider();
+    }
+});
+
+function updateEduSlider() {
+    // Change the image source based on the page number
+    eduImgElement.src = `images/education/${eduCurrentPage}.jpg`;
+    eduPageDisplay.innerText = eduCurrentPage;
+    
+    // Smooth scroll back to top of section if on mobile
+    if(window.innerWidth < 768) {
+        document.querySelector('.edu-section').scrollIntoView({behavior: 'smooth'});
+    }
+}
+
+</script>
 
 
 
