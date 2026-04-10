@@ -108,7 +108,7 @@
 
 /* --- MOBILE RESPONSIVE --- */
 @media screen and (max-width: 768px) {
-    .history-hero { height: auto; padding: 80px 20px; }
+    .history-hero { height: auto; padding: 120px 40px; }
     
     .parallax-window {
         height: 300px !important;
