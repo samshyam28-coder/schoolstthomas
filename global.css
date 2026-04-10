@@ -1805,3 +1805,130 @@ body {
         text-align: center;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Unique Styles for Education Ministry Section */
+.edu-section {
+    padding: 60px 20px;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.edu-main-title {
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.edu-description {
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.edu-slider-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 700px; /* Best size for desktop documents */
+    margin: 0 auto;
+    background: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+}
+
+.edu-image-wrapper {
+    width: 100%;
+    overflow: hidden;
+}
+
+.edu-image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 1px solid #eee;
+}
+
+/* Navigation Buttons */
+.edu-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.6);
+    color: white;
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+    z-index: 10;
+    transition: 0.3s;
+}
+
+.edu-prev { left: -20px; }
+.edu-next { right: -20px; }
+
+.edu-nav-btn:hover {
+    background: #000;
+}
+
+/* Page Counter & Download */
+.edu-counter {
+    margin-top: 20px;
+    font-weight: bold;
+    color: #444;
+}
+
+.edu-download-area {
+    margin-top: 15px;
+}
+
+.edu-download-link {
+    color: #d32f2f; /* Reddish color for PDF */
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 1px solid transparent;
+}
+
+.edu-download-link:hover {
+    border-bottom: 1px solid #d32f2f;
+}
+
+/* MOBILE FIXES */
+@media screen and (max-width: 768px) {
+    .edu-slider-box {
+        max-width: 100%;
+    }
+    .edu-nav-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+    }
+    .edu-prev { left: 5px; } /* Move inside for small screens */
+    .edu-next { right: 5px; }
+    .edu-main-title { font-size: 24px; }
+}
