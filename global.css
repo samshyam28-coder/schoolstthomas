@@ -1696,3 +1696,112 @@ body {
 
 
 
+
+
+
+
+
+
+
+/* UNIQUE ADMISSION POPUP - WILL NOT AFFECT OTHER STYLES */
+
+.adm-popup-overlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 99999; /* Higher than everything else */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+}
+
+.adm-popup-container {
+    position: relative;
+    background-color: #ffffff;
+    margin: 2% auto;
+    width: 90%;
+    max-width: 750px; /* Big Desktop Size */
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.7);
+    animation: admZoomIn 0.4s ease-out;
+}
+
+@keyframes admZoomIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.adm-poster-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-bottom: 2px solid #eee;
+}
+
+.adm-close-x {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    color: #ffffff;
+    font-size: 45px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 100001;
+    text-shadow: 0px 0px 10px #000;
+}
+
+.adm-close-x:hover {
+    color: #ff0000;
+}
+
+.adm-popup-footer {
+    padding: 20px;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Button - Apply Now */
+.adm-btn-apply {
+    background: #1a73e8; /* Professional Blue */
+    color: white !important;
+    padding: 14px 40px;
+    text-decoration: none !important;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 18px;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.adm-btn-apply:hover {
+    background: #1557b0;
+    transform: scale(1.05);
+}
+
+/* Button - Back to Site */
+.adm-btn-back {
+    background: none;
+    border: none;
+    color: #777;
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* MOBILE RESPONSIVE FIXES */
+@media screen and (max-width: 768px) {
+    .adm-popup-container {
+        max-width: 95%;
+        margin: 20% auto;
+    }
+    .adm-btn-apply {
+        width: 100%;
+        text-align: center;
+    }
+}
