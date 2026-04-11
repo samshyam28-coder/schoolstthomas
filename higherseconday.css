@@ -7,15 +7,25 @@
     --white: #FFFFFF;
 }
 
+/* --- NEW: GLOBAL OVERFLOW KILLER (Fixes the white bar on right) --- */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
 /* 1. THE GAP-KILLER HERO SECTION */
 .hss-hero-bg {
-    /* Pulls section up to eliminate the white line from the navbar */
     margin-top: -1px; 
     padding-top: 100px;
     background: linear-gradient(to bottom, rgba(128, 0, 32, 0.95), rgba(96, 0, 24, 0.9)), 
                 url('../images/hss/hero-bg.jpg') center/cover;
     position: relative;
     z-index: 1;
+    /* Added these to prevent side-scrolling */
+    width: 100%;
+    overflow: hidden; 
 }
 
 .hss-badge {
@@ -128,7 +138,6 @@
     border-radius: 10px;
 }
 
-/* Faculty Hover states */
 .hss-vertical-card:hover {
     transform: translateY(-12px);
     box-shadow: 0 25px 50px rgba(128, 0, 32, 0.1);
@@ -201,14 +210,13 @@
     z-index: 10;
 }
 
-/* Topper Hover states */
 .topper-card:hover .topper-frame {
     border-color: var(--gold);
     transform: translateY(-5px);
 }
 
 .topper-card:hover .topper-badge {
-    transform: translate(-50%, -15px); /* Badge pops up on hover */
+    transform: translate(-50%, -15px); 
 }
 
 .topper-card:hover img {
@@ -228,7 +236,7 @@
     border-radius: 20px; 
     overflow: hidden; 
     height: 250px; 
-    background: #444; /* Fallback color */
+    background: #444;
 }
 
 .gallery-frame img { 
@@ -242,10 +250,16 @@
     transform: scale(1.1); 
 }
 
-/* 7. MOBILE RESPONSIVENESS */
+/* 7. MOBILE RESPONSIVENESS - UPDATED */
 @media (max-width: 768px) {
     .hss-hero-bg {
         padding-top: 80px;
+    }
+
+    /* Fixed: Prevents the title from being wider than the phone screen */
+    .hss-hero-bg h1 {
+        font-size: 2.8rem !important; 
+        line-height: 1.2;
     }
     
     .topper-frame {
@@ -254,7 +268,7 @@
     }
 
     .topper-badge {
-        transform: translate(-50%, -10px); /* Keeps it visible on mobile without hover */
+        transform: translate(-50%, -10px); 
         font-size: 0.6rem;
     }
 }
