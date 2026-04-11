@@ -7,12 +7,19 @@
     --white: #FFFFFF;
 }
 
-/* 1. Hero Styles */
+/* FIX: The Gap-Killer for HSS Section 
+   We apply this to the very first container of your page 
+*/
 .hss-hero-bg {
+    display: flow-root; /* Prevents internal margins from pushing the section down */
     background: linear-gradient(to bottom, rgba(128, 0, 32, 0.95), rgba(96, 0, 24, 0.9)), 
                 url('../images/hss/hero-bg.jpg') center/cover;
+    margin-top: 0 !important;
+    padding-top: 80px; /* Adjust this to give space below your header */
+    position: relative;
 }
 
+/* 1. Hero Content Fixes */
 .hss-badge {
     background: rgba(255, 255, 255, 0.1);
     color: var(--platinum);
@@ -24,6 +31,7 @@
     letter-spacing: 2px;
     display: inline-block;
     margin-bottom: 20px;
+    margin-top: 0 !important; /* Forces the badge not to push the container */
 }
 
 .text-platinum { color: var(--platinum); }
@@ -53,15 +61,13 @@
 .stream-card h3 { font-size: 1.6rem; font-weight: 800; color: var(--burgundy-dark); }
 .stream-line { width: 50px; height: 5px; background: var(--burgundy); margin: 20px auto 0; border-radius: 10px; }
 
-/* --- HSS VERTICAL FACULTY CARDS --- */
-
+/* 3. Vertical Faculty Cards */
 .hss-vertical-card {
     background: var(--white);
     border-radius: 25px;
     overflow: hidden;
     text-align: center;
     border: 1px solid #f0f0f0;
-    /* Anti-Jitter */
     transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
                 box-shadow 0.4s ease, 
                 border-color 0.4s ease;
@@ -122,7 +128,6 @@
     transform: scale(1.1);
 }
 
-/* Small accent line that grows on hover */
 .hss-card-accent {
     width: 0;
     height: 3px;
@@ -132,9 +137,7 @@
     border-radius: 10px;
 }
 
-.hss-vertical-card:hover .hss-card-accent {
-    width: 40px;
-}
+.hss-vertical-card:hover .hss-card-accent { width: 40px; }
 
 /* 4. Infrastructure & Labs */
 .hss-check {
@@ -153,25 +156,25 @@
 .topper-card:hover .topper-img-wrapper { border-color: var(--gold); transform: scale(1.05); }
 
 /* 6. Gallery */
-.bg-burgundy { background: var(--burgundy); }
+.bg-burgundy { 
+    background: var(--burgundy); 
+    display: flow-root; 
+}
 .gallery-frame { border-radius: 20px; overflow: hidden; height: 250px; }
 .gallery-frame img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
 .gallery-frame:hover img { transform: scale(1.1); }
 
-
-
 /* --- HSS TOPPERS CENTERED STYLES --- */
-
 .topper-card {
     display: flex;
     flex-direction: column;
-    align-items: center; /* This centers the entire stack */
+    align-items: center; 
     text-align: center;
 }
 
 .topper-frame {
     position: relative;
-    width: 180px; /* Adjust size as needed */
+    width: 180px; 
     height: 180px;
     border-radius: 50%;
     border: 6px solid var(--white);
@@ -182,17 +185,13 @@
 }
 
 .topper-frame img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
+    width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;
 }
 
 .topper-badge {
     position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translate(-50%, 50%); /* Start hidden/low */
+    bottom: 0; left: 50%;
+    transform: translate(-50%, 50%);
     background: var(--gold);
     color: var(--white);
     padding: 5px 15px;
@@ -205,20 +204,14 @@
     z-index: 10;
 }
 
-/* Topper Hover Effects */
 .topper-card:hover .topper-frame {
     border-color: var(--gold);
     transform: translateY(-5px);
     box-shadow: 0 15px 35px rgba(212, 175, 55, 0.2);
 }
 
-.topper-card:hover .topper-badge {
-    transform: translate(-50%, -10px); /* Pops up on hover */
-}
-
-.topper-card:hover img {
-    transform: scale(1.1);
-}
+.topper-card:hover .topper-badge { transform: translate(-50%, -10px); }
+.topper-card:hover img { transform: scale(1.1); }
 
 .topper-info-box h4 {
     color: var(--burgundy-dark);
@@ -233,4 +226,22 @@
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+}
+
+/* --- MOBILE SPECIFIC GAP KILLER --- */
+@media (max-width: 768px) {
+    .hss-hero-bg {
+        /* This pulls the hero up by 1px to hide the white line on mobile */
+        margin-top: -1px !important;
+        padding-top: 50px !important;
+    }
+    
+    .topper-frame {
+        width: 150px;
+        height: 150px;
+    }
+
+    .stream-card, .hss-vertical-card {
+        margin-bottom: 20px;
+    }
 }
