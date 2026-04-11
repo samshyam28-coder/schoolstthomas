@@ -1,0 +1,145 @@
+/* --- MANAGEMENT PREMIUM GLASSMORPHISM STYLES --- */
+
+.mgmt-glass-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 24px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    text-align: center;
+    transition: none; /* Disabling hover transitions as requested */
+}
+
+/* Patron Cards - Larger */
+.patron-card {
+    width: 320px;
+    padding: 20px;
+}
+
+/* Admin Cards - Standard Grid */
+.admin-card {
+    padding: 15px;
+}
+
+/* Image Frames */
+.mgmt-img-wrapper {
+    width: 100%;
+    aspect-ratio: 4/5;
+    border-radius: 18px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    background: #f1f1f1;
+}
+
+.mgmt-img-wrapper.small {
+    aspect-ratio: 1/1; /* Square for admins */
+    border-radius: 50%; /* Circular for a professional touch */
+    width: 180px;
+    margin: 10px auto 20px;
+}
+
+.mgmt-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Typography */
+.mgmt-content h4 {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--burgundy-dark);
+    margin-bottom: 5px;
+}
+
+.mgmt-content h5 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--burgundy-dark);
+}
+
+.mgmt-content p, .mgmt-content span {
+    font-size: 0.9rem;
+    color: #6B7280;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Governance Cards - Minimalist */
+.gov-card {
+    background: rgba(128, 0, 32, 0.03); /* Very faint burgundy tint */
+}
+
+@media (max-width: 768px) {
+    .patron-card {
+        width: 100%;
+    }
+}
+
+
+/* Circular Frame for Management & Governance */
+.mgmt-img-wrapper.small {
+    width: 160px;
+    height: 160px;
+    margin: 15px auto 20px;
+    border-radius: 50%; /* Perfect Circle */
+    border: 4px solid rgba(255, 255, 255, 0.8); /* Elegant white border */
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.mgmt-img-wrapper.small img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Ensure the Glass Card looks consistent */
+.mgmt-glass-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 24px;
+    padding: 20px;
+    text-align: center;
+}
+
+/* ============================================================
+   NEW UPDATES: MOBILE FIX & PHOTO CENTERING (DO NOT CHANGE ABOVE)
+   ============================================================ */
+
+/* 1. Global fix for the white bar on mobile right side */
+html, body {
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+}
+
+/* 2. Face Centering System */
+.mgmt-img-wrapper img {
+    object-position: center 15%; /* Default focus on the face */
+}
+
+/* Specific Nudges for the people in your screenshot */
+.nudge-up { object-position: center 5% !important; }    /* For Headmaster/PTA */
+.nudge-down { object-position: center 25% !important; }  /* For tall headshots */
+
+/* 3. Padding for the top section title (To avoid Nav overlap) */
+.pt-nav-fix {
+    padding-top: 120px !important;
+}
+
+@media (max-width: 768px) {
+    /* Prevents large titles from breaking mobile width */
+    h1, .text-5xl {
+        font-size: 2.8rem !important;
+        white-space: normal !important;
+        word-wrap: break-word !important;
+    }
+    
+    .pt-nav-fix {
+        padding-top: 100px !important;
+    }
+}
