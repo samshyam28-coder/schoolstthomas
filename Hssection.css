@@ -1,5 +1,5 @@
 /* ST. THOMAS HSS - HIGH SCHOOL SECTION (CLASS VIII - X)
-   Theme: Excellence, Ambition, and Gold Standard
+    Theme: Excellence, Ambition, and Gold Standard
 */
 
 :root {
@@ -11,28 +11,15 @@
     --slate-bg: #F8FAFC;
 }
 
-/* --- GAP KILLER FIXES --- */
-/* Add this to ensure sections don't leak margins and create white lines */
-section {
-    display: flow-root; /* This is the primary fix for the white gaps in your image */
-    margin: 0;
-    padding: 0;
-    border: none;
-    outline: none;
-}
-
 /* --- 1. HERO & SUCCESS PATH --- */
 .hs-hero-bg {
     background-color: var(--hs-navy);
     position: relative;
-    overflow: hidden;
-    margin-top: 0; /* Ensures it touches the navbar */
-    padding-top: 40px; /* Adjust this based on your navbar height */
-}
-
-/* Prevent the first element (badge) from pushing the section down */
-.hs-hero-bg .hs-badge {
-    margin-top: 0; 
+    /* REFERENCE-STYLE FIX: Prevents white gap and horizontal scroll */
+    overflow: hidden; 
+    display: flow-root; 
+    width: 100%;
+    max-width: 100%;
 }
 
 .hs-badge {
@@ -46,6 +33,8 @@ section {
     text-transform: uppercase;
     display: inline-block;
     margin-bottom: 20px;
+    /* REFERENCE-STYLE FIX: Stops badge from pushing the background down */
+    margin-top: 0 !important; 
 }
 
 .text-gold { color: var(--gold); }
@@ -60,6 +49,8 @@ section {
     animation: successPulse 6s infinite ease-in-out;
     pointer-events: none;
     z-index: 1;
+    /* REFERENCE-STYLE FIX */
+    max-width: 100vw; 
 }
 
 @keyframes successPulse {
@@ -72,6 +63,8 @@ section {
     position: relative; height: 500px;
     display: flex; align-items: center; justify-content: center;
     z-index: 5;
+    /* REFERENCE-STYLE FIX */
+    background: transparent !important;
 }
 
 .hs-student-img {
@@ -120,24 +113,23 @@ section {
 
 /* Fix for Innovation Labs Text Visibility */
 .bg-navy {
-    background-color: #1E293B !important; 
-    display: flow-root; /* Gap Killer */
+    background-color: #1E293B !important; /* Ensuring the background is dark */
 }
 
 .bg-navy h3 {
-    color: #D4AF37 !important; 
+    color: #D4AF37 !important; /* Makes 'Innovation Labs' Title Gold */
 }
 
 .bg-navy p {
-    color: #E2E8F0 !important; 
+    color: #E2E8F0 !important; /* Makes the description a clean light gray/white */
 }
 
 .bg-navy ul li {
-    color: #F8FAFC !important; 
+    color: #F8FAFC !important; /* Makes the list items bright white */
 }
 
 .bg-navy ul li i {
-    color: #D4AF37 !important; 
+    color: #D4AF37 !important; /* Ensures the tick icons stay Gold */
 }
 
 .btn-hs-gold {
@@ -157,7 +149,7 @@ section {
     box-shadow: 0 15px 30px rgba(212, 175, 55, 0.3);
 }
 
-/* --- 3. EXPERT MENTORS --- */
+/* --- 3. EXPERT MENTORS (ANTI-JITTER VERSION) --- */
 .teacher-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -172,6 +164,7 @@ section {
     align-items: center;
     gap: 20px;
     border: 1px solid rgba(0,0,0,0.05);
+    /* Performance fixes for smooth hover */
     transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
                 box-shadow 0.4s ease, 
                 border-color 0.4s ease;
@@ -187,6 +180,7 @@ section {
     z-index: 20;
 }
 
+/* Icon Box inside Faculty */
 .hs-bg-soft {
     background: rgba(212, 175, 55, 0.1) !important; 
     color: var(--gold-dark) !important; 
@@ -240,11 +234,23 @@ section {
 .hs-successor-card:hover .successor-overlay { opacity: 1; }
 .hs-successor-card:hover img { transform: scale(1.1); }
 
-/* --- MOBILE OPTIMIZATIONS --- */
+/* --- MOBILE OPTIMIZATIONS & GAP FIXES --- */
 @media (max-width: 768px) {
+    .hs-hero-bg { 
+        height: auto; 
+        padding-top: 0 !important;
+        margin-top: -1px !important; /* Pulls up to seal any sub-pixel white line */
+    }
     .hs-hero-stage { height: 350px; }
     .hs-element { width: 50px; height: 50px; font-size: 1.2rem; }
     .hs-student-img { height: 300px; }
     .teacher-grid { grid-template-columns: 1fr; }
     .hs-plan-item:hover { transform: translateX(5px); }
+}
+
+/* REFERENCE-STYLE OVERFLOW LOCK */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+    position: relative;
 }
