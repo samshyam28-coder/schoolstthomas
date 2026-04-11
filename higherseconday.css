@@ -15,21 +15,27 @@ html, body {
     padding: 0;
 }
 
-/* 1. THE GAP-KILLER HERO SECTION */
+/* 1. THE GAP-KILLER HERO SECTION - UPDATED FOR TEXT CLEARANCE */
 .hss-hero-bg {
-    margin-top: 0; /* Changed from -1px to 0 to prevent pulling upward */
-    padding-top: 180px; /* Increased from 140px for better desktop clearance */
-    padding-bottom: 100px;
+    margin-top: 0; 
+    padding-top: 220px !important; /* Heavily increased to push text below navbar */
+    padding-bottom: 120px;
     background: linear-gradient(to bottom, rgba(128, 0, 32, 0.95), rgba(96, 0, 24, 0.9)), 
                 url('../images/hss/hero-bg.jpg') center/cover;
     position: relative;
     z-index: 1;
     width: 100%;
     overflow: hidden; 
-    min-height: 80vh; /* Ensures the burgundy section has enough height */
+    min-height: 60vh; 
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start; /* Changed from center to allow padding to push text */
+    align-items: center;
+}
+
+/* Adds specific padding to the text wrapper inside the hero */
+.hss-hero-bg .max-w-screen-xl {
+    padding-top: 20px;
 }
 
 /* --- ADDED: STABLE HERO ANIMATION (Prevents jumping behind nav) --- */
@@ -264,17 +270,21 @@ html, body {
     transform: scale(1.1); 
 }
 
-/* 7. MOBILE RESPONSIVENESS - UPDATED */
+/* 7. MOBILE RESPONSIVENESS - UPDATED FOR TEXT CLEARANCE */
 @media (max-width: 768px) {
     .hss-hero-bg {
-        padding-top: 120px; /* Increased from 80px for mobile nav clearance */
+        padding-top: 140px !important; /* Increased for mobile nav clearance */
         min-height: auto;
     }
 
-    /* Fixed: Prevents the title from being wider than the phone screen */
+    /* Prevents the title from being wider than the phone screen */
     .hss-hero-bg h1 {
-        font-size: 2.8rem !important; 
+        font-size: 2.6rem !important; 
         line-height: 1.2;
+    }
+
+    .hss-hero-bg .max-w-screen-xl {
+        padding-top: 0;
     }
     
     .topper-frame {
