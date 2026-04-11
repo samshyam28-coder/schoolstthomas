@@ -1,5 +1,5 @@
 /* ST. THOMAS HSS - HIGH SCHOOL SECTION (CLASS VIII - X)
-    Theme: Excellence, Ambition, and Gold Standard
+   Theme: Excellence, Ambition, and Gold Standard
 */
 
 :root {
@@ -11,11 +11,28 @@
     --slate-bg: #F8FAFC;
 }
 
+/* --- GAP KILLER FIXES --- */
+/* Add this to ensure sections don't leak margins and create white lines */
+section {
+    display: flow-root; /* This is the primary fix for the white gaps in your image */
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+}
+
 /* --- 1. HERO & SUCCESS PATH --- */
 .hs-hero-bg {
     background-color: var(--hs-navy);
     position: relative;
     overflow: hidden;
+    margin-top: 0; /* Ensures it touches the navbar */
+    padding-top: 40px; /* Adjust this based on your navbar height */
+}
+
+/* Prevent the first element (badge) from pushing the section down */
+.hs-hero-bg .hs-badge {
+    margin-top: 0; 
 }
 
 .hs-badge {
@@ -103,23 +120,24 @@
 
 /* Fix for Innovation Labs Text Visibility */
 .bg-navy {
-    background-color: #1E293B !important; /* Ensuring the background is dark */
+    background-color: #1E293B !important; 
+    display: flow-root; /* Gap Killer */
 }
 
 .bg-navy h3 {
-    color: #D4AF37 !important; /* Makes 'Innovation Labs' Title Gold */
+    color: #D4AF37 !important; 
 }
 
 .bg-navy p {
-    color: #E2E8F0 !important; /* Makes the description a clean light gray/white */
+    color: #E2E8F0 !important; 
 }
 
 .bg-navy ul li {
-    color: #F8FAFC !important; /* Makes the list items bright white */
+    color: #F8FAFC !important; 
 }
 
 .bg-navy ul li i {
-    color: #D4AF37 !important; /* Ensures the tick icons stay Gold */
+    color: #D4AF37 !important; 
 }
 
 .btn-hs-gold {
@@ -139,7 +157,7 @@
     box-shadow: 0 15px 30px rgba(212, 175, 55, 0.3);
 }
 
-/* --- 3. EXPERT MENTORS (ANTI-JITTER VERSION) --- */
+/* --- 3. EXPERT MENTORS --- */
 .teacher-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -154,7 +172,6 @@
     align-items: center;
     gap: 20px;
     border: 1px solid rgba(0,0,0,0.05);
-    /* Performance fixes for smooth hover */
     transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
                 box-shadow 0.4s ease, 
                 border-color 0.4s ease;
@@ -170,7 +187,6 @@
     z-index: 20;
 }
 
-/* Icon Box inside Faculty */
 .hs-bg-soft {
     background: rgba(212, 175, 55, 0.1) !important; 
     color: var(--gold-dark) !important; 
@@ -231,60 +247,4 @@
     .hs-student-img { height: 300px; }
     .teacher-grid { grid-template-columns: 1fr; }
     .hs-plan-item:hover { transform: translateX(5px); }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* --- HS SECTION POLISH --- */
-
-/* Fix: Make the SSLC Blueprint numbers look 'engraved' */
-.hs-number {
-    background: linear-gradient(180deg, #E2E8F0 0%, #CBD5E1 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    opacity: 0.5;
-}
-
-/* Fix: Smooth out the Successor Card image transition */
-.successor-img-box img {
-    filter: grayscale(20%); /* Gives it a serious, archival look */
-}
-
-.hs-successor-card:hover img {
-    filter: grayscale(0%);
-    transform: scale(1.05);
-}
-
-/* Improvement: Add a subtle gold glow to the Successor Overlay */
-.successor-overlay {
-    background: radial-gradient(circle, rgba(212, 175, 55, 0.2) 0%, rgba(30, 41, 59, 0.9) 100%);
-}
-
-/* Fix: Ensure the HS Hero doesn't create horizontal scroll on mobile */
-.hs-hero-bg {
-    max-width: 100vw;
-    overflow: hidden;
-}
-
-/* Make the 'View SSLC Master Plan' button pulse slightly to draw attention */
-.btn-hs-gold {
-    animation: buttonPulse 3s infinite;
-}
-
-@keyframes buttonPulse {
-    0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4); }
-    70% { box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
 }
