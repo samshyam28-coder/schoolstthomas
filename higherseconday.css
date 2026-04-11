@@ -28,6 +28,16 @@ html, body {
     overflow: hidden; 
 }
 
+/* --- ADDED: STABLE HERO ANIMATION (Prevents jumping behind nav) --- */
+.hss-fade-in {
+    animation: heroFadeIn 1.2s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+}
+
+@keyframes heroFadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
 .hss-badge {
     background: rgba(255, 255, 255, 0.1);
     color: var(--platinum);
