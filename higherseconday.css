@@ -7,19 +7,17 @@
     --white: #FFFFFF;
 }
 
-/* FIX: The Gap-Killer for HSS Section 
-   We apply this to the very first container of your page 
-*/
+/* 1. THE GAP-KILLER HERO SECTION */
 .hss-hero-bg {
-    display: flow-root; /* Prevents internal margins from pushing the section down */
+    /* Pulls section up to eliminate the white line from the navbar */
+    margin-top: -1px; 
+    padding-top: 100px;
     background: linear-gradient(to bottom, rgba(128, 0, 32, 0.95), rgba(96, 0, 24, 0.9)), 
                 url('../images/hss/hero-bg.jpg') center/cover;
-    margin-top: 0 !important;
-    padding-top: 80px; /* Adjust this to give space below your header */
     position: relative;
+    z-index: 1;
 }
 
-/* 1. Hero Content Fixes */
 .hss-badge {
     background: rgba(255, 255, 255, 0.1);
     color: var(--platinum);
@@ -31,12 +29,11 @@
     letter-spacing: 2px;
     display: inline-block;
     margin-bottom: 20px;
-    margin-top: 0 !important; /* Forces the badge not to push the container */
 }
 
 .text-platinum { color: var(--platinum); }
 
-/* 2. Stream Cards */
+/* 2. STREAM CARDS */
 .stream-card {
     background: var(--white);
     padding: 50px 30px;
@@ -61,7 +58,17 @@
 .stream-card h3 { font-size: 1.6rem; font-weight: 800; color: var(--burgundy-dark); }
 .stream-line { width: 50px; height: 5px; background: var(--burgundy); margin: 20px auto 0; border-radius: 10px; }
 
-/* 3. Vertical Faculty Cards */
+/* 3. FACULTY SECTION & MENTORS */
+.hss-mentor-label {
+    color: var(--burgundy);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    display: block;
+    margin-bottom: 8px;
+}
+
 .hss-vertical-card {
     background: var(--white);
     border-radius: 25px;
@@ -72,7 +79,6 @@
                 box-shadow 0.4s ease, 
                 border-color 0.4s ease;
     will-change: transform;
-    backface-visibility: hidden;
 }
 
 .hss-card-top {
@@ -92,7 +98,6 @@
     justify-content: center;
     font-size: 2.5rem;
     transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    border: 2px solid transparent;
 }
 
 .hss-card-bottom {
@@ -104,18 +109,26 @@
     font-size: 1.2rem;
     font-weight: 800;
     color: var(--burgundy-dark);
-    margin-bottom: 5px;
 }
 
 .hss-card-bottom p {
     color: #6B7280;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
-/* Hover Effects */
+.hss-card-accent {
+    width: 0;
+    height: 3px;
+    background: var(--burgundy);
+    margin: 15px auto 0;
+    transition: width 0.4s ease;
+    border-radius: 10px;
+}
+
+/* Faculty Hover states */
 .hss-vertical-card:hover {
     transform: translateY(-12px);
     box-shadow: 0 25px 50px rgba(128, 0, 32, 0.1);
@@ -128,43 +141,23 @@
     transform: scale(1.1);
 }
 
-.hss-card-accent {
-    width: 0;
-    height: 3px;
-    background: var(--burgundy);
-    margin: 15px auto 0;
-    transition: width 0.4s ease;
-    border-radius: 10px;
+.hss-vertical-card:hover .hss-card-accent {
+    width: 40px;
 }
 
-.hss-vertical-card:hover .hss-card-accent { width: 40px; }
-
-/* 4. Infrastructure & Labs */
+/* 4. INFRASTRUCTURE & FACILITIES */
 .hss-check {
     width: 30px; height: 30px; background: var(--burgundy);
     color: white; border-radius: 50%; display: flex;
     align-items: center; justify-content: center; flex-shrink: 0;
 }
 
-/* 5. Toppers */
-.topper-img-wrapper {
-    width: 150px; height: 150px; margin: 0 auto;
-    border-radius: 50%; border: 5px solid var(--platinum);
-    overflow: hidden; transition: 0.4s;
+.hss-image-frame {
+    position: relative;
+    z-index: 1;
 }
 
-.topper-card:hover .topper-img-wrapper { border-color: var(--gold); transform: scale(1.05); }
-
-/* 6. Gallery */
-.bg-burgundy { 
-    background: var(--burgundy); 
-    display: flow-root; 
-}
-.gallery-frame { border-radius: 20px; overflow: hidden; height: 250px; }
-.gallery-frame img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
-.gallery-frame:hover img { transform: scale(1.1); }
-
-/* --- HSS TOPPERS CENTERED STYLES --- */
+/* 5. TOPPERS SECTION */
 .topper-card {
     display: flex;
     flex-direction: column;
@@ -185,12 +178,16 @@
 }
 
 .topper-frame img {
-    width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
 }
 
 .topper-badge {
     position: absolute;
-    bottom: 0; left: 50%;
+    bottom: 0;
+    left: 50%;
     transform: translate(-50%, 50%);
     background: var(--gold);
     color: var(--white);
@@ -204,44 +201,60 @@
     z-index: 10;
 }
 
+/* Topper Hover states */
 .topper-card:hover .topper-frame {
     border-color: var(--gold);
     transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(212, 175, 55, 0.2);
 }
 
-.topper-card:hover .topper-badge { transform: translate(-50%, -10px); }
-.topper-card:hover img { transform: scale(1.1); }
+.topper-card:hover .topper-badge {
+    transform: translate(-50%, -15px); /* Badge pops up on hover */
+}
+
+.topper-card:hover img {
+    transform: scale(1.1);
+}
 
 .topper-info-box h4 {
     color: var(--burgundy-dark);
     font-size: 1.2rem;
     font-weight: 800;
-    margin-bottom: 5px;
 }
 
-.topper-info-box p {
-    color: #6B7280;
-    font-size: 0.85rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+/* 6. CAMPUS LIFE GALLERY */
+.bg-burgundy { background: var(--burgundy) !important; }
+
+.gallery-frame { 
+    border-radius: 20px; 
+    overflow: hidden; 
+    height: 250px; 
+    background: #444; /* Fallback color */
 }
 
-/* --- MOBILE SPECIFIC GAP KILLER --- */
+.gallery-frame img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    transition: 0.5s; 
+}
+
+.gallery-frame:hover img { 
+    transform: scale(1.1); 
+}
+
+/* 7. MOBILE RESPONSIVENESS */
 @media (max-width: 768px) {
     .hss-hero-bg {
-        /* This pulls the hero up by 1px to hide the white line on mobile */
-        margin-top: -1px !important;
-        padding-top: 50px !important;
+        padding-top: 80px;
     }
     
     .topper-frame {
-        width: 150px;
-        height: 150px;
+        width: 140px;
+        height: 140px;
     }
 
-    .stream-card, .hss-vertical-card {
-        margin-bottom: 20px;
+    .topper-badge {
+        transform: translate(-50%, -10px); /* Keeps it visible on mobile without hover */
+        font-size: 0.6rem;
     }
 }
