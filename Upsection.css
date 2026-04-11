@@ -262,3 +262,53 @@ body {
     .up-hero-glow { width: 250px; height: 250px; }
     .teacher-grid { grid-template-columns: 1fr; }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- GAP KILLER ADDITIONS --- */
+
+/* 1. Prevent the whole page from shaking/sliding */
+html, body {
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+
+/* 2. Contain the orbiting icons so they don't leak right */
+.up-hero-bg {
+    position: relative;
+    overflow: hidden !important;
+    width: 100%;
+}
+
+/* 3. Adjust the Hero Stage for Mobile */
+@media (max-width: 768px) {
+    .up-hero-stage {
+        height: 350px;
+        max-width: 100vw;
+        overflow: hidden; /* This keeps icons inside the hero area */
+    }
+
+    /* Move the right-side icons slightly inward so they don't touch the edge */
+    .d-icon-2 { right: 5% !important; }
+    .d-icon-3 { right: 2% !important; }
+    
+    /* Shrink the glow so it doesn't bleed out */
+    .up-hero-glow {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+/* 4. Fix for Achievement Cards popping out during animation */
+.glass-achieve-card {
+    max-width: 100%;
+}
