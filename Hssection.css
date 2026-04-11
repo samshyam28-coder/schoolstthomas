@@ -232,3 +232,59 @@
     .teacher-grid { grid-template-columns: 1fr; }
     .hs-plan-item:hover { transform: translateX(5px); }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- HS SECTION POLISH --- */
+
+/* Fix: Make the SSLC Blueprint numbers look 'engraved' */
+.hs-number {
+    background: linear-gradient(180deg, #E2E8F0 0%, #CBD5E1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 0.5;
+}
+
+/* Fix: Smooth out the Successor Card image transition */
+.successor-img-box img {
+    filter: grayscale(20%); /* Gives it a serious, archival look */
+}
+
+.hs-successor-card:hover img {
+    filter: grayscale(0%);
+    transform: scale(1.05);
+}
+
+/* Improvement: Add a subtle gold glow to the Successor Overlay */
+.successor-overlay {
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.2) 0%, rgba(30, 41, 59, 0.9) 100%);
+}
+
+/* Fix: Ensure the HS Hero doesn't create horizontal scroll on mobile */
+.hs-hero-bg {
+    max-width: 100vw;
+    overflow: hidden;
+}
+
+/* Make the 'View SSLC Master Plan' button pulse slightly to draw attention */
+.btn-hs-gold {
+    animation: buttonPulse 3s infinite;
+}
+
+@keyframes buttonPulse {
+    0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4); }
+    70% { box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+}
