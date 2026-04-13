@@ -2273,3 +2273,159 @@ body {
     /* This ensures we focus on the face/top area when zooming */
     object-position: top center; 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* PREMIUM NIYAMASABHA SECTION STYLES */
+.st-niyama-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #05162a 0%, #09223f 100%);
+    overflow: hidden;
+}
+
+.st-niyama-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.st-niyama-title {
+    font-family: 'Poppins', sans-serif;
+    color: #ffffff;
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+}
+
+.st-niyama-subtitle {
+    font-family: 'Manjari', sans-serif;
+    color: #28a745; /* Your Green Accent */
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+.st-niyama-divider {
+    width: 60px;
+    height: 4px;
+    background: #28a745;
+    margin: 15px auto;
+    border-radius: 2px;
+}
+
+/* THE GLASS FILM STRIP */
+.st-niyama-swiper {
+    padding: 40px 0 !important;
+}
+
+.st-niyama-glass-img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur(4px);
+    transition: transform 0.4s ease, filter 0.4s ease;
+    cursor: pointer;
+}
+
+.st-niyama-glass-img:hover {
+    transform: scale(1.08);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    filter: brightness(1.1);
+}
+
+/* LIGHTBOX DESIGN */
+.st-niyama-lightbox {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(5, 22, 42, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+.st-niyama-close {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    color: #fff;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    background: rgba(255,255,255,0.1);
+    width: 60px;
+    height: 60px;
+    line-height: 55px;
+    text-align: center;
+    border-radius: 50%;
+}
+
+.st-niyama-lightbox-content {
+    margin: auto;
+    display: block;
+    max-width: 85%;
+    max-height: 80%;
+    border-radius: 10px;
+    margin-top: 5%;
+    box-shadow: 0 0 50px rgba(0,0,0,0.5);
+}
+
+.st-niyama-lightbox-nav span {
+    position: absolute;
+    top: 50%;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+    padding: 20px;
+    transition: 0.3s;
+}
+
+.st-niyama-lightbox-nav .prev { left: 20px; }
+.st-niyama-lightbox-nav .next { right: 20px; }
