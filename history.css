@@ -1,0 +1,161 @@
+/* --- HISTORY PAGE BASE --- */
+.history-page {
+    background-color: #1b1a1a;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+}
+
+.hiscontainer {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.history-section {
+    padding: 60px 0;
+    text-align: center;
+}
+
+/* HERO SECTION - FIXED SPACING */
+.history-hero {
+    height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+}
+
+.hero-overlay h1 {
+    font-size: clamp(2.2rem, 8vw, 4rem);
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: 800;
+    margin: 0;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+    text-align: center;
+    
+}
+
+.hero-overlay p {
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    color: #4CAF50;
+    margin-top: 0px;
+    text-align: center;
+
+}
+
+/* PARALLAX WINDOW - THE "NO-GHOSTING" FIX */
+.parallax-window {
+    height: 500px;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.parallax-content h2 {
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    text-shadow: 2px 2px 15px rgba(0,0,0,1);
+    z-index: 5;
+    text-align: center;
+}
+
+/* --- ALUMNI SECTION & HOVER EFFECTS --- */
+.alumni-section {
+    background-color: #0a0a0a;
+    padding: 80px 0;
+}
+
+.alumni-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.alumni-card {
+    background: #181818;
+    padding: 40px 30px;
+    border-radius: 12px;
+    border-bottom: 4px solid #4CAF50;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Smooth pop effect */
+}
+
+.alumni-card:hover {
+    transform: translateY(-15px);
+    background: #202020;
+    border-color: #81C784;
+    box-shadow: 0 15px 35px rgba(76, 175, 80, 0.2);
+}
+
+.alumni-card h3 {
+    color: #ffffff;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+.alumni-card p {
+    color: #aaaaaa;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* --- MOBILE RESPONSIVE --- */
+@media screen and (max-width: 768px) {
+    .history-hero { height: auto; padding: 120px 40px; }
+    
+    .parallax-window {
+        height: 300px !important;
+        background-attachment: scroll !important; /* Fixes "Double Image" on real phones */
+    }
+
+    /* Kill pseudo-layers that cause image glitches on mobile */
+    .parallax-window::before { display: none !important; }
+
+    .history-section { padding: 40px 0; }
+
+    .alumni-grid {
+        grid-template-columns: 1fr; /* Stack cards on phone */
+        padding: 0 10px;
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    
+    /* THE HERO FIX */
+    .history-hero {
+        height: 20vh !important; /* Force a clear height on mobile */
+        display: flex;
+        align-items: center; /* Centers the text vertically */
+        justify-content: center;
+        background: #000;
+        position: relative;
+    }
+
+    .hero-overlay {
+        width: 100%;
+        text-align: center;
+        z-index: 10;
+    }
+
+    .hero-overlay h1 {
+        font-size: 2.2rem !important; /* Smaller size for mobile */
+        line-height: 1.2;
+        margin: 0;
+        display: block !important; /* Ensures it's not hidden */
+        color: #ffffff !important;
+    }
+
+    .hero-overlay p {
+        font-size: 1.1rem !important;
+        margin-top: 0px;
+        color: #4CAF50 !important;
+    }
+}
