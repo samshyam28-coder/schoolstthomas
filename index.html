@@ -140,10 +140,7 @@
                 <a href="javascript:void(0)" class="drop-trigger">ABOUT US <i class="fas fa-chevron-down"></i></a>
                 <ul class="submenu">
                     <li><a href="history.html">School History</a></li>
-                    <li><a href="index.html#vision">Vision & Mission</a></li>
                     <li><a href="management.html">Management</a></li>
-                    <li><a href="faculty.html">Faculty</a></li>
-                    <li><a href="officestaff.html">Office Staff</a></li>
                     <li><a href="non-teaching.html">Non-Teaching Staff</a></li>
                 </ul>
             </li>
@@ -166,18 +163,7 @@
                 </ul>
             </li>
 
-            <li class="dropdown">
-                <a href="javascript:void(0)" class="drop-trigger">FACILITIES <i class="fas fa-chevron-down"></i></a>
-                <ul class="submenu">
-                    <li><a href="computerlab.html">Computer Lab</a></li>
-                    <li><a href="library.html">Library</a></li>
-                    <li><a href="smart.html">Smart Classrooms</a></li>
-                    <li><a href="laboratory.html">Laboratories</a></li>
-                    <li><a href="sportsfacilities.html">Sports Facilities</a></li>
-                    <li><a href="activities.html">Activities</a></li>
-                </ul>
-            </li>
-
+            <li><a href="announcements.html">ANNOUNCEMENTS</a></li>
             <li><a href="gallery.html">GALLERY</a></li>
             <li><a href="contact.html">CONTACT US</a></li>
         </ul>
@@ -395,6 +381,59 @@
 
     </div>
 </section>
+
+
+
+
+
+
+<section class="st-niyama-section">
+    <div class="st-niyama-container">
+        <div class="st-niyama-header">
+            <h2 class="st-niyama-title">AN ENLIGHTENING ENCOUNTER</h2>
+            <p class="st-niyama-subtitle">Our Students at the Kerala Legislative Assembly with Hon. Speaker A. N. Shamseer</p>
+            <div class="st-niyama-divider"></div>
+        </div>
+
+        <div class="swiper st-niyama-swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="images/niyamasabha/1.jpeg" class="st-niyama-glass-img" alt="Niyamasabha 1"></div>
+                <div class="swiper-slide"><img src="images/niyamasabha/2.jpeg" class="st-niyama-glass-img" alt="Niyamasabha 2"></div>
+                <div class="swiper-slide"><img src="images/niyamasabha/3.jpeg" class="st-niyama-glass-img" alt="Niyamasabha 3"></div>
+                <div class="swiper-slide"><img src="images/niyamasabha/4.jpeg" class="st-niyama-glass-img" alt="Niyamasabha 4"></div>
+                <div class="swiper-slide"><img src="images/niyamasabha/5.jpeg" class="st-niyama-glass-img" alt="Niyamasabha 5"></div>
+                <div class="swiper-slide"><img src="images/niyamasabha/6.jpeg" class="st-niyama-glass-img" alt="Niyamasabha 6"></div>
+                <div class="swiper-slide"><img src="images/niyamasabha/7.jpeg" class="st-niyama-glass-img" alt="Niyamasabha 7"></div>
+                <div class="swiper-slide"><img src="images/niyamasabha/8.jpeg" class="st-niyama-glass-img" alt="Niyamasabha 8"></div>
+                <div class="swiper-slide"><img src="images/niyamasabha/9.jpeg" class="st-niyama-glass-img" alt="Niyamasabha 9"></div>
+                <div class="swiper-slide"><img src="images/niyamasabha/10.jpeg" class="st-niyama-glass-img" alt="Niyamasabha 10"></div>
+                <div class="swiper-slide"><img src="images/niyamasabha/11.jpeg" class="st-niyama-glass-img" alt="Niyamasabha 11"></div>
+                <div class="swiper-slide"><img src="images/niyamasabha/12.jpeg" class="st-niyama-glass-img" alt="Niyamasabha 12"></div>
+                <div class="swiper-slide"><img src="images/niyamasabha/13.jpeg" class="st-niyama-glass-img" alt="Niyamasabha 13"></div>
+                <div class="swiper-slide"><img src="images/niyamasabha/14.jpeg" class="st-niyama-glass-img" alt="Niyamasabha 14"></div>
+                <div class="swiper-slide"><img src="images/niyamasabha/15.jpeg" class="st-niyama-glass-img" alt="Niyamasabha 15"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="st-niyama-lightbox" class="st-niyama-lightbox">
+        <span class="st-niyama-close">&times;</span>
+        <img class="st-niyama-lightbox-content" id="st-lightbox-img">
+        <div class="st-niyama-lightbox-nav">
+            <span class="prev">&#10094;</span>
+            <span class="next">&#10095;</span>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
 
 
 
@@ -855,6 +894,76 @@ function updateEduSlider() {
     }
 }
 
+</script>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    // 1. Initialize Swiper for the Niyamasabha Section
+    const niyamaSwiper = new Swiper('.st-niyama-swiper', {
+        loop: true,
+        speed: 5000, // Very slow for that film strip look
+        autoplay: {
+            delay: 1,
+            disableOnInteraction: false,
+        },
+        slidesPerView: 2,
+        spaceBetween: 20,
+        freeMode: true,
+        breakpoints: {
+            640: { slidesPerView: 3 },
+            1024: { slidesPerView: 5 }
+        }
+    });
+
+    // 2. Pause on Hover & Speed up on Touch
+    const swiperContainer = document.querySelector('.st-niyama-swiper');
+    
+    swiperContainer.addEventListener('mouseenter', () => {
+        niyamaSwiper.autoplay.stop();
+    });
+
+    swiperContainer.addEventListener('mouseleave', () => {
+        niyamaSwiper.params.speed = 5000; // Reset to slow
+        niyamaSwiper.autoplay.start();
+    });
+
+    // Speed up logic for touch/drag
+    swiperContainer.addEventListener('mousedown', () => {
+        niyamaSwiper.params.speed = 300; // Fast for snappy dragging
+    });
+    swiperContainer.addEventListener('touchstart', () => {
+        niyamaSwiper.params.speed = 300;
+    });
+
+    // 3. Lightbox Logic
+    const lightbox = document.getElementById('st-niyama-lightbox');
+    const lightboxImg = document.getElementById('st-lightbox-img');
+    const closeBtn = document.querySelector('.st-niyama-close');
+    const galleryImgs = document.querySelectorAll('.st-niyama-glass-img');
+    let currentImgIndex = 0;
+
+    galleryImgs.forEach((img, index) => {
+        img.onclick = function() {
+            lightbox.style.display = "block";
+            lightboxImg.src = this.src;
+            currentImgIndex = index;
+        }
+    });
+
+    closeBtn.onclick = () => lightbox.style.display = "none";
+
+    // Nav within Lightbox
+    document.querySelector('.next').onclick = () => {
+        currentImgIndex = (currentImgIndex + 1) % galleryImgs.length;
+        lightboxImg.src = galleryImgs[currentImgIndex].src;
+    };
+
+    document.querySelector('.prev').onclick = () => {
+        currentImgIndex = (currentImgIndex - 1 + galleryImgs.length) % galleryImgs.length;
+        lightboxImg.src = galleryImgs[currentImgIndex].src;
+    };
+});
 </script>
 
 
