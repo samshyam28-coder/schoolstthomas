@@ -2338,6 +2338,7 @@ body {
     font-weight: 700;
     letter-spacing: 2px;
     margin-bottom: 5px;
+    text-transform: uppercase;
 }
 
 .st-niyama-subtitle {
@@ -2345,6 +2346,7 @@ body {
     color: #28a745; /* Your Green Accent */
     font-size: 1.2rem;
     font-weight: 400;
+    padding: 0 15px;
 }
 
 .st-niyama-divider {
@@ -2368,64 +2370,115 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
     backdrop-filter: blur(4px);
-    transition: transform 0.4s ease, filter 0.4s ease;
+    transition: transform 0.4s ease, border 0.4s ease, filter 0.4s ease;
     cursor: pointer;
+    will-change: transform; /* Boosts performance for animation */
 }
 
 .st-niyama-glass-img:hover {
-    transform: scale(1.08);
+    transform: scale(1.05);
     border: 1px solid rgba(255, 255, 255, 0.4);
     filter: brightness(1.1);
 }
 
-/* LIGHTBOX DESIGN */
+/* UPDATED LIGHTBOX - FLEXBOX CENTERING */
 .st-niyama-lightbox {
-    display: none;
+    display: none; /* Controlled by JS via .active class */
     position: fixed;
-    z-index: 9999;
+    z-index: 10000; /* Higher than any header/nav */
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(5, 22, 42, 0.95);
-    backdrop-filter: blur(10px);
+    background-color: rgba(5, 22, 42, 0.98);
+    backdrop-filter: blur(15px);
+    
+    /* Center everything inside */
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* JS will toggle this class to show the lightbox */
+.st-niyama-lightbox.active {
+    display: flex !important;
 }
 
 .st-niyama-close {
     position: absolute;
-    top: 30px;
-    right: 40px;
+    top: 20px;
+    right: 20px;
     color: #fff;
-    font-size: 50px;
+    font-size: 40px;
     font-weight: bold;
     cursor: pointer;
     background: rgba(255,255,255,0.1);
-    width: 60px;
-    height: 60px;
-    line-height: 55px;
+    width: 50px;
+    height: 50px;
+    line-height: 45px;
     text-align: center;
     border-radius: 50%;
+    transition: background 0.3s;
+    z-index: 10001;
+}
+
+.st-niyama-close:hover {
+    background: rgba(255,255,255,0.2);
 }
 
 .st-niyama-lightbox-content {
-    margin: auto;
     display: block;
-    max-width: 85%;
-    max-height: 80%;
+    max-width: 90%;
+    max-height: 75vh; /* Keep height safe on mobile */
     border-radius: 10px;
-    margin-top: 5%;
-    box-shadow: 0 0 50px rgba(0,0,0,0.5);
+    box-shadow: 0 0 50px rgba(0,0,0,0.8);
+    border: 1px solid rgba(255,255,255,0.2);
+    object-fit: contain;
 }
 
+/* LIGHTBOX NAVIGATION */
 .st-niyama-lightbox-nav span {
     position: absolute;
     top: 50%;
+    transform: translateY(-50%);
     color: white;
-    font-size: 40px;
+    font-size: 35px;
     cursor: pointer;
-    padding: 20px;
+    padding: 15px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 5px;
     transition: 0.3s;
+    user-select: none;
 }
 
-.st-niyama-lightbox-nav .prev { left: 20px; }
-.st-niyama-lightbox-nav .next { right: 20px; }
+.st-niyama-lightbox-nav span:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+.st-niyama-lightbox-nav .prev { left: 10px; }
+.st-niyama-lightbox-nav .next { right: 10px; }
+
+/* MOBILE RESPONSIVENESS */
+@media (max-width: 768px) {
+    .st-niyama-section { padding: 50px 0; }
+    
+    .st-niyama-title { font-size: 1.8rem; }
+    
+    .st-niyama-glass-img { 
+        height: 220px; /* Shorter for mobile screens */
+    }
+
+    .st-niyama-close {
+        top: 15px;
+        right: 15px;
+        width: 45px;
+        height: 45px;
+        font-size: 35px;
+        line-height: 40px;
+    }
+
+    .st-niyama-lightbox-nav span {
+        padding: 10px;
+        font-size: 25px;
+    }
+}
