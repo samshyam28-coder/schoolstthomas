@@ -38,12 +38,25 @@
 
 /* --- SECTION 3: GLASS GALLERY HUB --- */
 .gallery-hub { 
-    padding: 100px 10%; background: radial-gradient(circle at center, #09223f, #05162a); 
-    text-align: center;
+    padding: 60px 10% 100px; background: radial-gradient(circle at center, #09223f, #05162a); 
+    text-align: center; /* Titles center aligned */
 }
-.hub-title { color: white; font-size: 2.5rem; margin-bottom: 50px; }
+.hub-title { color: white; font-size: 3rem; margin-bottom: 20px; font-weight: 800; }
 
-.glass-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; perspective: 1000px; }
+/* Professional Underline for Sections */
+.section-heading {
+    color: white; font-size: 1.8rem; font-weight: 700; margin: 60px 0 30px;
+    text-transform: uppercase; letter-spacing: 2px; position: relative; display: inline-block;
+}
+.section-heading::after {
+    content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%);
+    width: 80px; height: 3px; background: #bf953f; border-radius: 2px;
+}
+
+.glass-grid { 
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; perspective: 1000px; 
+    text-align: left; /* Cards content left aligned */
+}
 
 .glass-card {
     text-decoration: none; position: relative;
@@ -55,22 +68,19 @@
     overflow: hidden; display: block;
 }
 
-.glass-content { color: white; transition: 0.5s; }
-.glass-content i { font-size: 3rem; color: #bf953f; margin-bottom: 20px; display: block; }
-.glass-content h3 { font-size: 1.3rem; margin-bottom: 15px; }
-.glass-content span { font-size: 0.8rem; opacity: 0.6; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
+.glass-content { color: white; transition: 0.5s; text-align: left; }
+.glass-content i { font-size: 2.5rem; color: #bf953f; margin-bottom: 15px; display: block; }
+.glass-content h3 { font-size: 1.1rem; margin-bottom: 10px; font-weight: 600; line-height: 1.4; }
+.glass-content span { font-size: 0.75rem; opacity: 0.6; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
 
 /* THE HOVER EFFECT BRO */
 .glass-card:hover {
     transform: rotateX(10deg) rotateY(-10deg) translateY(-15px);
     background: rgba(255, 255, 255, 0.1);
     border-color: rgba(191, 149, 63, 0.5);
-    box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.4);
 }
-
-.glass-card:hover .glass-content span {
-    opacity: 1; color: #bf953f;
-}
+.glass-card:hover .glass-content span { opacity: 1; color: #bf953f; }
 
 .glass-card::before {
     content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
@@ -80,5 +90,6 @@
 .glass-card:hover::before { left: 100%; }
 
 /* Responsive */
-@media (max-width: 1100px) { .glass-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 768px) { .glass-grid { grid-template-columns: 1fr; } }
+@media (max-width: 1200px) { .glass-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 900px) { .glass-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .glass-grid { grid-template-columns: 1fr; } .hub-title { font-size: 2rem; } }
