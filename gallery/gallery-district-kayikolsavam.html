@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png">
+    <link rel="manifest" href="../images/site.webmanifest">
+    <link rel="shortcut icon" href="../images/favicon.ico">
+    <meta name="theme-color" content="#09223f">
+
+    <title>District Kayikolsavam | St. Thomas HSS Poonthura</title>
+    <meta name="title" content="District Kayikolsavam | St. Thomas HSS Poonthura">
+    <meta name="description" content="Witness the athletic prowess of St. Thomas HSS students at the District Kayikolsavam. A gallery of track and field events, sportsmanship, and victories.">
+    <meta name="keywords" content="District Kayikolsavam, school sports meet, athletics gallery, St. Thomas HSS sports, Poonthura sports events">
+    <meta name="author" content="St. Thomas HSS Poonthura">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://stthomashsspoonthura.com/gallery/gallery-district-kayikolsavam.html">
+    <meta property="og:title" content="District Kayikolsavam Gallery - St. Thomas HSS">
+    <meta property="og:description" content="Strength, speed, and spirit. Highlights from our athletes' performance at the District Sports Meet.">
+    <meta property="og:image" content="https://stthomashsspoonthura.com/images/android-chrome-512x512.png">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Gayathri:wght@700&family=Manjari:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        /* --- CSS STYLES --- */
+        :root {
+            --navy: #05162a;
+            --gold: #bf953f;
+            --glass: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--navy);
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* 1. TITLE SECTION */
+        .gallery-header {
+            padding: 100px 10% 40px;
+            text-align: center;
+            background: linear-gradient(to bottom, #09223f, var(--navy));
+        }
+
+        .back-link {
+            text-decoration: none;
+            color: var(--gold);
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+            transition: 0.3s;
+        }
+
+        .back-link:hover { transform: translateX(-5px); color: white; }
+
+        .gallery-header h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .gallery-header p {
+            color: #cbd5e1;
+            max-width: 700px;
+            margin: 15px auto 0;
+            line-height: 1.6;
+        }
+
+        /* 2. INSTAGRAM GRID SECTION */
+        .insta-container {
+            padding: 40px 10% 100px;
+        }
+
+        .insta-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .photo-item {
+            position: relative;
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .glass-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(4px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: 0.4s;
+            color: white;
+            font-size: 1.5rem;
+            gap: 20px;
+        }
+
+        .photo-item:hover .glass-overlay { opacity: 1; }
+        .photo-item:hover img { transform: scale(1.1); }
+
+        /* 3. PRO LIGHTBOX */
+        .lightbox {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(5, 22, 42, 0.95);
+            backdrop-filter: blur(15px);
+            z-index: 9999;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            touch-action: none;
+        }
+
+        .lightbox.active { display: flex; }
+
+        .lb-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .lb-img-wrapper {
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            z-index: 10;
+        }
+
+        .lb-img-wrapper img {
+            max-width: 100%;
+            max-height: 75vh;
+            display: block;
+            transition: transform 0.3s ease;
+            transform: scale(1);
+        }
+
+        .lb-close { position: absolute; top: -50px; right: 0; font-size: 2rem; cursor: pointer; color: white; z-index: 10001; }
+        
+        .lb-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2.5rem;
+            color: var(--gold);
+            cursor: pointer;
+            background: rgba(255,255,255,0.1);
+            width: 60px; height: 60px;
+            display: flex; align-items: center; justify-content: center;
+            border-radius: 50%;
+            transition: 0.3s;
+            z-index: 10000;
+        }
+        
+        .lb-prev { left: -80px; }
+        .lb-next { right: -80px; }
+        .lb-nav:hover { background: var(--gold); color: var(--navy); }
+
+        .lb-tools {
+            margin-top: 20px;
+            display: flex;
+            gap: 20px;
+            background: var(--glass);
+            padding: 10px 25px;
+            border-radius: 30px;
+            border: 1px solid var(--glass-border);
+            z-index: 10001;
+        }
+
+        .tool-btn { cursor: pointer; font-size: 1.2rem; color: var(--gold); transition: 0.3s; }
+        .tool-btn:hover { color: white; transform: scale(1.2); }
+
+        @media (max-width: 768px) {
+            .insta-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+            .lb-prev { left: 10px; }
+            .lb-next { right: 10px; }
+            .lb-nav { width: 45px; height: 45px; font-size: 1.5rem; background: rgba(0,0,0,0.5); }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="gallery-header">
+        <a href="../gallery.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Gallery Hub</a>
+        <h1>District Kayikolsavam</h1>
+        <p>Speed, endurance, and unmatched dedication. Explore the highlights of our athletes competing and excelling in various track and field events at the District Sports Meet.</p>
+    </section>
+
+    <section class="insta-container">
+        <div class="insta-grid">
+            <div class="photo-item" onclick="openLightbox(0)">
+                <img src="district-kayikolsavam/1.jpeg" alt="Sports Meet Action 1">
+                <div class="glass-overlay"><i class="fas fa-expand"></i></div>
+            </div>
+            <div class="photo-item" onclick="openLightbox(1)">
+                <img src="district-kayikolsavam/2.jpeg" alt="Sports Meet Action 2">
+                <div class="glass-overlay"><i class="fas fa-expand"></i></div>
+            </div>
+            <div class="photo-item" onclick="openLightbox(2)">
+                <img src="district-kayikolsavam/3.jpeg" alt="Sports Meet Action 3">
+                <div class="glass-overlay"><i class="fas fa-expand"></i></div>
+            </div>
+            <div class="photo-item" onclick="openLightbox(3)">
+                <img src="district-kayikolsavam/4.jpeg" alt="Sports Meet Action 4">
+                <div class="glass-overlay"><i class="fas fa-expand"></i></div>
+            </div>
+            <div class="photo-item" onclick="openLightbox(4)">
+                <img src="district-kayikolsavam/5.jpeg" alt="Sports Meet Action 5">
+                <div class="glass-overlay"><i class="fas fa-expand"></i></div>
+            </div>
+            <div class="photo-item" onclick="openLightbox(5)">
+                <img src="district-kayikolsavam/6.jpeg" alt="Sports Meet Action 6">
+                <div class="glass-overlay"><i class="fas fa-expand"></i></div>
+            </div>
+            <div class="photo-item" onclick="openLightbox(6)">
+                <img src="district-kayikolsavam/7.jpeg" alt="Sports Meet Action 7">
+                <div class="glass-overlay"><i class="fas fa-expand"></i></div>
+            </div>
+            <div class="photo-item" onclick="openLightbox(7)">
+                <img src="district-kayikolsavam/8.jpeg" alt="Sports Meet Action 8">
+                <div class="glass-overlay"><i class="fas fa-expand"></i></div>
+            </div>
+            <div class="photo-item" onclick="openLightbox(8)">
+                <img src="district-kayikolsavam/9.jpeg" alt="Sports Meet Action 9">
+                <div class="glass-overlay"><i class="fas fa-expand"></i></div>
+            </div>
+        </div>
+    </section>
+
+    <div class="lightbox" id="lightbox">
+        <div class="lb-content">
+            <span class="lb-close" onclick="closeLightbox()">&times;</span>
+            <div class="lb-nav lb-prev" onclick="changeImg(-1)"><i class="fas fa-chevron-left"></i></div>
+            <div class="lb-img-wrapper">
+                <img id="lbMainImage" src="" alt="Full View">
+            </div>
+            <div class="lb-nav lb-next" onclick="changeImg(1)"><i class="fas fa-chevron-right"></i></div>
+            <div class="lb-tools">
+                <div class="tool-btn" onclick="zoomImg(1.2)"><i class="fas fa-magnifying-glass-plus"></i></div>
+                <div class="tool-btn" onclick="zoomImg(1)"><i class="fas fa-compress"></i></div>
+                <div class="tool-btn" onclick="zoomImg(0.8)"><i class="fas fa-magnifying-glass-minus"></i></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentImgIdx = 0;
+        let zoomLevel = 1;
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        const images = document.querySelectorAll('.photo-item img');
+        const lightbox = document.getElementById('lightbox');
+        const mainImg = document.getElementById('lbMainImage');
+
+        function openLightbox(index) {
+            currentImgIdx = index;
+            zoomLevel = 1;
+            updateLightbox();
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function updateLightbox() {
+            mainImg.src = images[currentImgIdx].src;
+            mainImg.style.transform = `scale(1)`;
+        }
+
+        function changeImg(step) {
+            currentImgIdx += step;
+            if (currentImgIdx >= images.length) currentImgIdx = 0;
+            if (currentImgIdx < 0) currentImgIdx = images.length - 1;
+            zoomLevel = 1;
+            updateLightbox();
+        }
+
+        function zoomImg(level) {
+            if(level === 1) zoomLevel = 1;
+            else zoomLevel *= level;
+            if(zoomLevel > 3) zoomLevel = 3;
+            if(zoomLevel < 0.5) zoomLevel = 0.5;
+            mainImg.style.transform = `scale(${zoomLevel})`;
+        }
+
+        lightbox.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, {passive: true});
+
+        lightbox.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, {passive: true});
+
+        function handleSwipe() {
+            if(zoomLevel === 1) {
+                if (touchStartX - touchEndX > 70) changeImg(1);
+                if (touchEndX - touchStartX > 70) changeImg(-1);
+            }
+        }
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === "Escape") closeLightbox();
+            if (e.key === "ArrowRight") changeImg(1);
+            if (e.key === "ArrowLeft") changeImg(-1);
+        });
+    </script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+      AOS.init({ duration: 1000, once: true, offset: 100 });
+    </script>
+    <script src="../script.js"></script>
+    <script src="../lp-script.js"></script>
+</body>
+</html>
