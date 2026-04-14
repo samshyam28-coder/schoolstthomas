@@ -2061,16 +2061,17 @@ body {
 
 
 
-/* WELCOME SECTION STYLES */
+/* --- ST. THOMAS WELCOME SECTION (ASH REFRESH) --- */
+
 .st-welcome-section {
     position: relative;
     padding: 100px 20px;
-    background: url('images/school_campus.jpg') no-repeat center center/cover;
-    background-attachment: fixed; /* Parallax effect */
+    background: url('images/school_campus.jpeg') no-repeat center center/cover;
+    background-attachment: fixed;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 500px;
+    min-height: 600px;
     overflow: hidden;
 }
 
@@ -2080,38 +2081,38 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(5, 22, 42, 0.85); /* Deep Navy matching your site */
+    background: linear-gradient(135deg, rgba(5, 22, 42, 0.9) 0%, rgba(9, 34, 63, 0.85) 100%);
     z-index: 1;
 }
 
 .st-welcome-container {
     position: relative;
     z-index: 2;
-    max-width: 900px;
+    max-width: 950px;
     width: 100%;
-    perspective: 1000px; /* Required for the 3D Tilt effect */
+    perspective: 1000px;
 }
 
-/* THE MATTE GLASS CARD WITH SMOOTH SHIMMER */
+/* UPDATED TO ASH COLOR - RETAINING ALL GLASS EFFECTS */
 .st-welcome-glass-card {
     position: relative;
-    background: rgba(255, 255, 255, 0.07);
-    backdrop-filter: blur(25px); /* Stronger blur for smoother matte glass */
-    -webkit-backdrop-filter: blur(25px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 25px;
-    padding: 60px 50px;
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+    background: rgba(224, 224, 224, 0.9); /* ASH COLOR */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 30px;
+    padding: 70px 60px;
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.4);
     text-align: center;
-    overflow: hidden; /* Clips the shimmer light */
+    overflow: hidden;
     
-    /* Animation Initial State */
+    /* Animation State */
     opacity: 0;
-    transform: translateY(40px);
-    transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 1.2s ease;
+    transform: translateY(50px);
+    transition: transform 1s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 1.5s ease;
 }
 
-/* THE SMOOTH MOVING LIGHT (SHIMMER) */
+/* RETAINED SHIMMER LIGHT EFFECT */
 .st-welcome-glass-card::before {
     content: "";
     position: absolute;
@@ -2122,10 +2123,10 @@ body {
     background: linear-gradient(
         45deg,
         transparent 45%,
-        rgba(255, 255, 255, 0.08) 50%,
+        rgba(255, 255, 255, 0.2) 50%, /* Slightly brighter shimmer for Ash */
         transparent 55%
     );
-    animation: glass-shimmer 10s infinite linear;
+    animation: glass-shimmer 12s infinite linear;
     pointer-events: none;
 }
 
@@ -2139,77 +2140,108 @@ body {
     transform: translateY(0);
 }
 
+/* RETAINED VIBRANT GRADIENT TITLE (Gives it that "Colorful" pop) */
 .st-welcome-title {
     font-family: 'Poppins', sans-serif;
-    color: #ffffff;
-    font-size: 2.2rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-    margin-bottom: 10px;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 800;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    
+    background: linear-gradient(to right, #05162a 0%, #17ead9 50%, #05162a 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: title-glow 6s linear infinite;
 }
 
+@keyframes title-glow {
+    to { background-position: 200% center; }
+}
+
+/* ACCENT BAR */
 .st-welcome-accent {
-    width: 80px;
-    height: 4px;
-    background: #28a745;
-    margin: 20px auto 30px;
-    border-radius: 2px;
+    width: 100px;
+    height: 5px;
+    background: linear-gradient(to right, #bf953f, #05162a);
+    margin: 25px auto 35px;
+    border-radius: 10px;
 }
 
+/* UPDATED TO BLACK DESCRIPTION */
 .st-welcome-description {
     font-family: 'Manjari', sans-serif;
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 1.15rem;
-    line-height: 1.8;
+    color: #000000; /* BLACK TEXT */
+    font-size: 1.2rem;
+    line-height: 1.9;
     text-align: justify;
-    margin-bottom: 40px;
+    margin-bottom: 45px;
+    font-weight: 500;
 }
 
-/* MATTE GREEN BUTTON */
-.st-welcome-button-wrap {
-    display: flex;
-    justify-content: center;
-}
-
+/* THE POWER BUTTON (RETAINED ALL EFFECTS) */
 .st-welcome-btn {
+    position: relative;
     display: inline-block;
-    padding: 15px 45px;
-    background: #28a745;
+    padding: 16px 50px;
+    background: linear-gradient(45deg, #e4d79c, #ebb64d);
     color: #ffffff;
     font-family: 'Poppins', sans-serif;
-    font-weight: 600;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 1.5px;
     text-decoration: none;
     border-radius: 50px;
-    transition: all 0.3s ease;
-    box-shadow: 0 10px 20px rgba(40, 167, 69, 0.2);
-    border: 2px solid transparent;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: none;
+    overflow: hidden;
 }
 
 .st-welcome-btn:hover {
-    background: transparent;
-    border-color: #28a745;
-    color: #28a745;
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(40, 167, 69, 0.4);
+    transform: translateY(-7px) scale(1.03);
+    box-shadow: 0 20px 40px rgba(191, 149, 63, 0.4);
+    color: #fff;
+}
+
+.st-welcome-btn::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -60%;
+    width: 20%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: rotate(30deg);
+    transition: all 0.5s;
+}
+
+.st-welcome-btn:hover::after {
+    left: 120%;
 }
 
 /* MOBILE RESPONSIVENESS */
 @media (max-width: 768px) {
     .st-welcome-section { 
-        padding: 60px 15px; 
-        background-attachment: scroll; /* Smoother performance on phones */
+        padding: 80px 20px; 
+        background-attachment: scroll;
     }
-    .st-welcome-glass-card { padding: 40px 25px; }
-    .st-welcome-title { font-size: 1.6rem; }
+    .st-welcome-glass-card { 
+        padding: 50px 30px; 
+        border-radius: 20px;
+    }
+    .st-welcome-title { font-size: 1.8rem; }
     .st-welcome-description { 
-        font-size: 1rem;
-        text-align: center; /* Better readability on small screens */
+        font-size: 1.05rem;
+        text-align: center;
+        line-height: 1.7;
+    }
+    .st-welcome-btn {
+        padding: 14px 40px;
+        width: 100%;
     }
 }
-
-
-
-
 
 
 
@@ -2441,6 +2473,12 @@ a.st-fac-card:active {
 #distinguished-alumni .group:hover .blur {
     opacity: 0.6;
     transition: opacity 0.5s ease;
+}
+
+/* Add this to your main CSS file for precise control */
+#distinguished-alumni img {
+    /* 50% is center horizontally, 15% is near the top vertically */
+    object-position: 50% 15%; 
 }
 
 /* Custom separator gradient */
