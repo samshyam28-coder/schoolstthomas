@@ -2206,3 +2206,194 @@ body {
         text-align: center; /* Better readability on small screens */
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* FACILITIES SECTION - LIGHT CRYSTAL THEME */
+.st-fac-section {
+    padding: 100px 0;
+    background-color: #f8fafd; 
+    position: relative;
+    overflow: hidden; /* Prevents unwanted scrollbars during animation */
+}
+
+.st-fac-header {
+    text-align: center;
+    margin-bottom: 60px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.st-fac-header.reveal-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.st-fac-main-title {
+    font-family: 'Poppins', sans-serif;
+    color: #09223f;
+    font-size: 2.5rem;
+    font-weight: 800;
+}
+
+.st-fac-subtitle {
+    font-family: 'Manjari', sans-serif;
+    color: #666;
+    margin-top: 10px;
+}
+
+.st-fac-line {
+    width: 70px;
+    height: 5px;
+    background: #28a745;
+    margin: 20px auto;
+    border-radius: 10px;
+}
+
+/* THE GRID */
+.st-fac-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* WHITE GLASS CARD - UPDATED FOR LIQUID SMOOTHNESS */
+.st-fac-card {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    padding: 40px 30px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    
+    /* Animation Properties */
+    opacity: 0;
+    transform: translateY(50px);
+    will-change: transform, opacity; /* Optimizes for GPU */
+    transition: 
+        transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1), 
+        opacity 1.2s cubic-bezier(0.2, 0.8, 0.2, 1),
+        background 0.3s ease,
+        border-bottom 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.st-fac-card.reveal-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.st-fac-card:hover {
+    transform: translateY(-12px);
+    background: #ffffff;
+    box-shadow: 0 25px 50px rgba(40, 167, 69, 0.12);
+    border-bottom: 4px solid #28a745;
+}
+
+.st-fac-icon {
+    font-size: 40px;
+    color: #09223f;
+    margin-bottom: 20px;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), color 0.3s ease;
+}
+
+.st-fac-card:hover .st-fac-icon {
+    color: #28a745;
+    transform: scale(1.15);
+}
+
+.st-fac-card h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.3rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.st-fac-card p {
+    font-family: 'Manjari', sans-serif;
+    color: #777;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* --- MOBILE VERSION --- */
+@media (max-width: 768px) {
+    .st-fac-section {
+        padding: 60px 0;
+    }
+
+    .st-fac-main-title {
+        font-size: 1.8rem;
+    }
+
+    .st-fac-grid {
+        grid-template-columns: 1fr; /* Single column for better tap targets */
+        gap: 20px;
+        padding: 0 25px;
+    }
+
+    .st-fac-card {
+        padding: 30px 20px;
+        transform: translateY(30px); /* Shorter distance for mobile screens */
+    }
+
+    .st-fac-card:hover {
+        transform: translateY(-5px); /* Less aggressive hover for touch */
+    }
+    
+    .st-fac-icon {
+        font-size: 32px;
+    }
+}
+/* REMOVE UNDERLINES FROM CARDS */
+a.st-fac-card, 
+a.st-fac-card:hover, 
+a.st-fac-card:focus, 
+a.st-fac-card:active {
+    text-decoration: none !important; /* This removes the line */
+    outline: none !important;         /* Removes the blue box when clicked */
+    color: inherit !important;       /* Keeps the text dark/gray as designed */
+}
+
+/* Ensure the titles inside don't get underlined either */
+.st-fac-card h3, 
+.st-fac-card p {
+    text-decoration: none !important;
+}
