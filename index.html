@@ -636,9 +636,89 @@
 
 
 
+<section class="st-fac-section">
+    <div class="st-fac-container">
+        <div class="st-fac-header" id="fac-header-reveal">
+            <h2 class="st-fac-main-title">OUR FACILITIES</h2>
+            <p class="st-fac-subtitle">Empowering students with world-class infrastructure and opportunities</p>
+            <div class="st-fac-line"></div>
+        </div>
 
+        <div class="st-fac-grid">
+            <a href="#" class="st-fac-card">
+                <div class="st-fac-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                <h3>High Tech Classrooms</h3>
+                <p>Digitalized learning environments for the modern age.</p>
+            </a>
 
+            <a href="#" class="st-fac-card">
+                <div class="st-fac-icon"><i class="fas fa-book-reader"></i></div>
+                <h3>Library</h3>
+                <p>A vast collection of knowledge and quiet study spaces.</p>
+            </a>
 
+            <a href="#" class="st-fac-card">
+                <div class="st-fac-icon"><i class="fas fa-flask"></i></div>
+                <h3>Science Lab</h3>
+                <p>Fully equipped labs for physics, chemistry, and biology.</p>
+            </a>
+
+            <a href="#" class="st-fac-card">
+                <div class="st-fac-icon"><i class="fas fa-laptop-code"></i></div>
+                <h3>Computer Lab</h3>
+                <p>Advanced computing facilities with high-speed internet.</p>
+            </a>
+
+            <a href="#" class="st-fac-card">
+                <div class="st-fac-icon"><i class="fas fa-paper-plane"></i></div>
+                <h3>Little Kites</h3>
+                <p>Nurturing IT talents through the Kerala IT Mission initiative.</p>
+            </a>
+
+            <a href="#" class="st-fac-card">
+                <div class="st-fac-icon"><i class="fas fa-shield-alt"></i></div>
+                <h3>NCC</h3>
+                <p>Building character, discipline, and secular outlook.</p>
+            </a>
+
+            <a href="#" class="st-fac-card">
+                <div class="st-fac-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                <h3>JRC</h3>
+                <p>Junior Red Cross: Serving humanity with compassion.</p>
+            </a>
+
+            <a href="#" class="st-fac-card">
+                <div class="st-fac-icon"><i class="fas fa-running"></i></div>
+                <h3>Sports Facilities</h3>
+                <p>Wide range of indoor and outdoor sports infrastructure.</p>
+            </a>
+
+            <a href="#" class="st-fac-card">
+                <div class="st-fac-icon"><i class="fas fa-futbol"></i></div>
+                <h3>Football Coaching</h3>
+                <p>Professional training for the stars of the turf.</p>
+            </a>
+
+            <a href="#" class="st-fac-card">
+                <div class="st-fac-icon"><i class="fas fa-female"></i></div>
+                <h3>Girls Cricket Coaching</h3>
+                <p>Empowering our girls through specialized cricket training.</p>
+            </a>
+
+            <a href="#" class="st-fac-card">
+                <div class="st-fac-icon"><i class="fas fa-masks-theater"></i></div>
+                <h3>Extra Curricular</h3>
+                <p>Discovering talents in arts, music, and performance.</p>
+            </a>
+
+            <a href="#" class="st-fac-card">
+                <div class="st-fac-icon"><i class="fas fa-user-friends"></i></div>
+                <h3>Counseling</h3>
+                <p>Professional guidance and mental wellness support.</p>
+            </a>
+        </div>
+    </div>
+</section>
 
 
 
@@ -987,6 +1067,53 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
+
+
+
+<script>
+   document.addEventListener('DOMContentLoaded', function() {
+    // 1. Setup the Observer Options
+    // '0.1' means start the animation when 10% of the element is visible
+    const observerOptions = {
+        root: null, // Use the viewport
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px" // Triggers slightly before it hits the bottom
+    };
+
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                // If the header is seen, reveal it instantly
+                if (entry.target.id === 'fac-header-reveal') {
+                    entry.target.classList.add('reveal-active');
+                } else {
+                    // For cards, we calculate a staggered delay based on their position
+                    // This creates the "wave" effect where they pop in one by one
+                    const allCards = Array.from(document.querySelectorAll('.st-fac-card'));
+                    const index = allCards.indexOf(entry.target);
+                    
+                    setTimeout(() => {
+                        entry.target.classList.add('reveal-active');
+                    }, (index % 3) * 150); // Stagger by column (3 columns) for maximum smoothness
+                }
+                
+                // Once it has animated, stop watching this specific element
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    // 2. Target the Header and Cards
+    const facHeader = document.getElementById('fac-header-reveal');
+    const facCards = document.querySelectorAll('.st-fac-card');
+
+    if (facHeader) revealObserver.observe(facHeader);
+    
+    facCards.forEach(card => {
+        revealObserver.observe(card);
+    });
+});
+</script>
 
 
 
