@@ -899,16 +899,19 @@ function updateEduSlider() {
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-    // 1. Initialize Swiper for the Niyamasabha Section
+    // Detect if user is on mobile
+    const isMobile = window.innerWidth <= 768;
+    
+    // 1. Initialize Swiper with Dynamic Speed
     const niyamaSwiper = new Swiper('.st-niyama-swiper', {
         loop: true,
-        speed: 5000, // Very slow for that film strip look
+        speed: isMobile ? 8000 : 5000, // Slower (8s) on mobile, (5s) on Desktop
         autoplay: {
             delay: 1,
             disableOnInteraction: false,
         },
         slidesPerView: 2,
-        spaceBetween: 20,
+        spaceBetween: 15,
         freeMode: true,
         breakpoints: {
             640: { slidesPerView: 3 },
@@ -916,27 +919,16 @@ function updateEduSlider() {
         }
     });
 
-    // 2. Pause on Hover & Speed up on Touch
+    // 2. Interaction Logic
     const swiperContainer = document.querySelector('.st-niyama-swiper');
     
-    swiperContainer.addEventListener('mouseenter', () => {
-        niyamaSwiper.autoplay.stop();
-    });
-
+    swiperContainer.addEventListener('mouseenter', () => niyamaSwiper.autoplay.stop());
     swiperContainer.addEventListener('mouseleave', () => {
-        niyamaSwiper.params.speed = 5000; // Reset to slow
+        niyamaSwiper.params.speed = isMobile ? 8000 : 5000;
         niyamaSwiper.autoplay.start();
     });
 
-    // Speed up logic for touch/drag
-    swiperContainer.addEventListener('mousedown', () => {
-        niyamaSwiper.params.speed = 300; // Fast for snappy dragging
-    });
-    swiperContainer.addEventListener('touchstart', () => {
-        niyamaSwiper.params.speed = 300;
-    });
-
-    // 3. Lightbox Logic
+    // 3. Updated Lightbox Logic for Centering
     const lightbox = document.getElementById('st-niyama-lightbox');
     const lightboxImg = document.getElementById('st-lightbox-img');
     const closeBtn = document.querySelector('.st-niyama-close');
@@ -945,21 +937,34 @@ function updateEduSlider() {
 
     galleryImgs.forEach((img, index) => {
         img.onclick = function() {
-            lightbox.style.display = "block";
+            lightbox.classList.add('active'); // Uses Flexbox centering
             lightboxImg.src = this.src;
             currentImgIndex = index;
+            document.body.style.overflow = 'hidden'; // Stop page scroll
         }
     });
 
-    closeBtn.onclick = () => lightbox.style.display = "none";
+    const closeLightbox = () => {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = 'auto'; // Re-enable scroll
+    };
+
+    closeBtn.onclick = closeLightbox;
+    
+    // Close if clicking outside the image
+    lightbox.onclick = (e) => {
+        if(e.target === lightbox) closeLightbox();
+    };
 
     // Nav within Lightbox
-    document.querySelector('.next').onclick = () => {
+    document.querySelector('.next').onclick = (e) => {
+        e.stopPropagation();
         currentImgIndex = (currentImgIndex + 1) % galleryImgs.length;
         lightboxImg.src = galleryImgs[currentImgIndex].src;
     };
 
-    document.querySelector('.prev').onclick = () => {
+    document.querySelector('.prev').onclick = (e) => {
+        e.stopPropagation();
         currentImgIndex = (currentImgIndex - 1 + galleryImgs.length) % galleryImgs.length;
         lightboxImg.src = galleryImgs[currentImgIndex].src;
     };
