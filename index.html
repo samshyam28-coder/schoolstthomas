@@ -31,6 +31,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Gayathri:wght@700&family=Manjari:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="global.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
 
 <script type="application/ld+json">
 {
@@ -163,7 +165,7 @@
                 </ul>
             </li>
 
-            <li><a href="announcements.html">ANNOUNCEMENTS</a></li>
+            <li><a href="announcement.html">ANNOUNCEMENTS</a></li>
             <li><a href="gallery.html">GALLERY</a></li>
             <li><a href="contact.html">CONTACT US</a></li>
         </ul>
@@ -729,6 +731,69 @@
 
 
 
+<section id="distinguished-alumni" class="py-20 px-6 lg:px-20 bg-[#05162a]">
+    <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-16" data-aos="fade-down">
+            <h2 class="text-4xl lg:text-5xl font-bold text-white mb-4 uppercase tracking-wider">Distinguished Alumni</h2>
+            <div class="h-1 w-24 bg-[#bf953f] mx-auto"></div>
+        </div>
+
+        <div class="relative group" data-aos="fade-up" data-aos-duration="1200">
+            <div class="absolute -inset-1 bg-gradient-to-r from-[#bf953f] to-[#8a6d2f] rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+            
+            <div class="relative flex flex-col md:flex-row items-center bg-[#09223f]/80 backdrop-blur-md border border-white/10 rounded-2xl overflow-hidden shadow-2xl transition-transform duration-500 hover:-translate-y-2">
+                
+                <div class="w-full md:w-1/3 lg:w-1/4 p-6">
+                    <div class="aspect-square rounded-xl overflow-hidden border-2 border-[#bf953f]/50 p-1">
+                        <img src="images/alumini.jpg" alt="Hon. Antony Raju" class="w-full h-full object-cover rounded-lg transform transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                </div>
+
+                <div class="w-full md:w-2/3 lg:w-3/4 p-8 md:pl-4 text-center md:text-left">
+                    <span class="text-[#bf953f] font-semibold tracking-widest uppercase text-sm mb-2 block">Spotlight</span>
+                    <h3 class="text-3xl font-bold text-white mb-2">Hon. Antony Raju</h3>
+                    <p class="text-lg text-white/70 italic mb-6">Honorable Transportation Minister & Pivotal Supporter of School Growth</p>
+                    
+                    <div class="h-px w-full bg-gradient-to-r from-[#bf953f]/50 to-transparent mb-6"></div>
+                    
+                    <p class="text-white/80 leading-relaxed mb-6">
+                        An esteemed alumnus of St. Thomas HSS Poonthura, Hon. Antony Raju has been a constant pillar of strength for our institution. His journey from these classrooms to the halls of government serves as a beacon of inspiration for every student, proving that dedication and service can transform society.
+                    </p>
+
+                    <div class="inline-flex items-center gap-2 px-4 py-2 bg-[#bf953f]/10 border border-[#bf953f]/30 rounded-full">
+                        <i class="fas fa-graduation-cap text-[#bf953f]"></i>
+                        <span class="text-[#bf953f] font-medium">Proud Alumnus</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1118,7 +1183,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
+<script>
+  AOS.init({
+    duration: 1000, // Animation speed (1 second)
+    once: true,     // Animation happens only once
+    offset: 100     // Start animation when card is 100px into view
+  });
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
