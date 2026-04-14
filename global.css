@@ -2397,3 +2397,69 @@ a.st-fac-card:active {
 .st-fac-card p {
     text-decoration: none !important;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- Distinguished Alumni Section Styles --- */
+#distinguished-alumni {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Glassmorphism Card Effect */
+#distinguished-alumni .bg-\[\#09223f\]\/80 {
+    background: rgba(9, 34, 63, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+/* Image Hover Zoom */
+#distinguished-alumni .group:hover img {
+    transform: scale(1.08);
+}
+
+/* The Gold Glow Animation on Hover */
+#distinguished-alumni .group:hover .blur {
+    opacity: 0.6;
+    transition: opacity 0.5s ease;
+}
+
+/* Custom separator gradient */
+#distinguished-alumni .bg-gradient-to-r {
+    background: linear-gradient(to right, rgba(191, 149, 63, 0.5), transparent);
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    #distinguished-alumni .flex-col {
+        padding-bottom: 2rem;
+    }
+    #distinguished-alumni img {
+        max-width: 200px;
+        margin: 0 auto;
+    }
+}
+
+/* Smooth AOS integration for the card */
+[data-aos="fade-up"] {
+    transition-timing-function: cubic-bezier(.175, .885, .32, 1.275);
+}
