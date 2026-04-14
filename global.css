@@ -1105,12 +1105,6 @@ body {
 
 
 
-
-
-
-
-
-
 /* --- VISION & MISSION: POLISHED VERSION --- */
 
 .mv-section {
@@ -1254,443 +1248,6 @@ body {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* --- LEADERSHIP SECTION: ELITE REDESIGN --- */
-:root {
-    --m-green: #2d5a3f;
-    --m-navy: #09223f;
-    --m-gold: #b8860b;
-}
-
-.leadership-section {
-    width: 100%;
-    background: #f4f7f6; 
-    padding: 100px 0;
-    display: flex;
-    justify-content: center;
-}
-
-.l-container {
-    display: flex;
-    gap: 30px;
-    max-width: 1200px;
-    width: 90%;
-}
-
-.l-card {
-    flex: 1;
-    background: #fff;
-    padding: 50px 30px;
-    border-radius: 30px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.04);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    border: 1px solid rgba(0,0,0,0.02);
-}
-
-.l-card:hover {
-    transform: translateY(-15px);
-    box-shadow: 0 30px 60px rgba(9, 34, 63, 0.1);
-}
-
-/* Color Accents on Top of Cards */
-.l-card-accent {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 6px;
-}
-.accent-navy { background: var(--m-navy); }
-.accent-green { background: var(--m-green); }
-
-/* --- PHOTO STYLING --- */
-.l-photo-wrap {
-    position: relative;
-    width: 160px;
-    height: 160px;
-    margin: 0 auto 30px;
-}
-
-/* --- UPDATED PHOTO STYLING --- */
-.l-photo-border {
-    width: 100%;
-    height: 100%;
-    padding: 5px; /* Reduced slightly to give the photo more room */
-    border-radius: 50%;
-    background: #fff;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden; /* Ensures the image stays round */
-}
-
-.border-gold { border: 2px solid var(--m-gold); }
-.border-green { border: 2px solid var(--m-green); }
-.border-navy { border: 2px solid var(--m-navy); }
-
-.l-photo {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: cover; /* Keeps aspect ratio */
-    object-position: center 15%; /* THE FIX: This pushes the image down so the head is visible */
-    display: block;
-}
-.l-badge {
-    position: absolute;
-    bottom: 8px;
-    right: 8px;
-    width: 45px;
-    height: 45px;
-    border-radius: 15px; /* Modern Rounded Square */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-size: 1.2rem;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-}
-
-.badge-gold { background: var(--m-gold); }
-.badge-green { background: var(--m-green); }
-.badge-navy { background: var(--m-navy); }
-
-/* --- TYPOGRAPHY --- */
-.l-card h3 {
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-weight: 800;
-    margin-bottom: 5px;
-}
-
-.l-name {
-    font-size: 1.4rem;
-    color: #333;
-    font-weight: 700;
-    margin-bottom: 15px;
-}
-
-.l-card p {
-    color: #6a767e;
-    font-style: italic;
-    line-height: 1.8;
-    margin-bottom: 30px;
-}
-
-/* --- BUTTONS --- */
-.read-more-btn {
-    background: transparent;
-    border: 2px solid var(--m-navy);
-    color: var(--m-navy);
-    padding: 12px 35px;
-    border-radius: 12px;
-    cursor: pointer;
-    font-weight: 700;
-    transition: 0.3s;
-    font-family: 'Poppins', sans-serif;
-}
-
-.read-more-btn:hover {
-    background: var(--m-navy);
-    color: #fff;
-    box-shadow: 0 10px 20px rgba(9, 34, 63, 0.2);
-}
-
-.btn-green { border-color: var(--m-green); color: var(--m-green); }
-.btn-green:hover { background: var(--m-green); box-shadow: 0 10px 20px rgba(45, 90, 63, 0.2); }
-
-/* --- MODAL REFINEMENT --- */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 10000;
-    left: 0; top: 0; width: 100%; height: 100%;
-    background: rgba(9, 34, 63, 0.92);
-}
-
-.modal-content {
-    background: #fff;
-    margin: 5vh auto;
-    padding: 50px;
-    width: 90%;
-    max-width: 750px;
-    border-radius: 35px;
-    max-height: 85vh;
-    overflow-y: auto;
-    position: relative;
-    border: 1px solid rgba(255,255,255,0.2);
-}
-
-.modal-line {
-    width: 60px;
-    height: 5px;
-    border-radius: 10px;
-    margin: 15px 0 30px;
-}
-.line-navy { background: var(--m-navy); }
-
-/* RESPONSIVE */
-/* --- FIXED MOBILE VIEW --- */
-@media (max-width: 970px) {
-    .l-container { 
-        flex-direction: column; 
-        align-items: center; 
-        width: 100%; /* Take full width but use padding for breathing room */
-        padding: 0 15px; /* Keeps the cards from touching the screen edges */
-        gap: 40px; 
-    }
-
-    .l-card { 
-        width: 100%; 
-        max-width: 450px; /* Limits the width so it doesn't look giant on tablets */
-        margin-bottom: 0; /* Gap handled by the container now */
-        box-sizing: border-box; /* CRITICAL: ensures padding doesn't add to width */
-    }
-
-    .l-photo-wrap {
-        width: 140px; /* Slightly smaller photo for mobile screens */
-        height: 140px;
-    }
-}
-
-/* --- THE MOBILE MEDIA QUERY OVERRIDE --- */
-@media (max-width: 600px) {
-    .modal-content {
-        width: 94%; /* Slightly wider for small screens but still safe */
-        margin: 3vh auto;
-        padding: 0;
-    }
-
-    .modal-header {
-        padding: 35px 20px 10px;
-    }
-
-    .modal-body {
-        padding: 10px 20px 40px; /* Tighter but safe sides */
-    }
-
-    .modal-header h2 {
-        font-size: 1.5rem; /* Prevents long titles from overflowing */
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* --- ELITE ACTIVITIES PORTAL CSS --- */
-:root {
-    --accent-teal: #4db6ac;
-    --deep-bg: #002b2b;
-}
-
-.activities-portal {
-    padding: 100px 0;
-    background: radial-gradient(circle at center, #0a3d3d 0%, var(--deep-bg) 100%);
-    perspective: 1500px; /* Stronger 3D depth */
-    overflow: hidden;
-}
-
-.portal-header-bar {
-    text-align: center;
-    margin-bottom: 60px;
-    color: #fff;
-}
-
-.portal-subtitle {
-    color: var(--accent-teal);
-    letter-spacing: 4px;
-    font-size: 0.8rem;
-    font-weight: 700;
-    text-transform: uppercase;
-}
-
-.portal-header-bar h2 {
-    font-size: 2.5rem;
-    margin: 10px 0;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-}
-
-.header-line {
-    width: 60px;
-    height: 4px;
-    background: var(--accent-teal);
-    margin: 15px auto 0;
-    border-radius: 10px;
-}
-
-/* --- THE 3D GRID --- */
-.portal-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    max-width: 1200px;
-    width: 90%;
-    margin: 0 auto;
-    box-sizing: border-box;
-}
-
-.portal-card {
-    text-decoration: none;
-    perspective: 1000px;
-    display: block;
-}
-
-.card-inner {
-    background: #fff;
-    border-radius: 25px;
-    overflow: hidden;
-    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-    transform-style: preserve-3d;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
-}
-
-.card-image {
-    position: relative;
-    height: 240px;
-    overflow: hidden;
-}
-
-.card-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.8s ease;
-}
-
-.card-overlay {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(to bottom, transparent 40%, rgba(0,0,0,0.8));
-    padding: 20px;
-    display: flex;
-    align-items: flex-end;
-}
-
-.category-tag {
-    background: var(--accent-teal);
-    color: white;
-    padding: 6px 16px;
-    border-radius: 50px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-}
-
-.card-title {
-    padding: 25px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #fff;
-}
-
-.card-title h3 {
-    margin: 0;
-    color: #09223f;
-    font-size: 1.25rem;
-    font-weight: 700;
-}
-
-.card-title i {
-    color: var(--accent-teal);
-    font-size: 1.2rem;
-    transition: transform 0.3s ease;
-}
-
-/* --- THE GAME HOVER EFFECT --- */
-@media (min-width: 1024px) {
-    .portal-card:hover .card-inner {
-        /* This creates the 3D "Tilt" */
-        transform: rotateX(8deg) rotateY(-5deg) translateZ(30px);
-        box-shadow: 0 25px 50px rgba(77, 182, 172, 0.4);
-    }
-}
-
-.portal-card:hover img {
-    transform: scale(1.15);
-}
-
-.portal-card:hover .card-title i {
-    transform: translateX(8px);
-}
-
-/* --- MOBILE RESPONSIVE (NO OVERFLOW) --- */
-@media (max-width: 970px) {
-    .portal-container { 
-        grid-template-columns: repeat(2, 1fr); 
-        gap: 20px;
-    }
-}
-
-@media (max-width: 650px) {
-    .portal-container { 
-        grid-template-columns: 1fr; 
-        width: 92%;
-    }
-    .portal-header-bar h2 { font-size: 1.8rem; }
-    .card-image { height: 200px; }
-}
 
 
 
@@ -2480,5 +2037,172 @@ body {
     .st-niyama-lightbox-nav span {
         padding: 10px;
         font-size: 25px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* WELCOME SECTION STYLES */
+.st-welcome-section {
+    position: relative;
+    padding: 100px 20px;
+    background: url('images/school_campus.jpg') no-repeat center center/cover;
+    background-attachment: fixed; /* Parallax effect */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 500px;
+    overflow: hidden;
+}
+
+.st-welcome-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(5, 22, 42, 0.85); /* Deep Navy matching your site */
+    z-index: 1;
+}
+
+.st-welcome-container {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    width: 100%;
+    perspective: 1000px; /* Required for the 3D Tilt effect */
+}
+
+/* THE MATTE GLASS CARD WITH SMOOTH SHIMMER */
+.st-welcome-glass-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(25px); /* Stronger blur for smoother matte glass */
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 25px;
+    padding: 60px 50px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    overflow: hidden; /* Clips the shimmer light */
+    
+    /* Animation Initial State */
+    opacity: 0;
+    transform: translateY(40px);
+    transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 1.2s ease;
+}
+
+/* THE SMOOTH MOVING LIGHT (SHIMMER) */
+.st-welcome-glass-card::before {
+    content: "";
+    position: absolute;
+    top: -150%;
+    left: -150%;
+    width: 300%;
+    height: 300%;
+    background: linear-gradient(
+        45deg,
+        transparent 45%,
+        rgba(255, 255, 255, 0.08) 50%,
+        transparent 55%
+    );
+    animation: glass-shimmer 10s infinite linear;
+    pointer-events: none;
+}
+
+@keyframes glass-shimmer {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(50%, 50%); }
+}
+
+.st-welcome-glass-card.reveal-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.st-welcome-title {
+    font-family: 'Poppins', sans-serif;
+    color: #ffffff;
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.st-welcome-accent {
+    width: 80px;
+    height: 4px;
+    background: #28a745;
+    margin: 20px auto 30px;
+    border-radius: 2px;
+}
+
+.st-welcome-description {
+    font-family: 'Manjari', sans-serif;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.15rem;
+    line-height: 1.8;
+    text-align: justify;
+    margin-bottom: 40px;
+}
+
+/* MATTE GREEN BUTTON */
+.st-welcome-button-wrap {
+    display: flex;
+    justify-content: center;
+}
+
+.st-welcome-btn {
+    display: inline-block;
+    padding: 15px 45px;
+    background: #28a745;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(40, 167, 69, 0.2);
+    border: 2px solid transparent;
+}
+
+.st-welcome-btn:hover {
+    background: transparent;
+    border-color: #28a745;
+    color: #28a745;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(40, 167, 69, 0.4);
+}
+
+/* MOBILE RESPONSIVENESS */
+@media (max-width: 768px) {
+    .st-welcome-section { 
+        padding: 60px 15px; 
+        background-attachment: scroll; /* Smoother performance on phones */
+    }
+    .st-welcome-glass-card { padding: 40px 25px; }
+    .st-welcome-title { font-size: 1.6rem; }
+    .st-welcome-description { 
+        font-size: 1rem;
+        text-align: center; /* Better readability on small screens */
     }
 }
