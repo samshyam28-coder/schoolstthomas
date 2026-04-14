@@ -344,6 +344,31 @@
 
 
 
+<section class="st-welcome-section">
+    <div class="st-welcome-overlay"></div> <div class="st-welcome-container">
+        <div class="st-welcome-glass-card" id="welcome-reveal">
+            <h2 class="st-welcome-title">WELCOME TO ST. THOMAS HSS, POONTHURA</h2>
+            <div class="st-welcome-accent"></div>
+            
+            <p class="st-welcome-description">
+                A legacy of academic excellence and character building since 1910. Situated in the heart of the coastal community, St. Thomas HSS has been a beacon of knowledge, nurturing generations of students through a holistic approach to education. We are committed to fostering an environment where tradition meets modern innovation, empowering every child to lead with integrity, compassion, and the skillsets required for the future.
+            </p>
+
+            <div class="st-welcome-button-wrap">
+                <a href="/history" class="st-welcome-btn">KNOW MORE</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
 
 
 
@@ -881,6 +906,89 @@ function updateEduSlider() {
     };
 });
 </script>
+
+
+
+
+
+
+
+
+
+<script>
+
+   // --- ST. THOMAS HSS WELCOME SECTION LOGIC ---
+
+document.addEventListener('DOMContentLoaded', function() {
+    const welcomeCard = document.getElementById('welcome-reveal');
+
+    // 1. SCROLL REVEAL LOGIC
+    // This makes the card rise and fade in when the user scrolls down
+    function revealWelcome() {
+        if (!welcomeCard) return;
+
+        const windowHeight = window.innerHeight;
+        const revealTop = welcomeCard.getBoundingClientRect().top;
+        const revealPoint = 150; // Distance in px before animation starts
+
+        if (revealTop < windowHeight - revealPoint) {
+            welcomeCard.classList.add('reveal-active');
+        }
+    }
+
+    // 2. 3D GLASS TILT LOGIC (Desktop Only)
+    // This makes the glass card lean toward the mouse for a premium feel
+    function handleTilt(e) {
+        if (window.innerWidth > 768) { // Only run on desktop to save mobile battery
+            const cardRect = welcomeCard.getBoundingClientRect();
+            
+            // Calculate mouse position relative to the center of the card
+            const cardCenterX = cardRect.left + cardRect.width / 2;
+            const cardCenterY = cardRect.top + cardRect.height / 2;
+            
+            const mouseX = e.clientX - cardCenterX;
+            const mouseY = e.clientY - cardCenterY;
+
+            // Adjust the numbers (25) to make the tilt more or less intense
+            const rotateX = (mouseY / cardRect.height) * -20; 
+            const rotateY = (mouseX / cardRect.width) * 20;
+
+            welcomeCard.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        }
+    }
+
+    // Reset the card position when mouse leaves
+    function resetTilt() {
+        welcomeCard.style.transition = "all 0.6s ease";
+        welcomeCard.style.transform = `rotateX(0deg) rotateY(0deg) translateY(0px)`;
+    }
+
+    // Remove transition during movement for "buttery" smoothness
+    function startTilt() {
+        welcomeCard.style.transition = "none";
+    }
+
+    // --- EVENT LISTENERS ---
+
+    // Scroll Listeners
+    window.addEventListener('scroll', revealWelcome);
+    revealWelcome(); // Run once immediately in case section is already in view
+
+    // Mouse Listeners for the 3D Effect
+    if (welcomeCard) {
+        welcomeCard.addEventListener('mousemove', handleTilt);
+        welcomeCard.addEventListener('mouseenter', startTilt);
+        welcomeCard.addEventListener('mouseleave', resetTilt);
+    }
+});
+</script>
+
+
+
+
+
+
+
 
 
 
