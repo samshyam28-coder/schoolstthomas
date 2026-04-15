@@ -735,8 +735,8 @@ body {
 /* --- MOBILE SPECIFIC FIXES --- */
 @media (max-width: 768px) {
     .hero-wrapper {
-        height: 25vh;
-        margin-top: 25px; /* Matches mobile navbar height */
+        height: 30vh;
+        margin-top: 10px; /* Matches mobile navbar height */
     }
 }
 
