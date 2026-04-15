@@ -2076,388 +2076,284 @@ body {
 
 
 
+/* --- ST. THOMAS WELCOME SECTION STYLES --- */
 
-
-
-
-
-/* --- ST. THOMAS WELCOME SECTION (ASH REFRESH) --- */
-
-.st-welcome-section {
+.st-about-section {
+    padding: 90px 0;
+    background-color: #f4f7f9; /* Professional Light Ash */
     position: relative;
-    padding: 100px 20px;
-    background: url('images/school_campus.jpeg') no-repeat center center/cover;
-    background-attachment: fixed;
+    overflow: hidden;
+}
+
+.st-about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 25px;
     display: flex;
     align-items: center;
+    gap: 70px;
+}
+
+/* --- IMAGE AREA --- */
+.st-about-image-wrap {
+    flex: 1;
+    position: relative;
+    display: flex;
     justify-content: center;
-    min-height: 600px;
-    overflow: hidden;
+    align-items: center;
 }
 
-.st-welcome-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
+
+.student-img {
     width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(5, 22, 42, 0.9) 0%, rgba(9, 34, 63, 0.85) 100%);
-    z-index: 1;
+    height: auto;
+    display: block;
 }
 
-.st-welcome-container {
-    position: relative;
-    z-index: 2;
-    max-width: 950px;
-    width: 100%;
-    perspective: 1000px;
+
+
+/* --- CONTENT AREA --- */
+.st-about-content {
+    flex: 1;
 }
 
-/* UPDATED TO ASH COLOR - RETAINING ALL GLASS EFFECTS */
-.st-welcome-glass-card {
-    position: relative;
-    background: rgba(224, 224, 224, 0.9); /* ASH COLOR */
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 30px;
-    padding: 70px 60px;
-    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.4);
-    text-align: center;
-    overflow: hidden;
-    
-    /* Animation State */
-    opacity: 0;
-    transform: translateY(50px);
-    transition: transform 1s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 1.5s ease;
-}
-
-/* RETAINED SHIMMER LIGHT EFFECT */
-.st-welcome-glass-card::before {
-    content: "";
-    position: absolute;
-    top: -150%;
-    left: -150%;
-    width: 300%;
-    height: 300%;
-    background: linear-gradient(
-        45deg,
-        transparent 45%,
-        rgba(255, 255, 255, 0.2) 50%, /* Slightly brighter shimmer for Ash */
-        transparent 55%
-    );
-    animation: glass-shimmer 12s infinite linear;
-    pointer-events: none;
-}
-
-@keyframes glass-shimmer {
-    0% { transform: translate(0, 0); }
-    100% { transform: translate(50%, 50%); }
-}
-
-.st-welcome-glass-card.reveal-active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* RETAINED VIBRANT GRADIENT TITLE (Gives it that "Colorful" pop) */
-.st-welcome-title {
-    font-family: 'Poppins', sans-serif;
-    font-size: clamp(1.8rem, 4vw, 2.5rem);
-    font-weight: 800;
-    margin-bottom: 15px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    
-    background: linear-gradient(to right, #05162a 0%, #17ead9 50%, #05162a 100%);
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: title-glow 6s linear infinite;
-}
-
-@keyframes title-glow {
-    to { background-position: 200% center; }
-}
-
-/* ACCENT BAR */
-.st-welcome-accent {
-    width: 100px;
-    height: 5px;
-    background: linear-gradient(to right, #bf953f, #05162a);
-    margin: 25px auto 35px;
-    border-radius: 10px;
-}
-
-/* UPDATED TO BLACK DESCRIPTION */
-.st-welcome-description {
-    font-family: 'Manjari', sans-serif;
-    color: #000000; /* BLACK TEXT */
-    font-size: 1.2rem;
-    line-height: 1.9;
-    text-align: justify;
-    margin-bottom: 45px;
-    font-weight: 500;
-}
-
-/* THE POWER BUTTON (RETAINED ALL EFFECTS) */
-.st-welcome-btn {
-    position: relative;
-    display: inline-block;
-    padding: 16px 50px;
-    background: linear-gradient(45deg, #e4d79c, #ebb64d);
-    color: #ffffff;
+.st-subtitle {
+    color: #ff69b4; /* Pink */
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
-    font-size: 1rem;
-    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+}
+
+.st-main-title {
+    color: #09223f; /* Navy */
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(2rem, 4vw, 2.6rem);
+    font-weight: 800;
+    line-height: 1.25;
+    margin-bottom: 20px;
+}
+
+.st-accent-line {
+    width: 75px;
+    height: 5px;
+    background-color: #ff69b4; /* Pink */
+    margin-bottom: 30px;
+    border-radius: 5px;
+}
+
+.st-description {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 35px;
+    text-align: justify;
+}
+
+/* --- HISTORY BUTTON --- */
+.st-history-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px 35px;
+    background-color: #09223f; /* Navy */
+    color: #ffffff;
     text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
     border-radius: 50px;
-    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    border: none;
-    overflow: hidden;
+    transition: background-color 0.3s ease;
 }
 
-.st-welcome-btn:hover {
-    transform: translateY(-7px) scale(1.03);
-    box-shadow: 0 20px 40px rgba(191, 149, 63, 0.4);
-    color: #fff;
+.st-history-link:hover {
+    background-color: #ff69b4; /* Hover Pink */
 }
 
-.st-welcome-btn::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -60%;
-    width: 20%;
-    height: 200%;
-    background: rgba(255, 255, 255, 0.3);
-    transform: rotate(30deg);
-    transition: all 0.5s;
-}
-
-.st-welcome-btn:hover::after {
-    left: 120%;
-}
-
-/* MOBILE RESPONSIVENESS */
-@media (max-width: 768px) {
-    .st-welcome-section { 
-        padding: 80px 20px; 
-        background-attachment: scroll;
-    }
-    .st-welcome-glass-card { 
-        padding: 50px 30px; 
-        border-radius: 20px;
-    }
-    .st-welcome-title { font-size: 1.8rem; }
-    .st-welcome-description { 
-        font-size: 1.05rem;
+/* --- MOBILE RESPONSIVE --- */
+@media (max-width: 1024px) {
+    .st-about-container {
+        flex-direction: column;
         text-align: center;
-        line-height: 1.7;
+        gap: 50px;
     }
-    .st-welcome-btn {
-        padding: 14px 40px;
-        width: 100%;
+
+    .student-mask-container {
+        width: 340px;
+        height: 360px;
+    }
+
+    .st-accent-line {
+        margin: 0 auto 30px;
+    }
+
+    .st-description {
+        text-align: center;
     }
 }
 
+/* --- ENTRANCE ANIMATIONS SETTINGS --- */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* FACILITIES SECTION - LIGHT CRYSTAL THEME */
-.st-fac-section {
-    padding: 100px 0;
-    background-color: #f8fafd; 
-    position: relative;
-    overflow: hidden; /* Prevents unwanted scrollbars during animation */
-}
-
-.st-fac-header {
-    text-align: center;
-    margin-bottom: 60px;
+/* 1. Initial State (Hidden) */
+.reveal-up {
     opacity: 0;
     transform: translateY(30px);
-    transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.st-fac-header.reveal-active {
+.reveal-entrance {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* 2. Active State (When Scrolled Into View) */
+.active .reveal-up {
     opacity: 1;
     transform: translateY(0);
 }
 
-.st-fac-main-title {
-    font-family: 'Poppins', sans-serif;
-    color: #09223f;
-    font-size: 2.5rem;
-    font-weight: 800;
+.active .reveal-entrance {
+    opacity: 1;
+    transform: scale(1);
 }
 
-.st-fac-subtitle {
-    font-family: 'Manjari', sans-serif;
-    color: #666;
-    margin-top: 10px;
+/* 3. Staggered Delays (Making them appear one after another) */
+.active .st-about-content .reveal-up:nth-child(1) { transition-delay: 0.2s; } /* Subtitle */
+.active .st-about-content .reveal-up:nth-child(2) { transition-delay: 0.4s; } /* Title */
+.active .st-about-content .reveal-up:nth-child(3) { transition-delay: 0.5s; } /* Line */
+.active .st-about-content .reveal-up:nth-child(4) { transition-delay: 0.6s; } /* Description */
+.active .st-about-content .reveal-up:nth-child(5) { transition-delay: 0.8s; } /* Button */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- SECTION STYLE --- */
+.st-fac-section {
+    padding: 100px 0;
+    background-color: #fff2f5; /* Light Pink/Peach */
+    overflow: hidden;
 }
 
-.st-fac-line {
-    width: 70px;
-    height: 5px;
-    background: #28a745;
-    margin: 20px auto;
-    border-radius: 10px;
-}
-
-/* THE GRID */
-.st-fac-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+.st-fac-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-/* WHITE GLASS CARD - UPDATED FOR LIQUID SMOOTHNESS */
+.st-fac-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.st-fac-main-title {
+    font-family: 'Poppins', sans-serif;
+    color: #09223f; /* Navy */
+    font-size: 2.5rem;
+    font-weight: 800;
+}
+
+.st-fac-line {
+    width: 75px;
+    height: 5px;
+    background: #28a745; /* Green */
+    margin: 20px auto;
+    border-radius: 10px;
+}
+
+/* --- GRID & CARDS --- */
+.st-fac-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
 .st-fac-card {
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    background: #ffffff;
     border-radius: 20px;
     padding: 40px 30px;
     text-align: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    
-    /* Animation Properties */
-    opacity: 0;
-    transform: translateY(50px);
-    will-change: transform, opacity; /* Optimizes for GPU */
-    transition: 
-        transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1), 
-        opacity 1.2s cubic-bezier(0.2, 0.8, 0.2, 1),
-        background 0.3s ease,
-        border-bottom 0.3s ease,
-        box-shadow 0.3s ease;
+    text-decoration: none !important;
+    display: block;
+    border-bottom: 4px solid #28a745; /* Green Bottom */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
 
-.st-fac-card.reveal-active {
+/* ENTRANCE ANIMATION CLASSES */
+.reveal-trigger {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* This is what the JS adds on scroll */
+.reveal-trigger.reveal-active {
     opacity: 1;
     transform: translateY(0);
 }
 
-.st-fac-card:hover {
-    transform: translateY(-12px);
-    background: #ffffff;
-    box-shadow: 0 25px 50px rgba(40, 167, 69, 0.12);
-    border-bottom: 4px solid #28a745;
-}
-
+/* --- INTERNAL ELEMENTS --- */
 .st-fac-icon {
-    font-size: 40px;
-    color: #09223f;
-    margin-bottom: 20px;
-    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), color 0.3s ease;
-}
-
-.st-fac-card:hover .st-fac-icon {
-    color: #28a745;
-    transform: scale(1.15);
+    font-size: 45px;
+    color: #28a745; /* Green */
+    margin-bottom: 25px;
+    transition: transform 0.3s ease;
 }
 
 .st-fac-card h3 {
     font-family: 'Poppins', sans-serif;
-    font-size: 1.3rem;
-    color: #333;
+    color: #09223f; /* Navy */
+    font-weight: 700;
     margin-bottom: 15px;
 }
 
 .st-fac-card p {
-    font-family: 'Manjari', sans-serif;
-    color: #777;
-    font-size: 0.95rem;
+    font-family: 'Poppins', sans-serif;
+    color: #09223f; /* Navy */
     line-height: 1.6;
+    opacity: 0.85;
 }
 
-/* --- MOBILE VERSION --- */
+/* --- HOVER EFFECTS --- */
+.st-fac-card:hover {
+    transform: translateY(-10px) !important;
+    box-shadow: 0 15px 35px rgba(40, 167, 69, 0.2); /* Green Glow */
+}
+
+.st-fac-card:hover .st-fac-icon {
+    transform: scale(1.1);
+}
+
+/* --- MOBILE --- */
 @media (max-width: 768px) {
-    .st-fac-section {
-        padding: 60px 0;
-    }
-
-    .st-fac-main-title {
-        font-size: 1.8rem;
-    }
-
-    .st-fac-grid {
-        grid-template-columns: 1fr; /* Single column for better tap targets */
-        gap: 20px;
-        padding: 0 25px;
-    }
-
-    .st-fac-card {
-        padding: 30px 20px;
-        transform: translateY(30px); /* Shorter distance for mobile screens */
-    }
-
-    .st-fac-card:hover {
-        transform: translateY(-5px); /* Less aggressive hover for touch */
-    }
-    
-    .st-fac-icon {
-        font-size: 32px;
-    }
+    .st-fac-grid { grid-template-columns: 1fr; }
 }
-/* REMOVE UNDERLINES FROM CARDS */
-a.st-fac-card, 
-a.st-fac-card:hover, 
-a.st-fac-card:focus, 
-a.st-fac-card:active {
-    text-decoration: none !important; /* This removes the line */
-    outline: none !important;         /* Removes the blue box when clicked */
-    color: inherit !important;       /* Keeps the text dark/gray as designed */
-}
-
-/* Ensure the titles inside don't get underlined either */
-.st-fac-card h3, 
-.st-fac-card p {
-    text-decoration: none !important;
-}
-
-
-
-
-
-
-
-
-
 
 
 
