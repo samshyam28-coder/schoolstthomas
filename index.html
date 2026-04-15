@@ -346,11 +346,10 @@
 
 
 
-<section class="st-about-section">
+<section class="st-about-section reveal-section">
     <div class="st-about-container">
         
         <div class="st-about-image-wrap reveal-entrance">
-
             <div class="student-mask-container">
                 <img src="images/students.png" alt="St. Thomas Student" class="student-img">
             </div>
@@ -363,9 +362,7 @@
             
             <p class="st-description reveal-up">
                 Situated in the heart of the coastal community, St. Thomas HSS has been a beacon of knowledge, 
-                nurturing generations of students through a holistic approach to education. We are committed 
-                to fostering an environment where tradition meets modern innovation, empowering every child 
-                to lead with integrity, compassion, and the skillsets required for the future.
+                nurturing generations of students through a holistic approach to education.
             </p>
 
             <div class="st-action-area reveal-up">
@@ -375,7 +372,6 @@
                 </a>
             </div>
         </div>
-
     </div>
 </section>
 
@@ -867,7 +863,7 @@
                     <p class="location-sub">POONTHURA, THIRUVANANTHAPURAM</p>
                 </div>
             </div>
-            <p class="brand-text">Empowering students in Poonthura, Trivandrum through holistic education and character building since 1910.</p>
+            <p class="brand-text">Empowering students in poonthura, Trivandrum through holistic education and character building since 1910.</p>
             <div class="social-links">
                 <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
                 <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
@@ -889,7 +885,7 @@
             <h4 class="footer-heading">Contact Us</h4>
             <div class="contact-item">
                 <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
-                <p>Ponthura, Trivandrum</p>
+                <p>poonthura, Trivandrum</p>
             </div>
             <div class="contact-item">
                 <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
@@ -1266,6 +1262,20 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+        }
+    });
+}, { threshold: 0.2 });
+
+document.querySelectorAll('.reveal-section').forEach(section => {
+    observer.observe(section);
+});
+</script>
 
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
