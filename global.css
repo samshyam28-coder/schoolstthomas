@@ -690,36 +690,40 @@ body {
     transform: translate(-50%, -50%) scale(1) translateZ(0);
 }
 
+/* --- UNIVERSAL HERO TEXT (Scales for Desktop View) --- */
 .hero-content h2 {
     font-family: 'Poppins', sans-serif;
     color: #ffffff;
-    font-size: clamp(1.6rem, 5vw, 3.5rem); /* Adjusted for mobile readability */
+    /* This uses 8% of the screen width, but never smaller than 1.8rem */
+    font-size: clamp(1.8rem, 8vw, 3.5rem); 
     font-weight: 800;
     text-transform: uppercase;
     text-shadow: 2px 4px 10px rgba(0,0,0,0.7);
     margin-bottom: 10px;
+    line-height: 1.2;
 }
 
 .hero-content p {
     font-family: 'Poppins', sans-serif;
     color: #f0f0f0;
-    font-size: clamp(0.85rem, 2vw, 1.2rem);
+    /* Scales between 0.9rem and 1.2rem based on width */
+    font-size: clamp(0.9rem, 2.5vw, 1.2rem);
     text-shadow: 1px 2px 5px rgba(0,0,0,0.5);
     margin-bottom: 25px;
 }
 
-/* 3. BUTTON: DELAYED ENTRANCE */
+/* --- FLEXIBLE BUTTON --- */
 .hero-btn {
     display: inline-block;
     background: #00abf0;
     color: white;
-    padding: 12px 30px;
+    /* Padding scales with screen width so it doesn't look tiny on Mobile-Desktop view */
+    padding: clamp(10px, 2vw, 15px) clamp(25px, 5vw, 45px);
+    font-size: clamp(0.8rem, 2vw, 1rem);
     text-decoration: none;
     font-weight: 700;
     border-radius: 4px;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease 0.6s, transform 0.6s ease 0.6s, background 0.3s ease 0s;
+    transition: all 0.3s ease;
 }
 
 .swiper-slide-active .hero-btn {
