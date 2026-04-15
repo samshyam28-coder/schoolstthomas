@@ -2076,10 +2076,12 @@ body {
 
 
 
-/* --- ST. THOMAS WELCOME SECTION STYLES --- */
+/* ============================================================
+   ST. THOMAS HSS - WELCOME SECTION (COMPLETE)
+   ============================================================ */
 
 .st-about-section {
-    padding: 90px 0;
+    padding: 100px 0;
     background-color: #f4f7f9; /* Professional Light Ash */
     position: relative;
     overflow: hidden;
@@ -2103,14 +2105,18 @@ body {
     align-items: center;
 }
 
+.student-mask-container {
+    width: 100%;
+    max-width: 500px; /* Limits size on large screens */
+    position: relative;
+}
 
 .student-img {
     width: 100%;
     height: auto;
     display: block;
+    filter: drop-shadow(0 20px 30px rgba(0,0,0,0.1));
 }
-
-
 
 /* --- CONTENT AREA --- */
 .st-about-content {
@@ -2118,21 +2124,22 @@ body {
 }
 
 .st-subtitle {
-    color: #ff69b4; /* Pink */
+    color: #ff69b4; /* Pink Accent */
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
     text-transform: uppercase;
     font-size: 0.95rem;
     margin-bottom: 12px;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
+    display: block;
 }
 
 .st-main-title {
-    color: #09223f; /* Navy */
+    color: #09223f; /* Navy Blue */
     font-family: 'Poppins', sans-serif;
     font-size: clamp(2rem, 4vw, 2.6rem);
     font-weight: 800;
-    line-height: 1.25;
+    line-height: 1.2;
     margin-bottom: 20px;
 }
 
@@ -2141,7 +2148,7 @@ body {
     height: 5px;
     background-color: #ff69b4; /* Pink */
     margin-bottom: 30px;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .st-description {
@@ -2158,31 +2165,76 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 12px;
-    padding: 15px 35px;
+    padding: 16px 35px;
     background-color: #09223f; /* Navy */
     color: #ffffff;
     text-decoration: none;
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
     border-radius: 50px;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(9, 34, 63, 0.2);
+}
+
+.st-history-link i {
+    transition: transform 0.3s ease;
 }
 
 .st-history-link:hover {
     background-color: #ff69b4; /* Hover Pink */
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(255, 105, 180, 0.3);
 }
+
+.st-history-link:hover i {
+    transform: translateX(5px);
+}
+
+/* --- ENTRANCE ANIMATIONS --- */
+
+/* Initial Hidden States */
+.reveal-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.reveal-entrance {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 1s ease-out, transform 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Active Trigger (When .active class is added to the section) */
+.st-about-section.active .reveal-up,
+.st-about-section.active .reveal-entrance {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Staggered Delays for Content Flow */
+.st-about-section.active .st-subtitle { transition-delay: 0.2s; }
+.st-about-section.active .st-main-title { transition-delay: 0.35s; }
+.st-about-section.active .st-accent-line { transition-delay: 0.45s; }
+.st-about-section.active .st-description { transition-delay: 0.55s; }
+.st-about-section.active .st-action-area { transition-delay: 0.7s; }
 
 /* --- MOBILE RESPONSIVE --- */
 @media (max-width: 1024px) {
+    .st-about-section {
+        padding: 70px 0;
+    }
+
     .st-about-container {
         flex-direction: column;
         text-align: center;
         gap: 50px;
     }
 
-    .student-mask-container {
-        width: 340px;
-        height: 360px;
+    .st-about-image-wrap {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
     }
 
     .st-accent-line {
@@ -2193,39 +2245,6 @@ body {
         text-align: center;
     }
 }
-
-/* --- ENTRANCE ANIMATIONS SETTINGS --- */
-
-/* 1. Initial State (Hidden) */
-.reveal-up {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.reveal-entrance {
-    opacity: 0;
-    transform: scale(0.9);
-    transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-/* 2. Active State (When Scrolled Into View) */
-.active .reveal-up {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.active .reveal-entrance {
-    opacity: 1;
-    transform: scale(1);
-}
-
-/* 3. Staggered Delays (Making them appear one after another) */
-.active .st-about-content .reveal-up:nth-child(1) { transition-delay: 0.2s; } /* Subtitle */
-.active .st-about-content .reveal-up:nth-child(2) { transition-delay: 0.4s; } /* Title */
-.active .st-about-content .reveal-up:nth-child(3) { transition-delay: 0.5s; } /* Line */
-.active .st-about-content .reveal-up:nth-child(4) { transition-delay: 0.6s; } /* Description */
-.active .st-about-content .reveal-up:nth-child(5) { transition-delay: 0.8s; } /* Button */
 
 
 
