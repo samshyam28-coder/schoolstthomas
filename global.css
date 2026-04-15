@@ -226,8 +226,8 @@ body {
     display: flex;
     list-style: none;
     align-items: center;
-    gap: 5px;
-    margin-right: -70px;
+    gap: 2px;
+    margin-right: -100px;
 }
 
 .nav-menu li a {
