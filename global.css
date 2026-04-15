@@ -622,10 +622,11 @@ body {
 
 
 /* --- HERO SECTION FIXED --- */
+/* --- HERO SECTION FIXED (WIDE-SCREEN VERSION) --- */
 .hero-wrapper {
     width: 100%;
-    height: 60vh; /* Increased slightly for better mobile appearance */
-    margin-top: 20px; /* ERROR FIX: Pushes the Hero out from behind the Navbar */
+    height: 60vh; /* Keeps your original desktop height */
+    margin-top: 20px;
     position: relative;
     overflow: hidden;
     background: #09223f;
@@ -732,16 +733,31 @@ body {
     transition: 0.2s ease 0s !important;
 }
 
-/* --- MOBILE SPECIFIC FIXES --- */
-@media (max-width: 768px) {
+/* --- MOBILE & MOBILE-DESKTOP VIEW FIX --- */
+@media (max-width: 1024px) { /* Increased to 1024 to catch tablets/mobile-desktop views */
     .hero-wrapper {
-        height: 50vh;
-        margin-top: 10px; /* Matches mobile navbar height */
+        /* This forces the "Wide" look ONLY on smaller screens */
+        height: auto !important; 
+        aspect-ratio: 16 / 9; 
+        margin-top: 10px;
+    }
+
+    /* Shrink text for the shorter wide-box */
+    .hero-content h2 {
+        font-size: clamp(1.2rem, 4vw, 1.8rem);
+        margin-bottom: 5px;
+    }
+    
+    .hero-content p {
+        font-size: 0.85rem;
+        margin-bottom: 10px;
+    }
+
+    .hero-btn {
+        padding: 8px 20px;
+        font-size: 0.9rem;
     }
 }
-
-
-
 
 
 
