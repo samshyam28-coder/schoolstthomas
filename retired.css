@@ -1,0 +1,113 @@
+/* =========================================
+   ST. THOMAS HSS - FULL GALLERY CSS (REVISED)
+   ========================================= */
+
+:root {
+    --st-navy: #09223f;
+    --st-pink: #ff1493;
+    --st-blue: #007bff;
+    --st-green: #258d40;
+}
+
+/* BACKGROUND & LAYOUT */
+.zig-zag-bg {
+    background-color: #f8fbfe;
+    background-image: linear-gradient(135deg, #e9f2f9 25%, transparent 25%), 
+                      linear-gradient(225deg, #e9f2f9 25%, transparent 25%), 
+                      linear-gradient(45deg, #e9f2f9 25%, transparent 25%), 
+                      linear-gradient(315deg, #e9f2f9 25%, #f8fbfe 25%);
+    background-position: 10px 0, 10px 0, 0 0, 0 0;
+    background-size: 20px 20px;
+}
+
+.st-gallery-section { padding: 90px 0; overflow: hidden; }
+.st-gallery-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+.st-round-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Change this from center to top */
+    object-position: top center; 
+    border-radius: 50%;
+}
+
+/* HEADERS */
+.st-gallery-header { text-align: center; margin-bottom: 50px; }
+.st-tag { display: inline-block; padding: 6px 18px; border-radius: 25px; color: white; font-weight: 700; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 15px; }
+.blue-tag { background: var(--st-blue); }
+.pink-tag { background: var(--st-pink); }
+.green-tag { background: var(--st-green); }
+
+.st-title { color: var(--st-navy); font-size: 2.4rem; font-weight: 800; }
+.st-bar { width: 70px; height: 5px; margin: 15px auto; border-radius: 10px; }
+.bar-blue { background: var(--st-blue); }
+.bar-pink { background: var(--st-pink); }
+.bar-green { background: var(--st-green); }
+
+/* TAB SYSTEM */
+.st-tab-container { margin-top: 30px; display: flex; justify-content: center; gap: 15px; }
+.st-tab-btn {
+    padding: 12px 30px;
+    border: 2px solid var(--st-green);
+    background: transparent;
+    color: var(--st-green);
+    font-weight: 800;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.st-tab-btn.active, .st-tab-btn:hover { background: var(--st-green); color: white; box-shadow: 0 5px 15px rgba(37, 141, 64, 0.3); }
+
+/* TAB CONTENT LOGIC */
+.batch-content { display: none; }
+.active-batch { display: block !important; animation: fadeIn 0.6s ease-in; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+/* CARDS & CIRCLES (Portraits) */
+.st-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+.st-card { background: white; padding: 40px 20px; border-radius: 25px; text-align: center; box-shadow: 0 15px 40px rgba(0,0,0,0.06); transition: 0.4s; position: relative; }
+.st-card:hover { transform: translateY(-10px); }
+
+.st-circle-wrap {
+    width: 170px; height: 170px; margin: 0 auto 20px; border-radius: 50%; padding: 6px;
+    background: white; box-shadow: 0 10px 25px rgba(0,0,0,0.12); overflow: hidden;
+}
+.st-round-img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+
+.st-card h3 { color: var(--st-navy); font-size: 1.4rem; margin-bottom: 5px; }
+.st-card p { color: #555; font-weight: 600; margin-bottom: 12px; }
+.st-badge { background: #f0f0f0; padding: 5px 15px; border-radius: 20px; font-weight: 700; font-size: 0.85rem; color: var(--st-navy); }
+
+/* WIDE GROUP PHOTOS (Section 3) */
+.st-wide-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
+.st-photo-frame {
+    background: white;
+    padding: 12px 12px 45px 12px;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    position: relative;
+    border: 1px solid #eee;
+    transition: 0.4s;
+}
+.st-photo-frame img { width: 100%; aspect-ratio: 16/10; object-fit: cover; border-radius: 4px; }
+.st-photo-label { position: absolute; bottom: 12px; left: 0; right: 0; text-align: center; font-weight: 800; color: var(--st-navy); }
+
+.st-photo-frame:hover { transform: translateY(-10px) rotate(1deg); border-color: var(--st-green); }
+
+/* HOVER COLORS */
+.card-blue:hover { border-bottom: 5px solid var(--st-blue); }
+.card-pink:hover { border-bottom: 5px solid var(--st-pink); }
+.card-green:hover { border-bottom: 5px solid var(--st-green); }
+
+/* REVEAL ANIMATION (Initial hidden state - FIXED) */
+.st-card, .st-photo-frame {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.reveal-active {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
