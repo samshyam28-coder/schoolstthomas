@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Gayathri:wght@700&family=Manjari:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="global.css">
-    <link rel="stylesheet" href="management.css">
+    <link rel="stylesheet" href="non-teaching.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -156,8 +156,61 @@
 
 
 
+<section class="staff-section">
+    <div class="staff-container">
+        
+        <header class="staff-header reveal">
+            <span class="badge">Support Team</span>
+            <h1>Non-Teaching Staff</h1>
+            <p>The dedicated support team behind the excellence of St. Thomas HSS Poonthura.</p>
+            <div class="header-line"></div>
+        </header>
 
+        <div class="staff-grid">
+            
+            <div class="staff-card reveal">
+                <div class="card-icon">
+                    <i class="user-initials">MR</i>
+                </div>
+                <div class="card-info">
+                    <h3 class="staff-name">Mary R</h3>
+                    <p class="staff-designation">Clerk</p>
+                </div>
+            </div>
 
+            <div class="staff-card reveal">
+                <div class="card-icon">
+                    <i class="user-initials">CG</i>
+                </div>
+                <div class="card-info">
+                    <h3 class="staff-name">Christeenamma</h3>
+                    <p class="staff-designation">Office Attendant</p>
+                </div>
+            </div>
+
+            <div class="staff-card reveal">
+                <div class="card-icon">
+                    <i class="user-initials">RF</i>
+                </div>
+                <div class="card-info">
+                    <h3 class="staff-name">Raju F</h3>
+                    <p class="staff-designation">Office Attendant</p>
+                </div>
+            </div>
+
+            <div class="staff-card reveal">
+                <div class="card-icon">
+                    <i class="user-initials">AP</i>
+                </div>
+                <div class="card-info">
+                    <h3 class="staff-name">Annie P L</h3>
+                    <p class="staff-designation">FTM</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
 
 
 
@@ -280,7 +333,21 @@ window.addEventListener('load', function() {
 
 
 
+<script>
+    const observerOptions = {
+        threshold: 0.1
+    };
 
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+</script>
 
 
 
