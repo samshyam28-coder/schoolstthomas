@@ -29,6 +29,37 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png">
+    <link rel="manifest" href="../images/site.webmanifest">
+    <link rel="shortcut icon" href="../images/favicon.ico">
+    <meta name="theme-color" content="#09223f">
+
+    <title>Onam Celebration Gallery | St. Thomas HSS Poonthura</title>
+    <meta name="title" content="Onam Celebration Gallery | St. Thomas HSS Poonthura">
+    <meta name="description" content="Celebrate the spirit of Kerala with St. Thomas HSS Poonthura. View photos of our vibrant Onam celebrations, Pookalam competitions, and traditional festivities.">
+    <meta name="keywords" content="Onam celebration school, Pookalam competition Poonthura, St. Thomas HSS Onam, Kerala school festivals, school gallery Kerala">
+    <meta name="author" content="St. Thomas HSS Poonthura">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://stthomashsspoonthura.com/gallery/onam.html">
+    <meta property="og:title" content="Onam Celebration Gallery - St. Thomas HSS">
+    <meta property="og:description" content="A glimpse into the colorful Onam celebrations and cultural festivities at St. Thomas HSS Poonthura.">
+    <meta property="og:image" content="https://stthomashsspoonthura.com/images/android-chrome-512x512.png">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
 <style>
     :root {
         --navy: #05162a;
@@ -94,12 +125,26 @@
         cursor: pointer;
         border-radius: 8px;
         border: 1px solid var(--glass-border);
+        background: #000;
     }
 
     .photo-item img {
         width: 100%; height: 100%;
         object-fit: cover;
         transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    .video-badge {
+        position: absolute;
+        top: 10px; right: 10px;
+        background: rgba(191, 149, 63, 0.9);
+        color: white;
+        padding: 4px 10px;
+        border-radius: 4px;
+        font-size: 0.7rem;
+        z-index: 2;
+        font-weight: 700;
+        text-transform: uppercase;
     }
 
     .glass-overlay {
@@ -109,6 +154,7 @@
         backdrop-filter: blur(4px);
         display: flex; justify-content: center; align-items: center;
         opacity: 0; transition: 0.4s; color: white; font-size: 1.5rem;
+        z-index: 3;
     }
 
     .photo-item:hover .glass-overlay { opacity: 1; }
@@ -133,13 +179,25 @@
         display: flex; flex-direction: column; align-items: center;
     }
 
-    .lb-img-wrapper {
+    .lb-media-container {
+        width: 100%;
+        max-width: 450px;
         overflow: hidden;
         border-radius: 12px;
         box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+        background: #000;
+        position: relative;
     }
 
-    .lb-img-wrapper img {
+    .lb-media-container iframe {
+        width: 100%;
+        height: 75vh;
+        aspect-ratio: 9 / 16;
+        border: none;
+        display: block;
+    }
+
+    .lb-media-container img {
         max-width: 100%; max-height: 70vh;
         display: block; transition: transform 0.3s ease, opacity 0.3s ease;
     }
@@ -171,8 +229,8 @@
 
     @media (max-width: 768px) {
         .insta-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-        .lb-prev { left: 10px; }
-        .lb-next { right: 10px; }
+        .lb-prev { left: -10px; background: rgba(5, 22, 42, 0.6); }
+        .lb-next { right: -10px; background: rgba(5, 22, 42, 0.6); }
         .lb-nav { width: 45px; height: 45px; font-size: 1.2rem; }
     }
 </style>
@@ -187,79 +245,65 @@
     </section>
 
     <section class="insta-container">
-        <div class="insta-grid">
+        <div class="insta-grid" id="mainGalleryGrid">
+            
             <div class="photo-item" onclick="openLightbox(0)" data-aos="zoom-in">
                 <img src="onam/1.jpeg" alt="Pookalam Competition">
                 <div class="glass-overlay"><i class="fas fa-expand"></i></div>
             </div>
-            <div class="photo-item" onclick="openLightbox(1)" data-aos="zoom-in" data-aos-delay="100">
-                <img src="onam/2.jpeg" alt="Students in Traditional Attire">
+
+            <div class="photo-item is-video" onclick="openLightbox(1)" data-aos="zoom-in" data-video-id="mdsnpQe7070">
+                <div class="video-badge"><i class="fas fa-play"></i> Shorts</div>
+                <img src="https://img.youtube.com/vi/mdsnpQe7070/hqdefault.jpg" alt="Video Link">
+                <div class="glass-overlay"><i class="fas fa-play"></i></div>
+            </div>
+
+            <div class="photo-item" onclick="openLightbox(2)" data-aos="zoom-in">
+                <img src="onam/2.jpeg" alt="Traditional Attire">
                 <div class="glass-overlay"><i class="fas fa-expand"></i></div>
             </div>
-            <div class="photo-item" onclick="openLightbox(2)" data-aos="zoom-in" data-aos-delay="200">
-                <img src="onam/3.jpeg" alt="Onam Cultural Performance">
+
+            <div class="photo-item is-video" onclick="openLightbox(3)" data-aos="zoom-in" data-video-id="TGIQ2BLOHYk">
+                <div class="video-badge"><i class="fas fa-play"></i> Shorts</div>
+                <img src="https://img.youtube.com/vi/TGIQ2BLOHYk/hqdefault.jpg" alt="Video Link">
+                <div class="glass-overlay"><i class="fas fa-play"></i></div>
+            </div>
+
+            <div class="photo-item" onclick="openLightbox(4)" data-aos="zoom-in">
+                <img src="onam/3.jpeg" alt="Cultural performance">
                 <div class="glass-overlay"><i class="fas fa-expand"></i></div>
             </div>
-            <div class="photo-item" onclick="openLightbox(3)" data-aos="zoom-in" data-aos-delay="300">
-                <img src="onam/4.jpeg" alt="Maveli Arrival Celebration">
+
+            <div class="photo-item is-video" onclick="openLightbox(5)" data-aos="zoom-in" data-video-id="KkK3H1VyeS0">
+                <div class="video-badge"><i class="fas fa-play"></i> Shorts</div>
+                <img src="https://img.youtube.com/vi/KkK3H1VyeS0/hqdefault.jpg" alt="Video Link">
+                <div class="glass-overlay"><i class="fas fa-play"></i></div>
+            </div>
+
+            <div class="photo-item" onclick="openLightbox(6)" data-aos="zoom-in">
+                <img src="onam/4.jpeg" alt="Maveli Arrival">
                 <div class="glass-overlay"><i class="fas fa-expand"></i></div>
             </div>
-            <div class="photo-item" onclick="openLightbox(4)" data-aos="zoom-in" data-aos-delay="400">
-                <img src="onam/5.jpeg" alt="Traditional Onam Games">
-                <div class="glass-overlay"><i class="fas fa-expand"></i></div>
+
+            <div class="photo-item is-video" onclick="openLightbox(7)" data-aos="zoom-in" data-video-id="9BgJMUNB1_k">
+                <div class="video-badge"><i class="fas fa-play"></i> Shorts</div>
+                <img src="https://img.youtube.com/vi/9BgJMUNB1_k/hqdefault.jpg" alt="Video Link">
+                <div class="glass-overlay"><i class="fas fa-play"></i></div>
             </div>
-            <div class="photo-item" onclick="openLightbox(5)" data-aos="zoom-in" data-aos-delay="500">
-                <img src="onam/6.jpeg" alt="Onam Feast Highlights">
-                <div class="glass-overlay"><i class="fas fa-expand"></i></div>
-            </div>
-             <div class="photo-item" onclick="openLightbox(0)" data-aos="zoom-in">
-                <img src="onam/7.jpeg" alt="Pookalam Competition">
-                <div class="glass-overlay"><i class="fas fa-expand"></i></div>
-            </div>
-            <div class="photo-item" onclick="openLightbox(1)" data-aos="zoom-in" data-aos-delay="100">
-                <img src="onam/8.jpeg" alt="Students in Traditional Attire">
-                <div class="glass-overlay"><i class="fas fa-expand"></i></div>
-            </div>
-            <div class="photo-item" onclick="openLightbox(2)" data-aos="zoom-in" data-aos-delay="200">
-                <img src="onam/9.jpeg" alt="Onam Cultural Performance">
-                <div class="glass-overlay"><i class="fas fa-expand"></i></div>
-            </div>
-            <div class="photo-item" onclick="openLightbox(3)" data-aos="zoom-in" data-aos-delay="300">
-                <img src="onam/10.jpeg" alt="Maveli Arrival Celebration">
-                <div class="glass-overlay"><i class="fas fa-expand"></i></div>
-            </div>
-            <div class="photo-item" onclick="openLightbox(4)" data-aos="zoom-in" data-aos-delay="400">
-                <img src="onam/11.jpeg" alt="Traditional Onam Games">
-                <div class="glass-overlay"><i class="fas fa-expand"></i></div>
-            </div>
-            <div class="photo-item" onclick="openLightbox(5)" data-aos="zoom-in" data-aos-delay="500">
-                <img src="onam/12.jpeg" alt="Onam Feast Highlights">
-                <div class="glass-overlay"><i class="fas fa-expand"></i></div>
-            </div>
-             <div class="photo-item" onclick="openLightbox(0)" data-aos="zoom-in">
-                <img src="onam/13.jpeg" alt="Pookalam Competition">
-                <div class="glass-overlay"><i class="fas fa-expand"></i></div>
-            </div>
-            <div class="photo-item" onclick="openLightbox(1)" data-aos="zoom-in" data-aos-delay="100">
-                <img src="onam/14.jpeg" alt="Students in Traditional Attire">
-                <div class="glass-overlay"><i class="fas fa-expand"></i></div>
-            </div>
-            <div class="photo-item" onclick="openLightbox(2)" data-aos="zoom-in" data-aos-delay="200">
-                <img src="onam/15.jpeg" alt="Onam Cultural Performance">
-                <div class="glass-overlay"><i class="fas fa-expand"></i></div>
-            </div>
-            <div class="photo-item" onclick="openLightbox(3)" data-aos="zoom-in" data-aos-delay="300">
-                <img src="onam/16.jpeg" alt="Maveli Arrival Celebration">
-                <div class="glass-overlay"><i class="fas fa-expand"></i></div>
-            </div>
-            <div class="photo-item" onclick="openLightbox(4)" data-aos="zoom-in" data-aos-delay="400">
-                <img src="onam/17.jpeg" alt="Traditional Onam Games">
-                <div class="glass-overlay"><i class="fas fa-expand"></i></div>
-            </div>
-            <div class="photo-item" onclick="openLightbox(5)" data-aos="zoom-in" data-aos-delay="500">
-                <img src="onam/18.jpeg" alt="Onam Feast Highlights">
-                <div class="glass-overlay"><i class="fas fa-expand"></i></div>
-            </div>
+
+            <div class="photo-item" onclick="openLightbox(8)" data-aos="zoom-in"><img src="onam/5.jpeg"><div class="glass-overlay"><i class="fas fa-expand"></i></div></div>
+            <div class="photo-item" onclick="openLightbox(9)" data-aos="zoom-in"><img src="onam/6.jpeg"><div class="glass-overlay"><i class="fas fa-expand"></i></div></div>
+            <div class="photo-item" onclick="openLightbox(10)" data-aos="zoom-in"><img src="onam/7.jpeg"><div class="glass-overlay"><i class="fas fa-expand"></i></div></div>
+            <div class="photo-item" onclick="openLightbox(11)" data-aos="zoom-in"><img src="onam/8.jpeg"><div class="glass-overlay"><i class="fas fa-expand"></i></div></div>
+            <div class="photo-item" onclick="openLightbox(12)" data-aos="zoom-in"><img src="onam/9.jpeg"><div class="glass-overlay"><i class="fas fa-expand"></i></div></div>
+            <div class="photo-item" onclick="openLightbox(13)" data-aos="zoom-in"><img src="onam/10.jpeg"><div class="glass-overlay"><i class="fas fa-expand"></i></div></div>
+            <div class="photo-item" onclick="openLightbox(14)" data-aos="zoom-in"><img src="onam/11.jpeg"><div class="glass-overlay"><i class="fas fa-expand"></i></div></div>
+            <div class="photo-item" onclick="openLightbox(15)" data-aos="zoom-in"><img src="onam/12.jpeg"><div class="glass-overlay"><i class="fas fa-expand"></i></div></div>
+            <div class="photo-item" onclick="openLightbox(16)" data-aos="zoom-in"><img src="onam/13.jpeg"><div class="glass-overlay"><i class="fas fa-expand"></i></div></div>
+            <div class="photo-item" onclick="openLightbox(17)" data-aos="zoom-in"><img src="onam/14.jpeg"><div class="glass-overlay"><i class="fas fa-expand"></i></div></div>
+            <div class="photo-item" onclick="openLightbox(18)" data-aos="zoom-in"><img src="onam/15.jpeg"><div class="glass-overlay"><i class="fas fa-expand"></i></div></div>
+            <div class="photo-item" onclick="openLightbox(19)" data-aos="zoom-in"><img src="onam/16.jpeg"><div class="glass-overlay"><i class="fas fa-expand"></i></div></div>
+            <div class="photo-item" onclick="openLightbox(20)" data-aos="zoom-in"><img src="onam/17.jpeg"><div class="glass-overlay"><i class="fas fa-expand"></i></div></div>
         </div>
     </section>
 
@@ -267,11 +311,10 @@
         <div class="lb-content">
             <span class="lb-close" onclick="closeLightbox()">&times;</span>
             <div class="lb-nav lb-prev" onclick="changeImg(-1)"><i class="fas fa-chevron-left"></i></div>
-            <div class="lb-img-wrapper">
-                <img id="lbMainImage" src="" alt="Full View">
-            </div>
+            <div class="lb-media-container" id="lbMediaWrapper">
+                </div>
             <div class="lb-nav lb-next" onclick="changeImg(1)"><i class="fas fa-chevron-right"></i></div>
-            <div class="lb-tools">
+            <div class="lb-tools" id="lbTools">
                 <div class="tool-btn" onclick="zoomImg(1.2)"><i class="fas fa-magnifying-glass-plus"></i></div>
                 <div class="tool-btn" onclick="zoomImg(1)"><i class="fas fa-compress"></i></div>
                 <div class="tool-btn" onclick="zoomImg(0.8)"><i class="fas fa-magnifying-glass-minus"></i></div>
@@ -280,16 +323,17 @@
     </div>
 
 <script>
-    let currentImgIdx = 0;
+    let currentIdx = 0;
     let zoomLevel = 1;
-    const images = document.querySelectorAll('.photo-item img');
+    const galleryItems = document.querySelectorAll('.photo-item');
     const lightbox = document.getElementById('lightbox');
-    const mainImg = document.getElementById('lbMainImage');
+    const mediaWrapper = document.getElementById('lbMediaWrapper');
+    const tools = document.getElementById('lbTools');
     let touchstartX = 0;
     let touchendX = 0;
 
     function openLightbox(index) {
-        currentImgIdx = index;
+        currentIdx = index;
         zoomLevel = 1;
         updateLightbox();
         lightbox.classList.add('active');
@@ -298,31 +342,44 @@
 
     function closeLightbox() {
         lightbox.classList.remove('active');
+        mediaWrapper.innerHTML = ''; 
         document.body.style.overflow = 'auto';
     }
 
     function updateLightbox() {
-        mainImg.style.opacity = '0';
+        mediaWrapper.style.opacity = '0';
+        const item = galleryItems[currentIdx];
+        
         setTimeout(() => {
-            mainImg.src = images[currentImgIdx].src;
-            mainImg.style.transform = `scale(1)`;
-            mainImg.style.opacity = '1';
+            mediaWrapper.innerHTML = '';
+            
+            if (item.classList.contains('is-video')) {
+                const vidId = item.getAttribute('data-video-id');
+                tools.style.display = 'none';
+                mediaWrapper.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${vidId}?autoplay=1&rel=0&modestbranding=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>`;
+            } else {
+                const imgSource = item.querySelector('img').src;
+                tools.style.display = 'flex';
+                mediaWrapper.innerHTML = `<img id="lbMainImage" src="${imgSource}" style="transform: scale(1)">`;
+            }
+            mediaWrapper.style.opacity = '1';
         }, 150);
     }
 
     function changeImg(step) {
-        currentImgIdx = (currentImgIdx + step + images.length) % images.length;
+        currentIdx = (currentIdx + step + galleryItems.length) % galleryItems.length;
         zoomLevel = 1;
         updateLightbox();
     }
 
     function zoomImg(level) {
+        const mainImg = document.getElementById('lbMainImage');
+        if(!mainImg) return;
         zoomLevel = (level === 1) ? 1 : zoomLevel * level;
         zoomLevel = Math.min(Math.max(zoomLevel, 0.5), 3);
         mainImg.style.transform = `scale(${zoomLevel})`;
     }
 
-    // Touch Support
     lightbox.addEventListener('touchstart', e => touchstartX = e.changedTouches[0].screenX);
     lightbox.addEventListener('touchend', e => {
         touchendX = e.changedTouches[0].screenX;
