@@ -1953,11 +1953,149 @@ body {
 
 
 
+/* Revenue Champions Section Base */
+.revenue-champions-section {
+    position: relative;
+    padding: 100px 20px;
+    background: #05162a; /* Base Dark Navy */
+    color: #fff;
+    overflow: hidden;
+    z-index: 1;
+}
 
+/* Victory Lines Background Animation */
+.victory-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%; 
+    height: 100%;
+    background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 100px,
+        rgba(212, 175, 55, 0.03) 100px,
+        rgba(212, 175, 55, 0.03) 200px
+    );
+    animation: slideLines 20s linear infinite;
+    z-index: 1; /* Lowest layer */
+    pointer-events: none;
+}
 
+@keyframes slideLines {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
 
+.champion-container {
+    position: relative;
+    z-index: 5; /* Higher than victory-bg */
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
+/* Header Styling */
+.champion-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
 
+.gold-subtitle {
+    color: #D4AF37;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.champion-header h2 {
+    font-size: 3rem;
+    font-weight: 900;
+    margin: 10px 0;
+    letter-spacing: -1px;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    color: #ffffff;
+}
+
+.gold-divider {
+    width: 80px;
+    height: 4px;
+    background: #D4AF37;
+    margin: 0 auto;
+    border-radius: 2px;
+}
+
+/* 3-Column Grid */
+.champion-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.champion-card {
+    background: rgba(9, 34, 63, 0.8);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.4s ease-in-out;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.champion-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(212, 175, 55, 0.2);
+    border-color: #D4AF37;
+}
+
+/* Image Box Logic */
+.champ-image-box {
+    position: relative;
+    height: 280px;
+    overflow: hidden;
+    background: #09223f;
+}
+
+.champ-image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Keeps whole team photo visible */
+    transition: transform 0.5s ease;
+}
+
+.champion-card:hover .champ-image-box img {
+    transform: scale(1.05);
+}
+
+.champ-info {
+    padding: 20px;
+    text-align: center;
+    background: rgba(9, 34, 63, 0.9);
+}
+
+.champ-info h3 {
+    margin: 0;
+    font-size: 1.4rem;
+    color: #D4AF37;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.champ-info p {
+    margin-top: 5px;
+    font-size: 0.9rem;
+    color: #ffffff;
+    opacity: 0.8;
+}
+
+/* Responsive Grid Adjustments */
+@media (max-width: 992px) {
+    .champion-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+    .champion-grid { grid-template-columns: 1fr; }
+    .champion-header h2 { font-size: 2.2rem; }
+    .champ-image-box { height: 230px; }
+}
 
 
 
