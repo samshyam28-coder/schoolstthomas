@@ -31,179 +31,222 @@
 
     <style>
         /* --- CSS STYLES --- */
-        :root {
-            --navy: #05162a;
-            --gold: #bf953f;
-            --glass: rgba(255, 255, 255, 0.1);
-            --glass-border: rgba(255, 255, 255, 0.2);
-        }
+       :root {
+    --navy: #05162a;
+    --gold: #bf953f;
+    --glass: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --navy-light: #09223f;
+}
 
-        body {
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--navy);
-            color: white;
-            overflow-x: hidden;
-        }
+/* CUSTOM SCROLLBAR */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--navy); }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
 
-        /* 1. TITLE SECTION */
-        .gallery-header {
-            padding: 100px 10% 40px;
-            text-align: center;
-            background: linear-gradient(to bottom, #09223f, var(--navy));
-        }
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--navy);
+    color: white;
+    overflow-x: hidden;
+}
 
-        .back-link {
-            text-decoration: none;
-            color: var(--gold);
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 20px;
-            transition: 0.3s;
-        }
+/* 1. TITLE SECTION (FIXED FOR OVERFLOW) */
+.gallery-header {
+    padding: 120px 10% 60px; /* Increased top padding for fixed nav */
+    text-align: center;
+    background: linear-gradient(to bottom, var(--navy-light), var(--navy));
+}
 
-        .back-link:hover { transform: translateX(-5px); color: white; }
+.back-link {
+    text-decoration: none;
+    color: var(--gold);
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 25px;
+    transition: 0.3s ease;
+}
 
-        .gallery-header h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            margin: 0;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
+.back-link:hover { transform: translateX(-5px); color: white; }
 
-        .gallery-header p {
-            color: #cbd5e1;
-            max-width: 700px;
-            margin: 15px auto 0;
-            line-height: 1.6;
-        }
+.gallery-header h1 {
+    /* CLAMP: Min 1.8rem, scales with screen, Max 4rem */
+    font-size: clamp(1.8rem, 8vw, 4rem); 
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 1.1;
+    overflow-wrap: break-word; /* The fix you added */
+    hyphens: auto; /* Helps break long words on mobile */
+    max-width: 100%;
+}
 
-        /* 2. INSTAGRAM GRID SECTION */
-        .insta-container {
-            padding: 40px 10% 100px;
-        }
+.gallery-header p {
+    color: #cbd5e1;
+    max-width: 700px;
+    margin: 20px auto 0;
+    line-height: 1.6;
+    font-size: 1rem;
+}
 
-        .insta-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-        }
+/* 2. INSTAGRAM GRID SECTION */
+.insta-container {
+    padding: 20px 10% 100px;
+}
 
-        .photo-item {
-            position: relative;
-            aspect-ratio: 1 / 1;
-            overflow: hidden;
-            cursor: pointer;
-            border-radius: 4px;
-        }
+.insta-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
 
-        .photo-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s ease;
-        }
+.photo-item {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 8px; /* Slightly smoother rounded corners */
+    background: var(--navy-light); /* Prevents white flash on load */
+}
 
-        .glass-overlay {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(4px);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            transition: 0.4s;
-            color: white;
-            font-size: 1.5rem;
-            gap: 20px;
-        }
+.photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+}
 
-        .photo-item:hover .glass-overlay { opacity: 1; }
-        .photo-item:hover img { transform: scale(1.1); }
+.glass-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(5, 22, 42, 0.6);
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: 0.4s;
+    color: white;
+    font-size: 1.5rem;
+}
 
-        /* 3. PRO LIGHTBOX */
-        .lightbox {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(5, 22, 42, 0.95);
-            backdrop-filter: blur(15px);
-            z-index: 9999;
-            display: none;
-            justify-content: center;
-            align-items: center;
-            touch-action: none;
-        }
+.photo-item:hover .glass-overlay { opacity: 1; }
+.photo-item:hover img { transform: scale(1.1); }
 
-        .lightbox.active { display: flex; }
+/* 3. PRO LIGHTBOX (Z-INDEX UPGRADED) */
+.lightbox {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(5, 22, 42, 0.98); /* Darker for better focus */
+    backdrop-filter: blur(15px);
+    z-index: 99999; /* Higher than your header */
+    display: none;
+    justify-content: center;
+    align-items: center;
+    touch-action: none;
+}
 
-        .lb-content {
-            position: relative;
-            max-width: 90%;
-            max-height: 80vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+.lightbox.active { display: flex; animation: fadeIn 0.3s ease; }
 
-        .lb-img-wrapper {
-            overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-            z-index: 10;
-        }
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
 
-        .lb-img-wrapper img {
-            max-width: 100%;
-            max-height: 75vh;
-            display: block;
-            transition: transform 0.3s ease;
-            transform: scale(1);
-        }
+.lb-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-        .lb-close { position: absolute; top: -50px; right: 0; font-size: 2rem; cursor: pointer; color: white; z-index: 10001; }
-        
-        .lb-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 2.5rem;
-            color: var(--gold);
-            cursor: pointer;
-            background: rgba(255,255,255,0.1);
-            width: 60px; height: 60px;
-            display: flex; align-items: center; justify-content: center;
-            border-radius: 50%;
-            transition: 0.3s;
-            z-index: 10000;
-        }
-        
-        .lb-prev { left: -80px; }
-        .lb-next { right: -80px; }
-        .lb-nav:hover { background: var(--gold); color: var(--navy); }
+.lb-img-wrapper {
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+    border: 1px solid var(--glass-border);
+}
 
-        .lb-tools {
-            margin-top: 20px;
-            display: flex;
-            gap: 20px;
-            background: var(--glass);
-            padding: 10px 25px;
-            border-radius: 30px;
-            border: 1px solid var(--glass-border);
-            z-index: 10001;
-        }
+.lb-img-wrapper img {
+    max-width: 100%;
+    max-height: 70vh; /* Reduced slightly for tools room */
+    display: block;
+    object-fit: contain;
+}
 
-        .tool-btn { cursor: pointer; font-size: 1.2rem; color: var(--gold); transition: 0.3s; }
-        .tool-btn:hover { color: white; transform: scale(1.2); }
+.lb-close { 
+    position: absolute; 
+    top: -60px; 
+    right: 0; 
+    font-size: 2.5rem; 
+    cursor: pointer; 
+    color: white; 
+    transition: 0.3s;
+}
 
-        @media (max-width: 768px) {
-            .insta-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
-            .lb-prev { left: 10px; }
-            .lb-next { right: 10px; }
-            .lb-nav { width: 45px; height: 45px; font-size: 1.5rem; background: rgba(0,0,0,0.5); }
-        }
+.lb-close:hover { color: var(--gold); transform: rotate(90deg); }
+ 
+.lb-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    background: rgba(255,255,255,0.05);
+    width: 60px; height: 60px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+.lb-prev { left: -100px; }
+.lb-next { right: -100px; }
+.lb-nav:hover { background: var(--gold); color: var(--navy); }
+
+.lb-tools {
+    margin-top: 25px;
+    display: flex;
+    gap: 30px;
+    background: var(--glass);
+    padding: 12px 30px;
+    border-radius: 40px;
+    border: 1px solid var(--glass-border);
+}
+
+.tool-btn { cursor: pointer; font-size: 1.3rem; color: var(--gold); transition: 0.3s; }
+.tool-btn:hover { color: white; transform: scale(1.2); }
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 1024px) {
+    .lb-prev { left: -70px; }
+    .lb-next { right: -70px; }
+}
+
+@media (max-width: 768px) {
+    .insta-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .gallery-header { padding-top: 100px; }
+    
+    .lb-nav { 
+        width: 50px; height: 50px; 
+        font-size: 1.2rem; 
+        background: rgba(0,0,0,0.5); 
+        top: auto;
+        bottom: -80px; /* Move arrows below image on mobile */
+    }
+    
+    .lb-prev { left: 20%; }
+    .lb-next { right: 20%; }
+    
+    .lb-tools { margin-top: 100px; } /* Room for mobile nav */
+    
+    .lb-close { top: -50px; right: 10px; }
+}
     </style>
 </head>
 <body>
