@@ -1,5 +1,6 @@
 /* --- MANAGEMENT PREMIUM GLASSMORPHISM STYLES --- */
 
+
 .mgmt-glass-card {
     background: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(12px);
@@ -141,5 +142,38 @@ html, body {
     
     .pt-nav-fix {
         padding-top: 100px !important;
+    }
+}
+
+/* FIX FOR MOBILE NAVBAR CRAMPING */
+@media (max-width: 768px) {
+    .school-navbar {
+        padding: 15px 0 !important; /* Adds space inside the navbar */
+        min-height: 80px; /* Forces it to be taller */
+        display: flex;
+        align-items: center;
+    }
+
+    .brand-box {
+        padding-top: 5px; /* Pushes the logo and text down slightly */
+    }
+
+    .name-main {
+        font-size: 1.8rem !important; /* Slightly smaller to fit better */
+        line-height: 1.2;
+    }
+
+    .name-sub {
+        font-size: 1.1rem !important;
+        line-height: 1.2;
+        margin-top: 2px;
+    }
+
+    /* Centers the Hamburger Menu vertically */
+    .nav-toggle {
+        top: 50% !important;
+        transform: translateY(-50%);
+        right: 20px;
+        font-size: 24px;
     }
 }
