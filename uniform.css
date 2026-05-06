@@ -1,0 +1,1028 @@
+/* --- Title Section Container --- */
+.uniform-header-section {
+  width: 100%;
+  text-align: center;      /* Centers horizontally */
+  padding: 60px 0 30px 0; /* Space above and below */
+  background-color: #ffffff;
+}
+
+/* --- Gradient Text Magic --- */
+.gradient-title {
+  display: inline-block;
+  font-family: 'Poppins', sans-serif; /* Recommended clean font */
+  font-size: 3.5rem;       /* Large and bold */
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  
+  /* The Gradient: Starts Deep Blue, ends Bright Blue */
+  background: linear-gradient(135deg, #0d47a1, #1976d2, #42a5f5);
+  
+  /* This parts makes the background only show *inside* the text */
+  -webkit-background-clip: text;
+  background-clip: text;
+  
+  /* This part makes the actual text transparent */
+  -webkit-text-fill-color: transparent;
+  color: transparent; /* Fallback */
+  
+  margin: 0;
+}
+
+/* --- Mobile Responsive (Very Important) --- */
+@media (max-width: 768px) {
+  .gradient-title {
+    font-size: 2.2rem;     /* Smaller text for phones */
+    padding: 0 15px;       /* Adds padding on the sides */
+  }
+  .uniform-header-section {
+    padding: 40px 0 20px 0;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- Grid Layout --- */
+.uniform-grid-container {
+  padding-bottom: 80px;
+  background-color: #ffffff;
+
+  border-bottom: 1px solid #eaeaea;
+  box-shadow: 0 15px 20px -15px rgba(0, 0, 0, 0.1);
+}
+
+.uniform-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 cards in a row */
+  gap: 30px; /* Space between cards */
+}
+
+/* --- Card Design --- */
+.uniform-card {
+  background: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Soft shadow */
+  transition: transform 0.3s ease;
+  border: 1px solid #f0f0f0;
+}
+
+.uniform-card:hover {
+  transform: translateY(-10px); /* Lifts up on hover */
+}
+
+.card-image img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 25px;
+}
+
+/* --- Item Titles --- */
+.card-item-title {
+  font-size: 1.6rem;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.shirt-text { color: #3498db; }
+.pant-text { color: #09223f; }
+.belt-text { color: #e74c3c; }
+
+/* --- Swatch Footer --- */
+.color-footer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #f5f5f5;
+}
+
+.swatch {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+}
+
+.stripe-blue { background: #5da9e9; }
+.navy-blue { background: #09223f; }
+.white { background: #fff; }
+.belt-blue { background: #0c76e2; }
+
+/* --- MOBILE RESPONSIVE --- */
+@media (max-width: 992px) {
+  .uniform-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 cards for tablets */
+  }
+}
+
+@media (max-width: 700px) {
+  .uniform-grid {
+    grid-template-columns: 1fr; /* 1 card for phones (stacks) */
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- SECTION CONTAINER --- */
+.student-display-section {
+  padding: 60px 0;
+  background-color: #fcfcfc;
+}
+
+.student-display-section .container {
+  max-width: 1050px; /* Compact width for a premium look */
+  margin: 0 auto;
+  padding: 0 25px;
+}
+
+/* --- WIDE CARD LAYOUT --- */
+.wide-display-card {
+  display: flex; /* Side-by-side layout */
+  background: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
+  border: 1px solid #f0f0f0;
+  width: 100%;
+}
+
+/* --- IMAGE SIDE (HEIGHT CONTROL) --- */
+.display-image-box {
+  flex: 1.1;
+  min-height: 400px; /* Controlled slim height */
+  overflow: hidden;
+}
+
+.display-image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Keeps LP-Boys.png perfectly proportioned */
+  display: block;
+}
+
+/* --- CONTENT SIDE --- */
+.display-content-box {
+  flex: 0.9;
+  padding: 40px; /* Reduced padding to keep height slim */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.display-category-title {
+  font-size: 2.2rem;
+  color: #09223f;
+  margin-bottom: 15px;
+  position: relative;
+  padding-bottom: 10px;
+  font-weight: 800;
+}
+
+/* Gradient Underline */
+.display-category-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(to right, #0d47a1, #42a5f5);
+  border-radius: 10px;
+}
+
+/* --- TEXT STYLING --- */
+.description-text p {
+  font-size: 1.05rem;
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+.uniform-details-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.uniform-details-list li {
+  font-size: 0.95rem;
+  color: #333;
+  margin-bottom: 8px; /* Tight spacing between items */
+  padding-left: 25px;
+  position: relative;
+}
+
+/* Custom Checkmark Bullets */
+.uniform-details-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #1976d2;
+  font-weight: 900;
+}
+
+/* --- TAG STICKER --- */
+.style-tag {
+  align-self: flex-start;
+  margin-top: 15px;
+  padding: 8px 18px;
+  background-color: #f0f7ff;
+  color: #0d47a1;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 1px solid #d0e3ff;
+}
+
+/* --- MOBILE RESPONSIVENESS --- */
+@media (max-width: 992px) {
+  .wide-display-card {
+    flex-direction: column; /* Stack vertically on phones */
+  }
+  
+  .display-image-box {
+    min-height: 300px; /* Even slimmer on mobile */
+  }
+  
+  .display-content-box {
+    padding: 30px;
+  }
+  
+  .display-category-title {
+    font-size: 1.8rem;
+  }
+}
+
+
+/* --- Helper Class to flip layout --- */
+.flex-reverse {
+  flex-direction: row-reverse;
+}
+
+/* Ensure it stacks correctly on mobile even when flipped */
+@media (max-width: 992px) {
+  .flex-reverse {
+    flex-direction: column; /* Image back to top on mobile */
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- LOWER PRIMARY GIRLS (FULL IMAGE VERSION) --- */
+
+.lp-girls-section {
+  padding: 60px 0;
+  background-color: #fcfcfc;
+}
+
+.lp-container {
+  max-width: 1050px; 
+  margin: 0 auto;
+  padding: 0 25px;
+}
+
+.lp-girls-card {
+  display: flex; 
+  background: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
+  border: 1px solid #f0f0f0;
+  width: 100%;
+  /* Removed fixed height to allow full vertical image display */
+  min-height: 420px; 
+}
+
+/* --- IMAGE SIDE: Adjusted for full visibility --- */
+.lp-girls-image-box {
+  flex: 0.8; /* Slightly wider flex to give the full image more breathing room */
+  background-color: #e9ecef; /* Matches the photo backdrop for a seamless look */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lp-girls-image-box img {
+  width: 100%;
+  height: auto;
+  /* Changed from 'cover' to 'contain' to show the whole student including shoes */
+  object-fit: contain; 
+  display: block;
+}
+
+/* --- CONTENT SIDE --- */
+.lp-girls-content-box {
+  flex: 1.2; 
+  padding: 40px 50px; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Rest of the styling remains consistent with your previous sections */
+.lp-girls-title {
+  font-size: 2.2rem;
+  color: #09223f;
+  margin-bottom: 15px;
+  position: relative;
+  padding-bottom: 10px;
+  font-weight: 800;
+}
+
+.lp-girls-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(to right, #0d47a1, #42a5f5);
+  border-radius: 10px;
+}
+
+.lp-girls-text p {
+  font-size: 1.05rem;
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+.lp-girls-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.lp-girls-list li {
+  font-size: 0.95rem;
+  color: #333;
+  margin-bottom: 8px;
+  padding-left: 25px;
+  position: relative;
+}
+
+.lp-girls-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #1976d2;
+  font-weight: 900;
+}
+
+.lp-girls-tag {
+  align-self: flex-start;
+  margin-top: 15px;
+  padding: 8px 18px;
+  background-color: #f0f7ff;
+  color: #0d47a1;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: 1px solid #d0e3ff;
+}
+
+/* --- MOBILE --- */
+@media (max-width: 992px) {
+  .lp-girls-card {
+    flex-direction: column;
+  }
+  
+  .lp-girls-image-box {
+    padding: 20px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- UP & HS BOYS (MATCHED TO LP BOYS SIZE) --- */
+
+.uphs-boys-section {
+  padding: 60px 0;
+  background-color: #fcfcfc;
+}
+
+.uphs-container {
+  max-width: 1050px; /* EXACT MATCH to LP Boys */
+  margin: 0 auto;
+  padding: 0 25px;
+}
+
+.uphs-boys-card {
+  display: flex; 
+  background: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
+  border: 1px solid #f0f0f0;
+  width: 100%;
+}
+
+/* --- IMAGE SIDE (FIXED SIZE) --- */
+.uphs-image-box {
+  flex: 0.6; /* EXACT MATCH to LP Boys */
+  min-height: 400px; /* EXACT MATCH to LP Boys */
+  overflow: hidden;
+}
+
+.uphs-image-box img {
+  width: 100%; /* Changed from 50% to 100% to fill the gap */
+  height: 100%;
+  object-fit: cover; 
+  display: block;
+  object-position: top; 
+}
+/* --- CONTENT SIDE --- */
+/* --- CONTENT SIDE: Takes up the remaining space --- */
+.uphs-content-box {
+  flex: 1.4; /* Increased to fill the space left by the smaller image box */
+  padding: 30px 40px; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.uphs-title {
+  font-size: 2.2rem;
+  color: #09223f;
+  margin-bottom: 15px;
+  position: relative;
+  padding-bottom: 10px;
+  font-weight: 800;
+}
+
+.uphs-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(to right, #0d47a1, #42a5f5);
+  border-radius: 10px;
+}
+
+.uphs-text p {
+  font-size: 1.05rem;
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+.uphs-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.uphs-list li {
+  font-size: 0.95rem;
+  color: #333;
+  margin-bottom: 8px;
+  padding-left: 25px;
+  position: relative;
+}
+
+.uphs-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #1976d2;
+  font-weight: 900;
+}
+
+.uphs-tag {
+  align-self: flex-start;
+  margin-top: 15px;
+  padding: 8px 18px;
+  background-color: #f0f7ff;
+  color: #0d47a1;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: 1px solid #d0e3ff;
+}
+
+/* --- MOBILE RESPONSIVENESS --- */
+@media (max-width: 992px) {
+  .uphs-boys-card {
+    flex-direction: column;
+  }
+  
+  .uphs-image-box {
+    min-height: 300px;
+  }
+  
+  .uphs-content-box {
+    padding: 30px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- UP & HS GIRLS (MATCHED TO BOYS SLIM FORMAT) --- */
+
+.uphs-girls-section {
+  padding: 60px 0;
+  background-color: #fcfcfc;
+}
+
+.uphs-container {
+  max-width: 1050px; 
+  margin: 0 auto;
+  padding: 0 25px;
+}
+
+.uphs-girls-card {
+  display: flex; 
+  background: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
+  border: 1px solid #f0f0f0;
+  width: 100%;
+  height: 420px; /* Keeps it the same small size as the boys */
+}
+
+/* --- IMAGE SIDE: No white gaps --- */
+.uphs-girls-image-box {
+  flex: 0.6; 
+  height: 100%; 
+  overflow: hidden;
+}
+
+.uphs-girls-image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  display: block;
+  object-position: top; 
+}
+
+/* --- CONTENT SIDE --- */
+.uphs-girls-content-box {
+  flex: 1.4; 
+  padding: 30px 50px; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.uphs-girls-title {
+  font-size: 2.2rem;
+  color: #09223f;
+  margin-bottom: 15px;
+  position: relative;
+  padding-bottom: 10px;
+  font-weight: 800;
+}
+
+.uphs-girls-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(to right, #0d47a1, #42a5f5);
+  border-radius: 10px;
+}
+
+.uphs-girls-text p {
+  font-size: 1.05rem;
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+.uphs-girls-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.uphs-girls-list li {
+  font-size: 0.95rem;
+  color: #333;
+  margin-bottom: 8px;
+  padding-left: 25px;
+  position: relative;
+}
+
+.uphs-girls-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #1976d2;
+  font-weight: 900;
+}
+
+.uphs-girls-tag {
+  align-self: flex-start;
+  margin-top: 15px;
+  padding: 8px 18px;
+  background-color: #f0f7ff;
+  color: #0d47a1;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: 1px solid #d0e3ff;
+}
+
+/* --- MOBILE --- */
+@media (max-width: 992px) {
+  .uphs-girls-card {
+    flex-direction: column;
+    height: auto;
+  }
+  
+  .uphs-girls-image-box {
+    min-height: 300px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- HIGHER SECONDARY BOYS (SENIOR SLIM FORMAT) --- */
+
+.hs-boys-section {
+  padding: 60px 0;
+  background-color: #fcfcfc;
+}
+
+.hs-container {
+  max-width: 1050px; 
+  margin: 0 auto;
+  padding: 0 25px;
+}
+
+.hs-boys-card {
+  display: flex; 
+  background: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
+  border: 1px solid #f0f0f0;
+  width: 100%;
+  height: 420px; /* Matching the height of the UP & HS sections */
+}
+
+/* --- IMAGE SIDE --- */
+.hs-boys-image-box {
+  flex: 0.6; 
+  height: 100%; 
+  overflow: hidden;
+}
+
+.hs-boys-image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  display: block;
+  object-position: top; 
+}
+
+/* --- CONTENT SIDE --- */
+.hs-boys-content-box {
+  flex: 1.4; 
+  padding: 30px 50px; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hs-boys-title {
+  font-size: 2.2rem;
+  color: #09223f;
+  margin-bottom: 15px;
+  position: relative;
+  padding-bottom: 10px;
+  font-weight: 800;
+}
+
+.hs-boys-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(to right, #6a1b9a, #ba68c8); /* Lavender gradient to match shirt */
+  border-radius: 10px;
+}
+
+.hs-boys-text p {
+  font-size: 1.05rem;
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+.hs-boys-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.hs-boys-list li {
+  font-size: 0.95rem;
+  color: #333;
+  margin-bottom: 8px;
+  padding-left: 25px;
+  position: relative;
+}
+
+.hs-boys-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #7b1fa2; /* Lavender tone for the checkmark */
+  font-weight: 900;
+}
+
+.hs-boys-tag {
+  align-self: flex-start;
+  margin-top: 15px;
+  padding: 8px 18px;
+  background-color: #f3e5f5; /* Light lavender background */
+  color: #7b1fa2;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: 1px solid #e1bee7;
+}
+
+/* --- MOBILE --- */
+@media (max-width: 992px) {
+  .hs-boys-card {
+    flex-direction: column;
+    height: auto;
+  }
+  
+  .hs-boys-image-box {
+    min-height: 300px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- HIGHER SECONDARY GIRLS (FULL VIEW VERSION) --- */
+
+.hss-girls-section {
+  padding: 60px 0;
+  background-color: #fcfcfc;
+}
+
+.hss-container {
+  max-width: 1050px; 
+  margin: 0 auto;
+  padding: 0 25px;
+}
+
+.hss-girls-card {
+  display: flex; 
+  background: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
+  border: 1px solid #f0f0f0;
+  width: 100%;
+  /* Use min-height instead of fixed height to allow vertical growth for shoes */
+  min-height: 420px; 
+}
+
+/* --- IMAGE SIDE: Fixed to show full person --- */
+.hss-girls-image-box {
+  flex: 0.8; /* Adjusted for better proportion with full-length photos */
+  background-color: #7d7d7d; /* Matching the darker studio backdrop for a seamless look */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hss-girls-image-box img {
+  width: 100%;
+  height: auto;
+  /* KEY CHANGE: contain ensures the image is never cropped */
+  object-fit: contain; 
+  display: block;
+}
+
+/* --- CONTENT SIDE --- */
+.hss-girls-content-box {
+  flex: 1.2; 
+  padding: 40px 50px; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hss-girls-title {
+  font-size: 2.2rem;
+  color: #09223f;
+  margin-bottom: 15px;
+  position: relative;
+  padding-bottom: 10px;
+  font-weight: 800;
+}
+
+.hss-girls-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(to right, #6a1b9a, #ba68c8);
+  border-radius: 10px;
+}
+
+.hss-girls-text p {
+  font-size: 1.05rem;
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+.hss-girls-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.hss-girls-list li {
+  font-size: 0.95rem;
+  color: #333;
+  margin-bottom: 8px;
+  padding-left: 25px;
+  position: relative;
+}
+
+.hss-girls-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #7b1fa2;
+  font-weight: 900;
+}
+
+.hss-girls-tag {
+  align-self: flex-start;
+  margin-top: 15px;
+  padding: 8px 18px;
+  background-color: #f3e5f5;
+  color: #7b1fa2;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: 1px solid #e1bee7;
+}
+
+/* --- MOBILE --- */
+@media (max-width: 992px) {
+  .hss-girls-card {
+    flex-direction: column;
+    height: auto;
+  }
+  
+  .hss-girls-image-box {
+    padding: 20px;
+    min-height: 400px;
+  }
+}
+
+
+
+
+
