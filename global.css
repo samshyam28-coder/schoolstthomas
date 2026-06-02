@@ -2294,7 +2294,202 @@ body {
 
 
 
+/* ==========================================================================
+   RECENT EVENTS GALLERY SECTION STYLES
+   ========================================================================== */
 
+.st-recent-section {
+    padding: 80px 0;
+    background-color: #0c0f12; /* Dark background to match school theme */
+    position: relative;
+    overflow: hidden;
+}
+
+.st-recent-container {
+    width: 100%;
+    max-width: 80%; /* Removes the 1200px limit so it stretches edge-to-edge */
+    margin: 0 auto;
+    padding: 0; /* Removes inner side gaps so images hit the screen edge */
+}
+
+/* Header Styles */
+.st-recent-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.st-recent-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.st-recent-subtitle {
+    font-size: 1.1rem;
+    color: #a0aec0;
+    font-weight: 300;
+}
+
+.st-recent-divider {
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #007bff, #00d2ff);
+    margin: 20px auto 0 auto;
+    border-radius: 2px;
+}
+
+/* Slider & Continuous Marquee Tweaks */
+.st-recent-swiper {
+    width: 100%;
+    padding: 20px 0;
+}
+
+.st-recent-swiper .swiper-wrapper {
+    /* Critical for smooth continuous marquee transition */
+    transition-timing-function: linear !important; 
+}
+
+/* Glassmorphism Image Cards */
+.st-recent-glass-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 10; /* Wider aspect ratio to make them look premium and large */
+    object-fit: cover;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                border-color 0.4s ease, 
+                box-shadow 0.4s ease;
+    cursor: pointer;
+}
+
+.st-recent-glass-img:hover {
+    transform: translateY(-5px) scale(1.02);
+    border-color: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 12px 40px 0 rgba(0, 123, 255, 0.25);
+}
+
+/* Connect to Main Gallery Button Link */
+.st-recent-footer {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.st-recent-btn {
+    display: inline-block;
+    padding: 14px 36px;
+    background: transparent;
+    color: #ffffff;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-decoration: none;
+    border: 2px solid #007bff;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.st-recent-btn:hover {
+    background: #007bff;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(0, 123, 255, 0.45);
+}
+
+/* ==========================================================================
+   ISOLATED LIGHTBOX SYSTEM FOR RECENT EVENTS
+   ========================================================================== */
+
+.st-recent-lightbox {
+    display: none;
+    position: fixed;
+    z-index: 99999; /* Higher than sticky navbars */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(10, 14, 18, 0.95);
+    backdrop-filter: blur(8px);
+    justify-content: center;
+    align-items: center;
+}
+
+/* Active class controlled via JS */
+.st-recent-lightbox.active {
+    display: flex;
+}
+
+.st-recent-lightbox-content {
+    max-width: 85%;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.7);
+    animation: zoomInLight 0.3s ease;
+}
+
+@keyframes zoomInLight {
+    from { transform: scale(0.95); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* Lightbox Controls */
+.st-recent-close {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    color: #ffffff;
+    font-size: 40px;
+    font-weight: 300;
+    cursor: pointer;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.st-recent-close:hover {
+    color: #ff4a4a;
+    transform: scale(1.1);
+}
+
+.st-recent-lightbox-nav span {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #ffffff;
+    font-size: 36px;
+    font-weight: bold;
+    padding: 15px 20px;
+    cursor: pointer;
+    user-select: none;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+
+.st-recent-lightbox-nav span:hover {
+    background: #007bff;
+    border-color: #007bff;
+}
+
+.st-recent-lightbox-nav .prev { left: 40px; }
+.st-recent-lightbox-nav .next { right: 40px; }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .st-recent-section { padding: 50px 0; }
+    .st-recent-title { font-size: 1.85rem; }
+    .st-recent-close { top: 20px; right: 25px; font-size: 35px; }
+    .st-recent-lightbox-nav span { display: none; } /* Hide arrow vectors on mobile for better touch experience */
+    .st-recent-lightbox-content { max-width: 95%; }
+}
 
 
 
