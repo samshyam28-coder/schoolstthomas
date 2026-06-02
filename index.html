@@ -70,7 +70,7 @@
         <span class="adm-close-x" id="admCloseX">&times;</span>
         
         <a href="form.html" class="adm-poster-link">
-            <img src="images/popup.jpg" alt="Admission 2026" class="adm-poster-img">
+            <img src="images/popup.png" alt="Admission 2026" class="adm-poster-img">
         </a>
         
         <div class="adm-popup-footer">
@@ -463,6 +463,67 @@
         </div>
     </div>
 </section>
+
+
+
+<!-- ================= START: NEW RECENT EVENTS SECTION ================= -->
+<section class="st-recent-section">
+    <div class="st-recent-container">
+        <div class="st-recent-header">
+            <h2 class="st-recent-title">RECENT EVENTS</h2>
+            <p class="st-recent-subtitle">Glimpses of the latest happenings of our school preveshonolsavam</p>
+            <div class="st-recent-divider"></div>
+        </div>
+
+        <!-- Continuous Marquee Slider -->
+        <div class="swiper st-recent-swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="images/recent/P1.jpeg" class="st-recent-glass-img" alt="Recent Event 1"></div>
+                <div class="swiper-slide"><img src="images/recent/P2.jpeg" class="st-recent-glass-img" alt="Recent Event 2"></div>
+                <div class="swiper-slide"><img src="images/recent/P3.jpeg" class="st-recent-glass-img" alt="Recent Event 3"></div>
+                <div class="swiper-slide"><img src="images/recent/P4.jpeg" class="st-recent-glass-img" alt="Recent Event 4"></div>
+                <div class="swiper-slide"><img src="images/recent/P5.jpeg" class="st-recent-glass-img" alt="Recent Event 5"></div>
+                <div class="swiper-slide"><img src="images/recent/P6.jpeg" class="st-recent-glass-img" alt="Recent Event 6"></div>
+                <div class="swiper-slide"><img src="images/recent/P7.jpeg" class="st-recent-glass-img" alt="Recent Event 7"></div>
+                <div class="swiper-slide"><img src="images/recent/P8.jpeg" class="st-recent-glass-img" alt="Recent Event 8"></div>
+                <div class="swiper-slide"><img src="images/recent/P9.jpeg" class="st-recent-glass-img" alt="Recent Event 9"></div>
+                <div class="swiper-slide"><img src="images/recent/P10.jpeg" class="st-recent-glass-img" alt="Recent Event 10"></div>
+                <div class="swiper-slide"><img src="images/recent/P11.jpeg" class="st-recent-glass-img" alt="Recent Event 11"></div>
+                <div class="swiper-slide"><img src="images/recent/P12.jpeg" class="st-recent-glass-img" alt="Recent Event 12"></div>
+                <div class="swiper-slide"><img src="images/recent/P13.jpeg" class="st-recent-glass-img" alt="Recent Event 13"></div>
+                <div class="swiper-slide"><img src="images/recent/P14.jpeg" class="st-recent-glass-img" alt="Recent Event 14"></div>
+                <div class="swiper-slide"><img src="images/recent/P15.jpeg" class="st-recent-glass-img" alt="Recent Event 15"></div>
+                <div class="swiper-slide"><img src="images/recent/P16.jpeg" class="st-recent-glass-img" alt="Recent Event 16"></div>
+                <div class="swiper-slide"><img src="images/recent/P17.jpeg" class="st-recent-glass-img" alt="Recent Event 17"></div>
+                <div class="swiper-slide"><img src="images/recent/P18.jpeg" class="st-recent-glass-img" alt="Recent Event 18"></div>
+                <div class="swiper-slide"><img src="images/recent/P19.jpeg" class="st-recent-glass-img" alt="Recent Event 19"></div>
+                <div class="swiper-slide"><img src="images/recent/P20.jpeg" class="st-recent-glass-img" alt="Recent Event 20"></div>
+                <div class="swiper-slide"><img src="images/recent/P21.jpeg" class="st-recent-glass-img" alt="Recent Event 21"></div>
+                <div class="swiper-slide"><img src="images/recent/P22.jpeg" class="st-recent-glass-img" alt="Recent Event 22"></div>
+                <div class="swiper-slide"><img src="images/recent/P23.jpeg" class="st-recent-glass-img" alt="Recent Event 23"></div>
+                <div class="swiper-slide"><img src="images/recent/P24.jpeg" class="st-recent-glass-img" alt="Recent Event 24"></div>
+                <div class="swiper-slide"><img src="images/recent/P25.jpeg" class="st-recent-glass-img" alt="Recent Event 25"></div>
+                <div class="swiper-slide"><img src="images/recent/P26.jpeg" class="st-recent-glass-img" alt="Recent Event 26"></div>
+            </div>
+        </div>
+
+        <!-- Connection to main gallery page -->
+        <div class="st-recent-footer">
+            <a href="gallery.html" class="st-recent-btn">View Full Gallery &rarr;</a>
+        </div>
+    </div>
+
+    <!-- Isolated Lightbox for Recent Events Section -->
+    <div id="st-recent-lightbox" class="st-recent-lightbox">
+        <span class="st-recent-close">&times;</span>
+        <img class="st-recent-lightbox-content" id="st-recent-lightbox-img">
+        <div class="st-recent-lightbox-nav">
+            <span class="prev">&#10094;</span>
+            <span class="next">&#10095;</span>
+        </div>
+    </div>
+</section>
+<!-- ================= END: NEW RECENT EVENTS SECTION ================= -->
 
 
 
@@ -1126,14 +1187,19 @@ function updateEduSlider() {
 
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
     // Detect if user is on mobile
     const isMobile = window.innerWidth <= 768;
-    
-    // 1. Initialize Swiper with Dynamic Speed
+    const desktopSpeed = 5000;
+    const mobileSpeed = 8000;
+    const currentSpeed = isMobile ? mobileSpeed : desktopSpeed;
+
+    // ==========================================
+    // 1. NIYAMASABHA SECTION LOGIC
+    // ==========================================
     const niyamaSwiper = new Swiper('.st-niyama-swiper', {
         loop: true,
-        speed: isMobile ? 8000 : 5000, // Slower (8s) on mobile, (5s) on Desktop
+        speed: currentSpeed,
         autoplay: {
             delay: 1,
             disableOnInteraction: false,
@@ -1147,55 +1213,139 @@ function updateEduSlider() {
         }
     });
 
-    // 2. Interaction Logic
-    const swiperContainer = document.querySelector('.st-niyama-swiper');
-    
-    swiperContainer.addEventListener('mouseenter', () => niyamaSwiper.autoplay.stop());
-    swiperContainer.addEventListener('mouseleave', () => {
-        niyamaSwiper.params.speed = isMobile ? 8000 : 5000;
-        niyamaSwiper.autoplay.start();
-    });
+    const niyamaContainer = document.querySelector('.st-niyama-swiper');
+    if (niyamaContainer) {
+        niyamaContainer.addEventListener('mouseenter', () => niyamaSwiper.autoplay.stop());
+        niyamaContainer.addEventListener('mouseleave', () => {
+            niyamaSwiper.params.speed = currentSpeed;
+            niyamaSwiper.autoplay.start();
+        });
+    }
 
-    // 3. Updated Lightbox Logic for Centering
-    const lightbox = document.getElementById('st-niyama-lightbox');
-    const lightboxImg = document.getElementById('st-lightbox-img');
-    const closeBtn = document.querySelector('.st-niyama-close');
-    const galleryImgs = document.querySelectorAll('.st-niyama-glass-img');
-    let currentImgIndex = 0;
+    // Niyamasabha Lightbox
+    const niyamaLightbox = document.getElementById('st-niyama-lightbox');
+    const niyamaLightboxImg = document.getElementById('st-lightbox-img');
+    const niyamaCloseBtn = document.querySelector('.st-niyama-close');
+    const niyamaImgs = document.querySelectorAll('.st-niyama-glass-img');
+    let niyamaIndex = 0;
 
-    galleryImgs.forEach((img, index) => {
+    niyamaImgs.forEach((img, index) => {
         img.onclick = function() {
-            lightbox.classList.add('active'); // Uses Flexbox centering
-            lightboxImg.src = this.src;
-            currentImgIndex = index;
-            document.body.style.overflow = 'hidden'; // Stop page scroll
+            niyamaLightbox.classList.add('active');
+            niyamaLightboxImg.src = this.src;
+            niyamaIndex = index;
+            document.body.style.overflow = 'hidden';
         }
     });
 
-    const closeLightbox = () => {
-        lightbox.classList.remove('active');
-        document.body.style.overflow = 'auto'; // Re-enable scroll
+    const closeNiyamaLightbox = () => {
+        if (niyamaLightbox) {
+            niyamaLightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
     };
 
-    closeBtn.onclick = closeLightbox;
-    
-    // Close if clicking outside the image
-    lightbox.onclick = (e) => {
-        if(e.target === lightbox) closeLightbox();
+    if (niyamaCloseBtn) niyamaCloseBtn.onclick = closeNiyamaLightbox;
+    if (niyamaLightbox) {
+        niyamaLightbox.onclick = (e) => {
+            if(e.target === niyamaLightbox) closeNiyamaLightbox();
+        };
+    }
+
+    const niyamaNext = document.querySelector('.st-niyama-lightbox .next');
+    const niyamaPrev = document.querySelector('.st-niyama-lightbox .prev');
+
+    if (niyamaNext) {
+        niyamaNext.onclick = (e) => {
+            e.stopPropagation();
+            niyamaIndex = (niyamaIndex + 1) % niyamaImgs.length;
+            niyamaLightboxImg.src = niyamaImgs[niyamaIndex].src;
+        };
+    }
+    if (niyamaPrev) {
+        niyamaPrev.onclick = (e) => {
+            e.stopPropagation();
+            niyamaIndex = (niyamaIndex - 1 + niyamaImgs.length) % niyamaImgs.length;
+            niyamaLightboxImg.src = niyamaImgs[niyamaIndex].src;
+        };
+    }
+
+
+    // ==========================================
+    // 2. RECENT EVENTS SECTION LOGIC
+    // ==========================================
+    const recentSwiper = new Swiper('.st-recent-swiper', {
+        loop: true,
+        speed: currentSpeed, 
+        autoplay: {
+            delay: 1,
+            disableOnInteraction: false,
+        },
+        slidesPerView: 1.5,
+        spaceBetween: 20,
+        freeMode: true,
+        breakpoints: {
+            640: { slidesPerView: 2.2 },
+            1024: { slidesPerView: 4 }
+        }
+    });
+
+    const recentContainer = document.querySelector('.st-recent-swiper');
+    if (recentContainer) {
+        recentContainer.addEventListener('mouseenter', () => recentSwiper.autoplay.stop());
+        recentContainer.addEventListener('mouseleave', () => {
+            recentSwiper.params.speed = currentSpeed;
+            recentSwiper.autoplay.start();
+        });
+    }
+
+    // Recent Events Lightbox
+    const recentLightbox = document.getElementById('st-recent-lightbox');
+    const recentLightboxImg = document.getElementById('st-recent-lightbox-img');
+    const recentCloseBtn = document.querySelector('.st-recent-close');
+    const recentImgs = document.querySelectorAll('.st-recent-glass-img');
+    let recentIndex = 0;
+
+    recentImgs.forEach((img, index) => {
+        img.onclick = function() {
+            recentLightbox.classList.add('active');
+            recentLightboxImg.src = this.src;
+            recentIndex = index;
+            document.body.style.overflow = 'hidden';
+        }
+    });
+
+    const closeRecentLightbox = () => {
+        if (recentLightbox) {
+            recentLightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
     };
 
-    // Nav within Lightbox
-    document.querySelector('.next').onclick = (e) => {
-        e.stopPropagation();
-        currentImgIndex = (currentImgIndex + 1) % galleryImgs.length;
-        lightboxImg.src = galleryImgs[currentImgIndex].src;
-    };
+    if (recentCloseBtn) recentCloseBtn.onclick = closeRecentLightbox;
+    if (recentLightbox) {
+        recentLightbox.onclick = (e) => {
+            if(e.target === recentLightbox) closeRecentLightbox();
+        };
+    }
 
-    document.querySelector('.prev').onclick = (e) => {
-        e.stopPropagation();
-        currentImgIndex = (currentImgIndex - 1 + galleryImgs.length) % galleryImgs.length;
-        lightboxImg.src = galleryImgs[currentImgIndex].src;
-    };
+    const recentNext = document.querySelector('.st-recent-lightbox .next');
+    const recentPrev = document.querySelector('.st-recent-lightbox .prev');
+
+    if (recentNext) {
+        recentNext.onclick = (e) => {
+            e.stopPropagation();
+            recentIndex = (recentIndex + 1) % recentImgs.length;
+            recentLightboxImg.src = recentImgs[recentIndex].src;
+        };
+    }
+    if (recentPrev) {
+        recentPrev.onclick = (e) => {
+            e.stopPropagation();
+            recentIndex = (recentIndex - 1 + recentImgs.length) % recentImgs.length;
+            recentLightboxImg.src = recentImgs[recentIndex].src;
+        };
+    }
 });
 </script>
 
