@@ -2861,3 +2861,267 @@ body {
 [data-aos="fade-up"] {
     transition-timing-function: cubic-bezier(.175, .885, .32, 1.275);
 }
+
+
+
+
+
+
+
+
+
+
+
+   /* Premium Section Base styling */
+    .national-spotlight-section {
+        background-color: #ffffff;
+        padding: 80px 0;
+        font-family: 'Segoe UI', Roboto, -apple-system, sans-serif;
+        overflow: hidden;
+    }
+    
+    .spotlight-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    /* Elegant Editorial Header Structure */
+    .spotlight-header {
+        text-align: center;
+        margin-bottom: 55px;
+        position: relative;
+    }
+
+    .spotlight-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: #05162a;
+        color: #dfb76c;
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        padding: 8px 18px;
+        border: 1px solid #bf953f;
+        border-radius: 4px;
+        margin-bottom: 20px;
+    }
+
+    .spotlight-header h2 {
+        font-size: 2.6rem;
+        color: #05162a;
+        margin: 0 0 10px 0;
+        font-weight: 800;
+        letter-spacing: -0.5px;
+        line-height: 1.2;
+    }
+
+    .spotlight-subtitle {
+        font-size: 1.15rem;
+        color: #bf953f;
+        font-weight: 600;
+        margin: 0;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+    }
+
+    .spotlight-layout {
+        display: flex;
+        gap: 65px;
+        align-items: center;
+    }
+
+    /* Left Grid: Geometric Golden Rectangle Frame & Image Layout */
+    .spotlight-visual-wrapper {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        padding: 15px;
+    }
+
+    .golden-rect-frame {
+        position: relative;
+        width: 100%;
+        max-width: 380px;
+        z-index: 2;
+    }
+
+    /* The background decorative golden rectangle shape */
+    .golden-rect-frame::before {
+        content: '';
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        width: 100%;
+        height: 100%;
+        border: 3px solid #bf953f;
+        z-index: -1;
+        transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .spotlight-image-container {
+        width: 100%;
+        overflow: hidden;
+        border: 1px solid rgba(5, 22, 42, 0.1);
+        background: #ffffff;
+        box-shadow: 0 15px 35px rgba(5, 22, 42, 0.12);
+        transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .spotlight-image-container img {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: contain;
+        transition: transform 0.6s ease;
+    }
+
+    /* Micro-interactions on Hover */
+    .golden-rect-frame:hover .spotlight-image-container {
+        transform: translate(-5px, -5px);
+    }
+
+    .golden-rect-frame:hover::before {
+        transform: translate(8px, 8px);
+    }
+
+    .golden-rect-frame:hover .spotlight-image-container img {
+        transform: scale(1.04);
+    }
+
+    /* Right Grid: Prestigious Typography Content Layout */
+    .spotlight-content-wrapper {
+        flex: 1.4;
+    }
+
+    .congratulations-title {
+        color: #05162a;
+        font-size: 2.2rem;
+        margin: 0 0 15px 0;
+        font-weight: 800;
+        position: relative;
+        display: inline-block;
+    }
+
+    .congratulations-title::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -4px;
+        width: 60px;
+        height: 3px;
+        background-color: #bf953f;
+    }
+
+    .spotlight-desc-p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: #334155;
+        margin: 20px 0 25px 0;
+    }
+
+    /* Sleek Navy/Gold Information Credentials Dashboard */
+    .credential-gold-card {
+        background: #05162a;
+        padding: 30px;
+        border-radius: 6px;
+        border-top: 4px solid #bf953f;
+        box-shadow: 0 12px 30px rgba(5, 22, 42, 0.08);
+        margin: 25px 0;
+    }
+
+    .credential-row {
+        margin-bottom: 20px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid rgba(223, 183, 108, 0.15);
+    }
+
+    .credential-row:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+
+    .credential-tag {
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: #bf953f;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .credential-main-text {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: #ffffff;
+        letter-spacing: -0.2px;
+    }
+
+    .credential-sub-text {
+        font-size: 0.95rem;
+        color: #94a3b8;
+        display: block;
+        margin-top: 4px;
+        line-height: 1.5;
+    }
+
+    .spotlight-footer-note {
+        margin-top: 25px;
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: #334155;
+    }
+
+    .spotlight-sign-off {
+        margin-top: 25px;
+        padding-top: 20px;
+        border-top: 1px solid #e2e8f0;
+    }
+
+    .spotlight-sign-off p {
+        margin: 0;
+        font-size: 1.05rem;
+        color: #475569;
+        line-height: 1.6;
+    }
+
+    .spotlight-sign-off strong {
+        color: #05162a;
+        font-weight: 700;
+    }
+
+    .gold-signature-highlight {
+        color: #bf953f;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.95rem;
+        letter-spacing: 0.5px;
+        display: block;
+        margin-top: 2px;
+    }
+
+    /* Desktop/Tablet/Mobile Layout Adaptability Rules */
+    @media (max-width: 950px) {
+        .spotlight-layout {
+            flex-direction: column;
+            gap: 45px;
+        }
+        .spotlight-visual-wrapper {
+            width: 100%;
+        }
+        .golden-rect-frame {
+            max-width: 85%;
+        }
+        .spotlight-header h2 {
+            font-size: 2rem;
+        }
+        .congratulations-title {
+            font-size: 1.8rem;
+        }
+    }
