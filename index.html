@@ -270,17 +270,17 @@
         <div class="news-loop-track">
             <a href="form.html" class="news-link-item">Admission Open for Academic Year 2026-27</a>
             <span class="news-star-point">★</span>
-            <a href="index.html" class="news-link-item">Welcome back, students and teachers! Wishing everyone a successful term ahead.</a>
+            <a href="index.html" class="news-link-item">School reopens on June 1st after Vacation</a>
             <span class="news-star-point">★</span>
             
-            <a href="form.html" class="news-link-item">Enrolment now open for new students. Contact our admissions office for details.</a>
+            <a href="form.html" class="news-link-item">Admission Open for Academic Year 2026-27</a>
             <span class="news-star-point">★</span>
-            <a href="index.html" class="news-link-item">Admission Open for Academic Year 2026-27</a>
+            <a href="index.html" class="news-link-item">School reopens on June 1st after Vacation</a>
             <span class="news-star-point">★</span>
 
-            <a href="form.html" class="news-link-item">Welcome back, students and teachers! Wishing everyone a successful term ahead.</a>
+            <a href="form.html" class="news-link-item">Admission Open for Academic Year 2026-27</a>
             <span class="news-star-point">★</span>
-            <a href="index.html" class="news-link-item">Enrolment now open for new students. Contact our admissions office for details.</a>
+            <a href="index.html" class="news-link-item">School reopens on June 1st after Vacation</a>
             <span class="news-star-point">★</span>
         </div>
     </div>
@@ -528,7 +528,69 @@
 
 
 
+<section class="national-spotlight-section" id="academicSpotlightSection">
+    <div class="spotlight-container">
+        
+        <!-- Header Group with integrated AOS scroll animation trigger -->
+        <div class="spotlight-header" data-aos="fade-up" data-aos-duration="1000">
+            <span class="spotlight-badge">★ National Level Merit Achievement</span>
+            <h2>National Means-cum-Merit Scholarship (NMMS)</h2>
+            <p class="spotlight-subtitle">Ministry of Education, Government of India</p>
+        </div>
 
+        <div class="spotlight-layout">
+            
+            <!-- Left Grid: Golden Rectangle Framed Image Cover -->
+            <div class="spotlight-visual-wrapper" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="150">
+                <div class="golden-rect-frame">
+                    <div class="spotlight-image-container">
+                        <img src="images/news/nmms-jithin.jpeg" alt="Jithin Joseph - National Means-cum-Merit Scholarship Winner">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Grid: High Contrast Typographic Copywriting Details -->
+            <div class="spotlight-content-wrapper" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="300">
+                <h3 class="congratulations-title">Heartiest Congratulations!</h3>
+                
+                <p class="spotlight-desc-p">
+                    St. Thomas HSS Poonthura is proud to announce an exceptional milestone of absolute academic excellence. Our institution celebrates the remarkable success of our bright scholar who has brought stellar honors to our school community by succeeding in this prestigious national competitive landscape.
+                </p>
+
+                <!-- Clean Corporate Style Credential Board -->
+                <div class="credential-gold-card">
+                    <div class="credential-row">
+                        <span class="credential-tag">Scholarship Recipient</span>
+                        <div class="credential-main-text">JITHIN JOSEPH</div>
+                    </div>
+                    <div class="credential-row">
+                        <span class="credential-tag">Honored Distinction</span>
+                        <div class="credential-main-text">NMMS Scholarship Winner</div>
+                        <span class="credential-sub-text">Awarded for securing success in the highly competitive National Means-cum-Merit Scholarship Examination.</span>
+                    </div>
+                    <div class="credential-row">
+                        <span class="credential-tag">Academic Timeline</span>
+                        <div class="credential-main-text">Academic Year 2025–2026</div>
+                    </div>
+                </div>
+
+                <!-- Complete Original Descriptions Preserved Explicitly -->
+                <p class="spotlight-footer-note">
+                    Your hard work, unwavering dedication, and outstanding perseverance have brought immense pride to our school. You have established a premium benchmark of dedication for future generations of St. Thomas students to look up to.
+                </p>
+                
+                <div class="spotlight-sign-off">
+                    <p>
+                        With Best Wishes,<br>
+                        <strong>STAFF, PTA & MANAGEMENT</strong>
+                        <span class="gold-signature-highlight">We are incredibly proud of you! Keep shining and aim higher!</span>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
 
 
 
@@ -1523,6 +1585,54 @@ document.querySelectorAll('.reveal-section').forEach(section => {
 
 
 
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const targetSection = document.getElementById("academicSpotlightSection");
+        let animationTriggered = false;
+
+        if (targetSection) {
+            const observer = new IntersectionObserver(function (entries) {
+                entries.forEach(entry => {
+                    // Fires up the celebration explosions instantly when section scrolls into viewport view
+                    if (entry.isIntersecting && !animationTriggered) {
+                        animationTriggered = true;
+                        
+                        // Left Flank Confetti Blast
+                        confetti({
+                            particleCount: 80,
+                            angle: 60,
+                            spread: 65,
+                            origin: { x: 0.1, y: 0.75 },
+                            colors: ['#bf953f', '#05162a', '#dfb76c', '#ffffff']
+                        });
+                        
+                        // Right Flank Confetti Blast
+                        confetti({
+                            particleCount: 80,
+                            angle: 120,
+                            spread: 65,
+                            origin: { x: 0.9, y: 0.75 },
+                            colors: ['#bf953f', '#05162a', '#dfb76c', '#ffffff']
+                        });
+                    }
+                });
+            }, { threshold: 0.25 }); // Fires when 25% of the section area is visible
+
+            observer.observe(targetSection);
+        }
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
   AOS.init({
@@ -1532,7 +1642,7 @@ document.querySelectorAll('.reveal-section').forEach(section => {
   });
 </script>
 
-
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
 <script src="script.js"></script>
