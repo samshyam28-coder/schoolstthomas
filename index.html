@@ -487,7 +487,6 @@
                 <div class="swiper-slide"><img src="images/recent/P7.jpeg" class="st-recent-glass-img" alt="Recent Event 7"></div>
                 <div class="swiper-slide"><img src="images/recent/P8.jpeg" class="st-recent-glass-img" alt="Recent Event 8"></div>
 
-
                 
             </div>
         </div>
@@ -579,6 +578,82 @@
 </section>
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- LSS Scholarship Component Markup -->
+<!-- ========================================== -->
+<section class="lss-spotlight-section" id="lssScholarshipSection">
+    <div class="lss-container">
+        
+        <!-- Header Group with integrated AOS scroll animation trigger -->
+        <div class="lss-header" data-aos="fade-up" data-aos-duration="1000">
+            <span class="lss-badge">★ Scholastic Excellence Milestone</span>
+            <h2>CM Kids Scholarship Winner</h2>
+            <p class="lss-subtitle">Lower Primary Scholarship (LSS) Merit Award</p>
+        </div>
+
+        <div class="lss-layout">
+            
+            <!-- Left Grid: Content Layout with AOS Fade Right -->
+            <div class="lss-content-wrapper" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="300">
+                <h3 class="lss-congratulations-title">Congratulations on your Results!</h3>
+                
+                <p class="lss-desc-p">
+                    Our school community celebrates another proud educational success landscape! We extend our warmest congratulations to our young achiever for demonstrating outstanding dedication, high capability, and merit. Your hard work and dedication have truly paid off.
+                </p>
+
+                <!-- Clean Corporate Style Credential Board -->
+                <div class="lss-credential-card">
+                    <div class="lss-credential-row">
+                        <span class="lss-credential-tag">Scholarship Recipient</span>
+                        <div class="lss-credential-main-text">JABIN JOSEPH</div>
+                    </div>
+                    <div class="lss-credential-row">
+                        <span class="lss-credential-tag">Honored Distinction</span>
+                        <div class="lss-credential-main-text">CM Kids Scholarship Winner</div>
+                        <span class="lss-credential-sub-text">Recognized for securing distinguished success in the LSS Examination scholastic merit tracking frameworks.</span>
+                    </div>
+                </div>
+            
+
+                <!-- Complete Original Descriptions Preserved Explicitly -->
+                <p class="lss-footer-note">
+                    "Keep dreaming, keep believing, and keep achieving!"
+                </p>
+                
+                <div class="lss-sign-off">
+                    <p>
+                        With Best Wishes,<br>
+                        <strong>STAFF, PTA & MANAGEMENT</strong>
+                        <span class="lss-signature-highlight">We are proud of you!</span>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Right Grid: Golden Rectangle Framed Image Cover with AOS Fade Left -->
+            <div class="lss-visual-wrapper" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="150">
+                <div class="lss-golden-rect-frame">
+                    <div class="lss-image-container">
+                        <!-- Ensure you name your local file to match this src parameter or map your path -->
+                        <img src="images/news/jabin.jpeg" alt="Jabin Joseph - CM Kids LSS Scholarship Winner">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
 
 
 
@@ -1610,7 +1685,33 @@ document.querySelectorAll('.reveal-section').forEach(section => {
 </script>
 
 
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const lssSection = document.getElementById("lssScholarshipSection");
+        let lssAnimationTriggered = false;
 
+        if (lssSection) {
+            const observer = new IntersectionObserver(function (entries) {
+                entries.forEach(entry => {
+                    // Fires up independent celebration explosions when Jabin's section enters viewport view
+                    if (entry.isIntersecting && !lssAnimationTriggered) {
+                        lssAnimationTriggered = true;
+                        
+                        // Center-focused upward festive confetti burst
+                        confetti({
+                            particleCount: 100,
+                            spread: 70,
+                            origin: { x: 0.5, y: 0.6 },
+                            colors: ['#0d47a1', '#bf953f', '#dfb76c', '#ffffff', '#22c55e']
+                        });
+                    }
+                });
+            }, { threshold: 0.25 }); // Fires when 25% of this section area is visible
+
+            observer.observe(lssSection);
+        }
+    });
+</script>
 
 
 
