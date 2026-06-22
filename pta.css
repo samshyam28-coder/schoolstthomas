@@ -216,3 +216,225 @@
 
 
 
+
+
+
+
+
+
+
+
+
+/* --- Section 3: PTA Meetings Styles --- */
+.pta-meetings-section {
+  background-color: #ffffff; /* Contrast switch from Section 2's light background */
+  padding: 100px 24px;
+}
+
+/* 2-Column Grid Setup */
+.pta-meetings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+  gap: 40px;
+  margin-top: 20px;
+}
+
+/* Meeting Card Structure */
+.pta-meeting-card {
+  background: var(--bg-light);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(9, 34, 63, 0.03);
+  display: flex;
+  border: 1px solid rgba(9, 34, 63, 0.06);
+  transition: var(--transition-base);
+}
+
+/* Image Media Left Pane */
+.pta-meeting-media {
+  position: relative;
+  width: 40%;
+  min-width: 180px;
+  overflow: hidden;
+  background-color: #eaeaea;
+}
+
+.pta-poster-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition-base);
+}
+
+/* Media Overlay and View Button */
+.pta-media-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(9, 34, 63, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: var(--transition-base);
+  z-index: 2;
+}
+
+.pta-view-btn {
+  color: #ffffff;
+  border: 2px solid var(--accent-gold);
+  padding: 10px 18px;
+  border-radius: 30px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  background: transparent;
+  transition: var(--transition-base);
+  text-decoration: none;
+}
+
+.pta-view-btn i {
+  margin-right: 6px;
+}
+
+.pta-view-btn:hover {
+  background-color: var(--accent-gold);
+  color: var(--primary-navy);
+}
+
+/* Content Details Right Pane */
+.pta-meeting-details {
+  width: 60%;
+  padding: 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Date Badges styles */
+.pta-date-badge, .pta-date-badge-alt {
+  display: inline-block;
+  align-self: flex-start;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  letter-spacing: 0.5px;
+}
+
+.pta-date-badge {
+  background-color: rgba(9, 34, 63, 0.1);
+  color: var(--primary-navy);
+}
+
+.pta-date-badge-alt {
+  background-color: rgba(212, 175, 55, 0.15);
+  color: #b28d15;
+}
+
+.pta-meeting-details h3 {
+  font-family: 'Poppins', sans-serif;
+  color: var(--primary-navy);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.pta-card-intro {
+  font-family: 'Manjari', sans-serif;
+  font-size: 1.05rem;
+  color: #64748b;
+  line-height: 1.5;
+  margin-bottom: 18px;
+}
+
+.pta-meeting-highlights {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 25px 0;
+}
+
+.pta-meeting-highlights li {
+  font-family: 'Manjari', sans-serif;
+  font-size: 1.1rem;
+  color: var(--text-dark);
+  line-height: 1.5;
+  margin-bottom: 10px;
+  padding-left: 20px;
+  position: relative;
+}
+
+.pta-meeting-highlights li::before {
+  content: "\f00c"; /* FontAwesome checkmark icon */
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  position: absolute;
+  left: 0;
+  top: 2px;
+  color: var(--accent-gold);
+  font-size: 0.85rem;
+}
+
+/* Interactive Action Buttons */
+.pta-download-btn, .pta-download-btn-secondary {
+  display: inline-block;
+  align-self: flex-start;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 12px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: var(--transition-base);
+}
+
+.pta-download-btn {
+  background-color: var(--primary-navy);
+  color: #ffffff;
+}
+
+.pta-download-btn:hover {
+  background-color: var(--accent-gold);
+  color: var(--primary-navy);
+}
+
+.pta-download-btn-secondary {
+  border: 1.5px solid var(--primary-navy);
+  color: var(--primary-navy);
+  background: transparent;
+}
+
+.pta-download-btn-secondary:hover {
+  background-color: var(--primary-navy);
+  color: #ffffff;
+}
+
+/* --- Section 3 Premium Hover Animations --- */
+.pta-meeting-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(9, 34, 63, 0.08);
+  border-color: rgba(212, 175, 55, 0.3);
+}
+
+.pta-meeting-card:hover .pta-poster-img {
+  transform: scale(1.08);
+}
+
+.pta-meeting-card:hover .pta-media-overlay {
+  opacity: 1;
+}
+
+/* Responsive Scaling Queries */
+@media (max-width: 1024px) {
+  .pta-meetings-grid { grid-template-columns: 1fr; max-width: 750px; margin: 0 auto; }
+}
+
+@media (max-width: 600px) {
+  .pta-meeting-card { flex-direction: column; }
+  .pta-meeting-media { width: 100%; height: 260px; }
+  .pta-meeting-details { width: 100%; padding: 25px 20px; }
+}
