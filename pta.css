@@ -1,0 +1,218 @@
+/* ==========================================
+   PTA PAGE CUSTOM STYLES
+   ========================================== */
+
+:root {
+  --primary-navy: #09223f;  /* Matches your HTML theme-color */
+  --accent-gold: #d4af37;   /* Institutional Premium Gold */
+  --text-dark: #2d3748;
+  --bg-light: #f8fafc;
+  --transition-base: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --- Section 1: Hero Welcome Banner --- */
+.pta-hero-section {
+  position: relative;
+  width: 100%;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url('images/campus-5.jpeg') no-repeat center center/cover; /* Reuses your existing featured asset path */
+  padding: 80px 24px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.pta-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(9, 34, 63, 0.95), rgba(9, 34, 63, 0.8));
+  z-index: 1;
+}
+
+.pta-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 850px;
+  color: #ffffff;
+}
+
+.pta-main-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.pta-subtitle {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.4rem;
+  color: var(--accent-gold);
+  font-weight: 400;
+  margin-bottom: 24px;
+  letter-spacing: 1px;
+}
+
+.pta-hero-lead {
+  font-family: 'Manjari', sans-serif;
+  font-size: 1.25rem;
+  line-height: 1.8;
+  opacity: 0.9;
+  font-weight: 400;
+}
+
+.pta-scroll-indicator {
+  margin-top: 35px;
+  font-size: 1.5rem;
+  color: var(--accent-gold);
+  animation: ptaBounce 2s infinite;
+}
+
+@keyframes ptaBounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-12px); }
+  60% { transform: translateY(-6px); }
+}
+
+/* --- Section 2: Objectives & Grid --- */
+.pta-objectives-section {
+  background-color: var(--bg-light);
+  padding: 100px 24px;
+}
+
+.pta-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.pta-section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.pta-section-header h2 {
+  font-family: 'Poppins', sans-serif;
+  color: var(--primary-navy);
+  font-size: 2.4rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.gold-divider {
+  width: 70px;
+  height: 4px;
+  background-color: var(--accent-gold);
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+/* Dynamic 3-Column Layout Grid */
+.pta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+}
+
+/* Professional Card Structure */
+.pta-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 45px 35px;
+  box-shadow: 0 4px 20px rgba(9, 34, 63, 0.04);
+  border-top: 4px solid var(--primary-navy);
+  transition: var(--transition-base);
+  display: flex;
+  flex-direction: column;
+}
+
+.pta-card-icon {
+  width: 64px;
+  height: 64px;
+  background-color: rgba(212, 175, 55, 0.08);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 28px;
+  color: var(--accent-gold);
+  font-size: 1.6rem;
+  transition: var(--transition-base);
+}
+
+.pta-card h3 {
+  font-family: 'Poppins', sans-serif;
+  color: var(--primary-navy);
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.pta-card ul {
+  padding-left: 16px;
+  margin: 0;
+  list-style-type: none; /* Custom elegant dot look */
+}
+
+.pta-card ul li {
+  font-family: 'Manjari', sans-serif;
+  color: var(--text-dark);
+  font-size: 1.15rem;
+  line-height: 1.6;
+  margin-bottom: 14px;
+  position: relative;
+}
+
+.pta-card ul li::before {
+  content: "•";
+  color: var(--accent-gold);
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+
+.pta-card ul li:last-child {
+  margin-bottom: 0;
+}
+
+/* --- Premium Interactive Hover States --- */
+.pta-card:hover {
+  transform: translateY(-10px); 
+  box-shadow: 0 20px 35px rgba(9, 34, 63, 0.12); 
+  border-top-color: var(--accent-gold); 
+}
+
+.pta-card:hover .pta-card-icon {
+  background-color: var(--primary-navy); 
+  color: #ffffff; 
+  transform: scale(1.05) rotate(5deg);
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 992px) {
+  .pta-main-title { font-size: 2.5rem; }
+  .pta-objectives-section { padding: 70px 20px; }
+}
+
+@media (max-width: 768px) {
+  .pta-main-title { font-size: 2.1rem; }
+  .pta-subtitle { font-size: 1.15rem; }
+  .pta-hero-lead { font-size: 1.1rem; }
+  .pta-grid { grid-template-columns: 1fr; }
+  .pta-card { padding: 35px 25px; }
+}
+
+
+
+
+
+
+
+
+
