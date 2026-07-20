@@ -1957,39 +1957,33 @@ body {
 .revenue-champions-section {
     position: relative;
     padding: 100px 20px;
-    background: #05162a; /* Base Dark Navy */
+    /* Sports theme background: Deep navy base with a bright stadium lighting core glow */
+    background: radial-gradient(circle at 50% 30%, #0c2d54 0%, #05162a 70%);
     color: #fff;
     overflow: hidden;
     z-index: 1;
 }
 
-/* Victory Lines Background Animation */
-.victory-bg {
+/* Sports Stadium Subtle Overlay Pattern */
+.sports-stadium-bg {
     position: absolute;
     top: 0;
     left: 0;
-    width: 200%; 
+    width: 100%;
     height: 100%;
-    background: repeating-linear-gradient(
-        45deg,
-        transparent,
-        transparent 100px,
-        rgba(212, 175, 55, 0.03) 100px,
-        rgba(212, 175, 55, 0.03) 200px
-    );
-    animation: slideLines 20s linear infinite;
-    z-index: 1; /* Lowest layer */
+    /* Sports mesh/grid texture overlay */
+    background-image: 
+        linear-gradient(rgba(212, 175, 55, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(212, 175, 55, 0.02) 1px, transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0.7;
+    z-index: 1;
     pointer-events: none;
-}
-
-@keyframes slideLines {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
 }
 
 .champion-container {
     position: relative;
-    z-index: 5; /* Higher than victory-bg */
+    z-index: 5;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -2013,7 +2007,7 @@ body {
     font-weight: 900;
     margin: 10px 0;
     letter-spacing: -1px;
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    text-shadow: 0 4px 20px rgba(0,0,0,0.6);
     color: #ffffff;
 }
 
@@ -2025,78 +2019,107 @@ body {
     border-radius: 2px;
 }
 
-/* 3-Column Grid */
+/* Smart Grid System */
 .champion-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 30px;
+    justify-content: center;
 }
 
 .champion-card {
-    background: rgba(9, 34, 63, 0.8);
-    backdrop-filter: blur(5px);
+    background: rgba(6, 26, 48, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     border-radius: 15px;
     overflow: hidden;
-    transition: all 0.4s ease-in-out;
-    border: 1px solid rgba(212, 175, 55, 0.3);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Golden Border Glow for Subroto Champions */
+.champion-card.special-highlight {
+    border: 1px solid rgba(212, 175, 55, 0.5);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.05);
 }
 
 .champion-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 35px rgba(212, 175, 55, 0.2);
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(212, 175, 55, 0.25);
     border-color: #D4AF37;
 }
 
-/* Image Box Logic */
+/* Image Box Frame Fixes */
 .champ-image-box {
     position: relative;
-    height: 280px;
+    height: 320px; /* Increased height to give posters room */
     overflow: hidden;
-    background: #09223f;
+    background: #041222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .champ-image-box img {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* Keeps whole team photo visible */
+    /* Default landscape images fill beautifully */
+    object-fit: cover; 
     transition: transform 0.5s ease;
 }
 
-.champion-card:hover .champ-image-box img {
-    transform: scale(1.05);
+/* Specific class to ensure the full vertical poster artwork fits exactly */
+.champ-image-box.vertical-poster img {
+    object-fit: contain; 
+    background: #041222;
+    width: 100%;
+    height: 100%;
 }
 
+.champion-card:hover .champ-image-box img {
+    transform: scale(1.04);
+}
+
+/* Card Content Styling */
 .champ-info {
-    padding: 20px;
+    padding: 22px 20px;
     text-align: center;
-    background: rgba(9, 34, 63, 0.9);
+    background: rgba(4, 18, 34, 0.95);
+    border-top: 1px solid rgba(212, 175, 55, 0.1);
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .champ-info h3 {
     margin: 0;
-    font-size: 1.4rem;
+    font-size: 1.35rem;
     color: #D4AF37;
     font-weight: 800;
     letter-spacing: 1px;
 }
 
 .champ-info p {
-    margin-top: 5px;
+    margin-top: 6px;
     font-size: 0.9rem;
     color: #ffffff;
-    opacity: 0.8;
+    opacity: 0.85;
 }
 
-/* Responsive Grid Adjustments */
-@media (max-width: 992px) {
-    .champion-grid { grid-template-columns: 1fr 1fr; }
+.sub-district-tag {
+    font-weight: 600;
+    letter-spacing: 0.5px;
 }
+
+/* Responsive Scaling */
 @media (max-width: 600px) {
-    .champion-grid { grid-template-columns: 1fr; }
     .champion-header h2 { font-size: 2.2rem; }
-    .champ-image-box { height: 230px; }
+    .champ-image-box { height: 280px; }
 }
-
 
 
 
@@ -2494,13 +2517,6 @@ body {
 
 
 
-
-
-
-
-
-
-
 /* ============================================================
    ST. THOMAS HSS - WELCOME SECTION (COMPLETE)
    ============================================================ */
@@ -2872,6 +2888,13 @@ body {
 
 
 
+
+
+
+
+
+
+
    /* Premium Section Base styling */
     .national-spotlight-section {
         background-color: #ffffff;
@@ -3131,7 +3154,13 @@ body {
 
 
 
-/* Premium Secondary Section Base Styling */
+
+
+
+
+
+
+    /* Premium Secondary Section Base Styling */
     .lss-spotlight-section {
         background-color: #f8fafc; /* Crisp, premium off-white background to alternate sections */
         padding: 80px 0;
